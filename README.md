@@ -17,7 +17,7 @@ This will be running on a local server that the SIDeR contextual link within our
 3. Run `npm install`
 4. Run `npm run nodemon`
 
-The script should now be up and running using [nodemon](https://nodemon.io/) on the default port 8204. You should see the following output:
+The Express server should now be up and running using [nodemon](https://nodemon.io/) on the default port 8204. You should see the following output:
 
 ```
 Contextual-Link-Parser listening for requests at http://127.0.0.1:8204
