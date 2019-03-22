@@ -13,7 +13,7 @@ This will be running on a local server that the SIDeR contextual link within our
 
 ## Test Setup
 1. Download this repository from Github
-2. Navigate to where the repository zip file has been extracted using a CLI
+2. Navigate to the repo directory using a CLI (after it has been extracted if downloaded as ZIP)
 3. Run `npm install`
 4. Run `npm run nodemon`
 
@@ -22,6 +22,7 @@ The script should now be up and running using [nodemon](https://nodemon.io/) on 
 ```
 Contextual-Link-Parser listening for requests at http://127.0.0.1:8204
 ```
+If an error is returned due to the port already being in use, change the value of the port key in the serverConfig object in app.js.
 
 ## Testing
 Open a browser of your choice or, if using a request builder (i.e. Postman) create a new GET request, and input the following URL:
@@ -45,18 +46,21 @@ If the patient, birthdate, location or practitioner parameters are removed from 
 
 
 ## Setting up as a Windows Service
-The test listener will stop running once the CLI is exited or the Node.js REPL is terminate using Ctrl+C, which isn't ideal.
+The test listener will stop running once the CLI is exited or the Node.js REPL is terminated using `Ctrl+C`, which isn't ideal.
 As such this implementation uses the [winser](https://github.com/jfromaniello/winser) package to set up the Node.js application
 as a Windows Service.
 
 ### To install as a service:
-1. Navigate to where the repository zip file has been extracted using a CLI
+1. Navigate to the repo
 2. Run `npm run install-windows-service` as administrator
 3. A prompt will appear asking for confirmation of installation type `y` and hit enter
 
 The service should now be visible in Services:
 
+<img src="https://raw.githubusercontent.com/Somerset-SIDeR-Programme/YDH-Obfuscator-Service/master/SIDeR-Windows-Service.png" width="800">
+
 
 ### To uninstall the service:
-1. Navigate to where the repository zip file has been extracted using a CLI
+1. Navigate to the repo
 2. Run `npm run uninstall-windows-service` as administrator
+3. The service will be uninstalled silently
