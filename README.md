@@ -1,5 +1,6 @@
 Yeovil District Hospital - SIDeR Contextual Link Obfuscator Service
 ==========================================
+[![Known Vulnerabilities](https://snyk.io/test/github/Somerset-SIDeR-Programme/YDH-Obfuscator-Service/badge.svg?targetFile=package.json)](https://snyk.io/test/github/Somerset-SIDeR-Programme/YDH-Obfuscator-Service?targetFile=package.json)
 
 ## Intro
 This is Yeovil District Hospital's contextual link obfuscator, a Node.js script using the Express framework and BlackPear's [obfuscated-querystring](https://github.com/BlackPearSw/obfuscated-querystring), running as a Windows service.
