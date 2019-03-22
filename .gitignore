@@ -1,0 +1,11 @@
+# Dependencies
+node_modules
+package-lock.json
+
+# Generated files
+*.log
+.DS_Store
+
+# Local Development Certs
+ssl_certificate/ydhclientcert.cer
+ssl_certificate/ydhclientcert.key
