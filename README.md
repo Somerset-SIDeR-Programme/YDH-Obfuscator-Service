@@ -8,7 +8,6 @@ This is Yeovil District Hospital's contextual link obfuscator, a Node.js script 
 This will be running on a local server that the SIDeR contextual link within our PAS (TrakCare) will be pointed at.
 
 ## Prerequisites
-
 [Node.js](https://nodejs.org/en/) if you do not already have it installed.
 
 
@@ -65,3 +64,7 @@ The service should now be visible in Services:
 1. Navigate to the repo
 2. Run `npm run uninstall-windows-service` as administrator
 3. The service will be uninstalled silently
+
+
+## License
+`ydh-obfuscator-service` is licensed under the [MIT](https://github.com/Somerset-SIDeR-Programme/YDH-Obfuscator-Service/blob/master/LICENSE) license.
