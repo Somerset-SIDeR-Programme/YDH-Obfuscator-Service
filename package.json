@@ -1,12 +1,12 @@
 {
-  "name": "sider-contextual-link-obfuscator",
+  "name": "ydh-obfuscator-service",
   "version": "1.0.0",
   "description": "NodeJS Express Service to obfuscate URL query parameters before sending to SIDeR eSP.",
-  "main": "app.js",
+  "main": "src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node app.js",
-    "nodemon": "nodemon app.js",
+    "start": "node src/app.js",
+    "nodemon": "nodemon src/app.js",
     "install-windows-service": "winser -i -s -c -a -n \"SIDeR Contextual Link Obfuscator\"",
     "uninstall-windows-service": "winser -r -x -s -n \"SIDeR Contextual Link Obfuscator\""
   },
@@ -14,7 +14,7 @@
     "name": "Frazer Smith",
     "email": "frazer.smith@ydh.nhs.uk"
   },
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
     "eslint": "^5.15.3",
     "nodemon": "^1.18.10"
