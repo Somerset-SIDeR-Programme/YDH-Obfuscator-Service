@@ -7,8 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node src/app.js",
     "nodemon": "nodemon src/app.js",
-    "install-windows-service": "winser -i -s -c -a -n \"SIDeR Contextual Link Obfuscator\"",
-    "uninstall-windows-service": "winser -r -x -s -n \"SIDeR Contextual Link Obfuscator\""
+    "install-windows-service": "winser -i -s -c -a -n \"SIDeR Contextual Link Obfuscator Service\"",
+    "uninstall-windows-service": "winser -r -x -s -n \"SIDeR Contextual Link Obfuscator Service\""
   },
   "author": {
     "name": "Frazer Smith",
