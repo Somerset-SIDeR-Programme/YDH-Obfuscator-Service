@@ -54,7 +54,7 @@ as a Windows Service.
 
 The options for this service are set in src/config.json, with the default values:
 
-```json
+```jsonc
 {
     "name": "Contextual-Link-Parser",
     "port": "8204",
