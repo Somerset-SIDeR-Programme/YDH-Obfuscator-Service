@@ -1,0 +1,19 @@
+{
+    "name": "Contextual-Link-Parser",
+    "port": "8204",
+    "USE_HTTPS": false,
+    "ssl": {
+        "key": "./ssl_certificate/ydhclientcert.key",
+        "cert": "./ssl_certificate/ydhclientcert.cer"
+    },
+    "obfuscation": {
+        "obfuscate": [
+            "birthdate",
+            "patient"
+        ],
+        "encryptionKey": {
+            "name": "k01",
+            "value": "0123456789"
+        }
+    }
+}
