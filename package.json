@@ -1,5 +1,5 @@
 {
-  "name": "ydh-obfuscator-service",
+  "name": "ydh-sider-obfuscation-service",
   "version": "1.0.0",
   "description": "NodeJS Express Service to obfuscate URL query parameters before sending to SIDeR eSP.",
   "main": "src/app.js",

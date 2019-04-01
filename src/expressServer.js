@@ -4,7 +4,7 @@ const express = require('express');
 const fs = require('fs');
 const https = require('https');
 const http = require('http');
-const obfuscate = require('./node_modules/obfuscated-querystring/lib').obfuscate;
+const obfuscate = require('../node_modules/obfuscated-querystring/lib').obfuscate;
 
 class expressServer {
 
@@ -25,7 +25,6 @@ class expressServer {
 	/**
 	 * @function listen
 	 * @author Frazer Smith
-	 * @version 0.0.4
 	 * @summary Start the server.
 	 * @param {string} port - Port for server to listen on. 
 	 */
@@ -55,7 +54,6 @@ class expressServer {
 	/**
 	 * @function configureRoute
 	 * @author Frazer Smith
-	 * @version 0.0.4
 	 * @summary Sets routing options for Express server.
 	 * @param {Object} options 
 	 */
