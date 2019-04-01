@@ -1,4 +1,4 @@
-Yeovil District Hospital - SIDeR Contextual Link Obfuscator Service
+Yeovil District Hospital - SIDeR Contextual Link Obfuscation Service
 ==========================================
 [![Known Vulnerabilities](https://snyk.io/test/github/Somerset-SIDeR-Programme/YDH-Obfuscator-Service/badge.svg?targetFile=package.json)](https://snyk.io/test/github/Somerset-SIDeR-Programme/YDH-Obfuscator-Service?targetFile=package.json)
 
@@ -49,6 +49,35 @@ If the patient, birthdate, location or practitioner parameters are removed from 
 The test listener will stop running once the CLI is exited or the Node.js REPL is terminated using `Ctrl+C`, which isn't ideal.
 As such this implementation uses the [winser](https://github.com/jfromaniello/winser) package to set up the Node.js application
 as a Windows Service.
+
+### Configuration Options:
+
+The options for this service are set in src/config.json, with the default values:
+
+```json
+{
+    "name": "Contextual-Link-Parser",
+    "port": "8204",
+    "USE_HTTPS": false, // If USE_HTTPS set to true, server will use the ssl key and cert in the object to provide HTTPS.
+    "ssl": {
+        "key": "./ssl_certificate/ydhclientcert.key",
+        "cert": "./ssl_certificate/ydhclientcert.cer"
+    },
+    "obfuscation": { // Contains obfuscate array with list of query params to obfuscate, alongside a test encryption key and value.
+        "obfuscate": [
+            "birthdate",
+            "patient"
+        ],
+        "encryptionKey": {
+            "name": "k01",
+            "value": "0123456789"
+        }
+    }
+}
+```
+
+Alter these as needed prior to deploying as a Windows service.
+
 
 ### To install as a service:
 1. Navigate to the repo
