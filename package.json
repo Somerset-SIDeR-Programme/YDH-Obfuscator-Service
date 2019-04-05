@@ -2,6 +2,11 @@
   "name": "ydh-sider-obfuscation-service",
   "version": "1.1.0",
   "description": "NodeJS Express Service to obfuscate URL query parameters before sending to SIDeR eSP.",
+  "keywords": [
+    "YDH",
+    "NHS",
+    "obfuscation"
+],
   "main": "src/app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -17,11 +22,18 @@
   "license": "MIT",
   "devDependencies": {
     "eslint": "^5.15.3",
-    "nodemon": "^1.18.10"
+    "nodemon": "^1.18.10"s
   },
   "dependencies": {
     "express": "^4.16.4",
     "obfuscated-querystring": "git+https://github.com/BlackPearSw/obfuscated-querystring.git",
     "winser": "^1.0.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service.git"
+  },
+  "bugs": {
+    "url": "https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/issues"
   }
 }
