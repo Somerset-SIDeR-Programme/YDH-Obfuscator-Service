@@ -2,6 +2,7 @@
 'use strict';
 const express = require('express');
 const fs = require('fs');
+const helmet = require('helmet');
 const https = require('https');
 const http = require('http');
 const obfuscate = require('../node_modules/obfuscated-querystring/lib').obfuscate;
@@ -17,6 +18,7 @@ class expressServer {
 		this.config = config;
 		// Setup our express instance
 		this.app = express();
+		this.app.use(helmet());
 		// return self for chaining
 		return this;
 	}
