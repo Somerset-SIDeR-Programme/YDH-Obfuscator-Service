@@ -22,7 +22,7 @@ The Express server should now be up and running using [nodemon](https://nodemon.
 ```
 Contextual-Link-Parser listening for requests at http://127.0.0.1:8204
 ```
-If an error is returned due to the port already being in use, change the value of the port key in the serverConfig object in app.js.
+If an error is returned due to the port already being in use, change the value of the port key in src/config.json.
 
 ## Testing
 Open a browser of your choice or, if using a request builder (i.e. Postman) create a new GET request, and input the following URL:
