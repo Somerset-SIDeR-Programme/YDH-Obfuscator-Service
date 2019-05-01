@@ -5,6 +5,8 @@ Yeovil District Hospital - SIDeR Contextual Link Obfuscation Service
 ## Intro
 This is Yeovil District Hospital's contextual link obfuscator, a Node.js script using the Express framework and BlackPear's [obfuscated-querystring](https://github.com/BlackPearSw/obfuscated-querystring), running as a Windows service.
 
+To provide further security [Helmet](https://helmetjs.github.io/) is used as part of this service.
+
 This will be running on a local server that the SIDeR contextual link within our PAS (TrakCare) will be pointed at.
 
 ## Prerequisites
