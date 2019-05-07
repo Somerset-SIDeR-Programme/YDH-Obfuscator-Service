@@ -23,11 +23,11 @@
   "license": "MIT",
   "devDependencies": {
     "eslint": "^5.16.0",
-    "nodemon": "^1.18.10"
+    "nodemon": "^1.19.0"
   },
   "dependencies": {
     "express": "^4.16.4",
-    "helmet": "^3.16.0",
+    "helmet": "^3.18.0",
     "obfuscated-querystring": "git+https://github.com/BlackPearSw/obfuscated-querystring.git",
     "winser": "^1.0.3"
   },
