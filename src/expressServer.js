@@ -34,7 +34,7 @@ class expressServer {
 		const server = this.config;
 		let protocol;
 		// Update the express app to be an instance of createServer
-		if(server.USE_HTTPS == true) {
+		if (server.USE_HTTPS == true) {
 			this.app = https.createServer({
 				key: fs.readFileSync(server.ssl.key),
 				cert: fs.readFileSync(server.ssl.cert)
@@ -59,7 +59,7 @@ class expressServer {
 	 */
 	configureRoute(options) {
 
-		this.app.get('/', function(req, res) {
+		this.app.get('/', function (req, res) {
 
 			/** 
 			 * Remove preceding /? from string so it can be used in obfuscation method
@@ -70,7 +70,7 @@ class expressServer {
 
 			// Check required params have been recieved in query
 			let keys = Object.keys(req.query);
-			keys = keys.map(function(x) {
+			keys = keys.map(function (x) {
 				return x.toUpperCase();
 			});
 			// Add additional keys here as and when
