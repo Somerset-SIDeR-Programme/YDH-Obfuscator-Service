@@ -2,7 +2,7 @@
 const expressServer = require('./expressServer');
 const fs = require('fs');
 
-// Retrieve config valuess
+// Retrieve config values
 const rawData = fs.readFileSync('./src/config.json');
 const serverConfig = JSON.parse(rawData);
 
