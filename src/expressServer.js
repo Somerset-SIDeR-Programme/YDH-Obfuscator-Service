@@ -25,7 +25,6 @@ class expressServer {
 
 
 	/**
-	 * @function listen
 	 * @author Frazer Smith
 	 * @summary Start the server.
 	 * @param {string} port - Port for server to listen on. 
@@ -54,7 +53,6 @@ class expressServer {
 
 
 	/**
-	 * @function configureRoute
 	 * @author Frazer Smith
 	 * @summary Sets routing options for Express server.
 	 * @param {Object} options 
