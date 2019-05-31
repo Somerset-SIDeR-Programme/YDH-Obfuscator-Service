@@ -7,13 +7,19 @@
         "cert": "./ssl_certificate/ydhclientcert.cer"
     },
     "obfuscation": {
+        "encryptionKey": {
+            "name": "k01",
+            "value": "0123456789"
+        },
         "obfuscate": [
             "birthdate",
             "patient"
         ],
-        "encryptionKey": {
-            "name": "k01",
-            "value": "0123456789"
-        }
+        "requiredParams": [
+            "PATIENT",
+            "BIRTHDATE",
+            "LOCATION",
+            "PRACTITIONER"
+        ]
     }
 }

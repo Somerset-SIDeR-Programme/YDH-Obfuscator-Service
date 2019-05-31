@@ -25,7 +25,6 @@ class expressServer {
 
 
 	/**
-	 * @function listen
 	 * @author Frazer Smith
 	 * @summary Start the server.
 	 * @param {string} port - Port for server to listen on. 
@@ -35,7 +34,7 @@ class expressServer {
 		const server = this.config;
 		let protocol;
 		// Update the express app to be an instance of createServer
-		if(server.USE_HTTPS == true) {
+		if (server.USE_HTTPS == true) {
 			this.app = https.createServer({
 				key: fs.readFileSync(server.ssl.key),
 				cert: fs.readFileSync(server.ssl.cert)
@@ -54,14 +53,13 @@ class expressServer {
 
 
 	/**
-	 * @function configureRoute
 	 * @author Frazer Smith
 	 * @summary Sets routing options for Express server.
 	 * @param {Object} options 
 	 */
 	configureRoute(options) {
 
-		this.app.get('/', function(req, res) {
+		this.app.get('/', function (req, res) {
 
 			/** 
 			 * Remove preceding /? from string so it can be used in obfuscation method
@@ -69,15 +67,9 @@ class expressServer {
 			 */
 			let newUrl = req.originalUrl.substring(2, req.originalUrl.length);
 
-
-			// Check required params have been recieved in query
+			// Retrieve all param keys from query and check all essential ones are present
 			let keys = Object.keys(req.query);
-			keys = keys.map(function(x) {
-				return x.toUpperCase();
-			});
-			// Add additional keys here as and when
-			if (keys.includes('PATIENT') && keys.includes('BIRTHDATE')
-				&& keys.includes('LOCATION') && keys.includes('PRACTITIONER')) {
+			if (options['requiredParams'].every(element => keys.includes(element.toUpperCase()))) {
 				try {
 					let obfuscatedParams = obfuscate(newUrl, options);
 					let espUrl = `https://pyrusapps.blackpear.com/esp/#!/launch?${obfuscatedParams}`;
