@@ -66,14 +66,20 @@ The options for this service are set in src/config.json, with the default values
         "cert": "./ssl_certificate/ydhclientcert.cer"
     },
     "obfuscation": { // Contains obfuscate array with list of query params to obfuscate, alongside a test encryption key and value.
+        "encryptionKey": {
+            "name": "k01",
+            "value": "0123456789"
+        },
         "obfuscate": [
             "birthdate",
             "patient"
         ],
-        "encryptionKey": {
-            "name": "k01",
-            "value": "0123456789"
-        }
+        "requiredParams": [ // params required to be passed to the parser for it to attempt a connection to Black Pear's eSP
+            "PATIENT",
+            "BIRTHDATE",
+            "LOCATION",
+            "PRACTITIONER"
+        ]
     }
 }
 ```
