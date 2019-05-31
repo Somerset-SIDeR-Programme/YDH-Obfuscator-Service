@@ -67,15 +67,9 @@ class expressServer {
 			 */
 			let newUrl = req.originalUrl.substring(2, req.originalUrl.length);
 
-
-			// Check required params have been recieved in query
+			// Retrieve all param keys from query and check all essential ones are present
 			let keys = Object.keys(req.query);
-			keys = keys.map(function (x) {
-				return x.toUpperCase();
-			});
-			// Add additional keys here as and when
-			if (keys.includes('PATIENT') && keys.includes('BIRTHDATE')
-				&& keys.includes('LOCATION') && keys.includes('PRACTITIONER')) {
+			if (options['requiredParams'].every(element => keys.includes(element.toUpperCase()))) {
 				try {
 					let obfuscatedParams = obfuscate(newUrl, options);
 					let espUrl = `https://pyrusapps.blackpear.com/esp/#!/launch?${obfuscatedParams}`;
