@@ -27,7 +27,7 @@ class expressServer {
 	/**
 	 * @author Frazer Smith
 	 * @summary Start the server.
-	 * @param {string} port - Port for server to listen on. 
+	 * @param {string} port - Port for server to listen on.
 	 */
 	listen(port, callback) {
 
@@ -55,7 +55,7 @@ class expressServer {
 	/**
 	 * @author Frazer Smith
 	 * @summary Sets routing options for Express server.
-	 * @param {Object} options 
+	 * @param {Object} options
 	 */
 	configureRoute(options) {
 
