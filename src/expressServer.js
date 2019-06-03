@@ -61,17 +61,14 @@ class expressServer {
 
 		this.app.get('/', function (req, res) {
 
-			/** 
-			 * Remove preceding /? from string so it can be used in obfuscation method
-			 * BlackPear provided.
-			 */
-			let newUrl = req.originalUrl.substring(2, req.originalUrl.length);
-
 			// Retrieve all param keys from query and check all essential ones are present
 			let keys = Object.keys(req.query);
 			if (options['requiredParams'].every(element => keys.map(function (x) { return x.toUpperCase(); }).includes(element.toUpperCase()))) {
 				try {
-					let obfuscatedParams = obfuscate(newUrl, options);
+					// Remove preceding /? from string so it can be used in obfuscation method BlackPear provided
+					let originalParams = req.originalUrl.substring(2, req.originalUrl.length);
+
+					let obfuscatedParams = obfuscate(originalParams, options);
 					let espUrl = `https://pyrusapps.blackpear.com/esp/#!/launch?${obfuscatedParams}`;
 					console.log(espUrl);
 					res.redirect(espUrl);
