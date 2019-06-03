@@ -18,6 +18,7 @@ class expressServer {
 		this.config = config;
 		// Setup our express instance
 		this.app = express();
+		// Use helmet for basic HTTP security header settings (doesn't matter as gets redirected anyway)
 		this.app.use(helmet());
 		// return self for chaining
 		return this;
