@@ -3,12 +3,22 @@
         "es6": true,
         "node": true
     },
-    "extends": "eslint:recommended",
+    "extends": "nhsuk",
     "parserOptions": {
         "ecmaVersion": 2018,
         "sourceType": "module"
     },
     "rules": {
+        "no-tabs": [
+            "error",
+            {
+                "allowIndentationTabs": true
+            }
+        ],
+        "comma-dangle": [
+            "error",
+            "never"
+        ],
         "indent": [
             "error",
             "tab"
