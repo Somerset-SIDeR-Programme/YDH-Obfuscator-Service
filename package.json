@@ -12,7 +12,7 @@
     "test": "npm run lint",
     "start": "node src/app.js",
     "nodemon": "nodemon src/app.js",
-    "lint": "eslint src/*.js",
+    "lint": "eslint src/*",
     "install-windows-service": "winser -i -s -c -a -n \"SIDeR Contextual Link Obfuscation Service\"",
     "uninstall-windows-service": "winser -r -x -s -n \"SIDeR Contextual Link Obfuscation Service\""
   },
@@ -23,6 +23,10 @@
   "license": "MIT",
   "devDependencies": {
     "eslint": "^5.16.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-config-nhsuk": "^0.17.0",
+    "eslint-plugin-json": "^1.4.0",
+    "eslint-plugin-mocha": "^5.3.0",
     "nodemon": "^1.19.1"
   },
   "dependencies": {
