@@ -1,6 +1,6 @@
 Yeovil District Hospital - SIDeR Contextual Link Obfuscation Service
 ==========================================
-[![Build Status](https://travis-ci.org/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service.svg?branch=master)](https://travis-ci.org/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service)
+[![Build Status](https://travis-ci.org/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service.svg?branch=master)](https://travis-ci.org/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service) [![Greenkeeper badge](https://badges.greenkeeper.io/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service.svg)](https://greenkeeper.io/)
 
 ## Intro
 This is Yeovil District Hospital's contextual link obfuscator, a Node.js script using the Express framework and BlackPear's [obfuscated-querystring](https://github.com/BlackPearSw/obfuscated-querystring), running as a Windows service.
