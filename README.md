@@ -103,4 +103,4 @@ The service should now be visible in Services:
 
 
 ## License
-`ydh-obfuscator-service` is licensed under the [MIT](https://github.com/Somerset-SIDeR-Programme/YDH-Obfuscator-Service/blob/master/LICENSE) license.
+`ydh-sider-obfuscation-service` is licensed under the [MIT](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/blob/master/LICENSE) license.
