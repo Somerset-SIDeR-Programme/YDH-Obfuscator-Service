@@ -23,6 +23,10 @@ describe('HTTP GET requests', () => {
 		server.listen(config.port);
 	});
 
+	afterAll(() => {
+		server.close();
+	});
+
 	test('Redirects to Black Pear\'s ESP with all params present', async () => {
 		const response = await request(path)
 			.get('')
