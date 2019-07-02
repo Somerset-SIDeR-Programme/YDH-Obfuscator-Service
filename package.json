@@ -11,11 +11,15 @@
   "scripts": {
     "start": "node src/app.js",
     "nodemon": "nodemon src/app.js",
-    "jest": "jest src --detectOpenHandles",
+    "jest": "jest src --detectOpenHandles --forceExit",
     "lint": "eslint \"src/*.js\"",
     "test": "npm run lint; npm run jest;",
     "install-windows-service": "winser -i -s -c -a -n \"SIDeR Contextual Link Obfuscation Service\"",
     "uninstall-windows-service": "winser -r -x -s -n \"SIDeR Contextual Link Obfuscation Service\""
+  },
+  "jest": {
+    "verbose": true,
+    "collectCoverage": true
   },
   "author": {
     "name": "Frazer Smith",
