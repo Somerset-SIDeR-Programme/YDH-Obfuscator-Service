@@ -75,6 +75,10 @@ class expressServer {
 			}
 		});
 	}
+
+	close() {
+		this.app.close();
+	}
 }
 
 module.exports = expressServer;
