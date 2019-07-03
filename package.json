@@ -30,7 +30,7 @@
     "coveralls": "^3.0.4",
     "eslint": "^6.0.1",
     "eslint-config-airbnb-base": "^13.1.0",
-    "eslint-config-nhsuk": "^0.17.0",
+    "eslint-config-nhsuk": "^0.18.0",
     "eslint-plugin-import": "^2.18.0",
     "eslint-plugin-jest": "^22.7.1",
     "eslint-plugin-json": "^1.4.0",
