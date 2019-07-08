@@ -2,8 +2,8 @@
 language: node_js
 
 os: 
-  - windows
   - linux
+  - windows
 
 matrix:
   allow_failures:
