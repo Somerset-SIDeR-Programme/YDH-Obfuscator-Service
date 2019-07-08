@@ -1,7 +1,14 @@
+
+language: node_js
+
 os: 
   - windows
   - linux
-language: node_js
+
+matrix:
+  allow_failures:
+    - os: windows
+
 node_js:
   - "lts/*"
   - "node"
