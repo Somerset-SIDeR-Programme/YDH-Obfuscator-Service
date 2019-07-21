@@ -32,7 +32,7 @@
     "eslint-config-airbnb-base": "^13.2.0",
     "eslint-config-nhsuk": "^0.18.0",
     "eslint-plugin-import": "^2.18.0",
-    "eslint-plugin-jest": "^22.7.2",
+    "eslint-plugin-jest": "^22.13.0",
     "eslint-plugin-json": "^1.4.0",
     "jest": "^24.8.0",
     "nodemon": "^1.19.1",
