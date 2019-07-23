@@ -27,11 +27,11 @@
   },
   "license": "MIT",
   "devDependencies": {
-    "coveralls": "^3.0.4",
-    "eslint": "^6.0.1",
+    "coveralls": "^3.0.5",
+    "eslint": "^6.1.0",
     "eslint-config-airbnb-base": "^13.2.0",
     "eslint-config-nhsuk": "^0.18.0",
-    "eslint-plugin-import": "^2.18.0",
+    "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jest": "^22.13.0",
     "eslint-plugin-json": "^1.4.0",
     "jest": "^24.8.0",
@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "helmet": "^3.18.0",
+    "helmet": "^3.19.0",
     "obfuscated-querystring": "git+https://github.com/BlackPearSw/obfuscated-querystring.git",
     "winser": "^1.0.3"
   },
