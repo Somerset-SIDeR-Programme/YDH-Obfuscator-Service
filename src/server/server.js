@@ -31,7 +31,7 @@ class Server {
 			// Retrieve all param keys from query and check all essential ones are present
 			const keys = Object.keys(req.query);
 			// eslint-disable-next-line max-len
-			if (options.requiredParams.every((element) => keys.map((x) => x.toUpperCase()).includes(element.toUpperCase()))) {
+			if (options.requiredParams.every((element) => keys.map((x) => x.toLowerCase()).includes(element.toLowerCase()))) {
 				try {
 					// Remove preceding /? from string so it can be used
 					// in obfuscation method BlackPear provided

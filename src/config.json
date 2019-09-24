@@ -16,10 +16,10 @@
             "patient"
         ],
         "requiredParams": [
-            "PATIENT",
-            "BIRTHDATE",
-            "LOCATION",
-            "PRACTITIONER"
+            "patient",
+            "birthdate",
+            "location",
+            "practitioner"
         ]
     }
 }
