@@ -8,10 +8,10 @@ const rawData = fs.readFileSync('./src/config.json');
 const config = JSON.parse(rawData);
 let server;
 const params = {
-	BIRTHDATE: '1932-04-15',
-	LOCATION: 'https://fhir.nhs.uk/Id/ods-organization-code|RA4',
-	PATIENT: 'https://fhir.nhs.uk/Id/nhs-number|9467335646&birthdate=1932-04-15',
-	PRACTITIONER: 'https://sider.nhs.uk/auth|frazer.smith@ydh.nhs.uk'
+	birthdate: '1932-04-15',
+	location: 'https://fhir.nhs.uk/Id/ods-organization-code|RA4',
+	patient: 'https://fhir.nhs.uk/Id/nhs-number|9467335646&birthdate=1932-04-15',
+	practitioner: 'https://sider.nhs.uk/auth|frazer.smith@ydh.nhs.uk'
 };
 const path = `http://127.0.0.1:${config.port}`;
 
