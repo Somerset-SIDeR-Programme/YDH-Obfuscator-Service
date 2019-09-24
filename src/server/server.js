@@ -6,7 +6,7 @@ const https = require('https');
 const http = require('http');
 const obfuscate = require('../node_modules/obfuscated-querystring/lib').obfuscate;
 
-class expressServer {
+class Server {
 	/**
 	 * @class
 	 * @param {Object} config - Server configuration values.
@@ -17,6 +17,38 @@ class expressServer {
 		this.app = express();
 		// Use helmet for basic HTTP security header settings (doesn't matter as gets redirected anyway)
 		this.app.use(helmet());
+		// return self for chaining
+		return this;
+	}
+
+	/**
+	 * @author Frazer Smith
+	 * @summary Sets routing options for Express server.
+	 * @param {Object} options - Route configuration values.
+	 */
+	configureRoute(options) {
+		this.app.get('/', (req, res) => {
+			// Retrieve all param keys from query and check all essential ones are present
+			const keys = Object.keys(req.query);
+			// eslint-disable-next-line max-len
+			if (options.requiredParams.every((element) => keys.map((x) => x.toUpperCase()).includes(element.toUpperCase()))) {
+				try {
+					// Remove preceding /? from string so it can be used
+					// in obfuscation method BlackPear provided
+					const originalParams = req.originalUrl.substring(2, req.originalUrl.length);
+
+					const obfuscatedParams = obfuscate(originalParams, options);
+					const espUrl = `https://pyrusapps.blackpear.com/esp/#!/launch?${obfuscatedParams}`;
+					console.log(espUrl);
+					res.redirect(espUrl);
+				} catch (error) {
+					res.status(500).send(error);
+				}
+			} else {
+				res.status(400).send('An essential parameter is missing');
+			}
+		});
+
 		// return self for chaining
 		return this;
 	}
@@ -44,40 +76,21 @@ class expressServer {
 		// Start the app
 		this.app.listen(port, callback);
 		console.log(`${server.name} listening for requests at ${protocol}://127.0.0.1:${port}`);
+
+		// return self for chaining
+		return this;
 	}
 
 	/**
 	 * @author Frazer Smith
-	 * @summary Sets routing options for Express server.
-	 * @param {Object} options
+	 * @summary Shut down server (non-gracefully).
 	 */
-	configureRoute(options) {
-		this.app.get('/', (req, res) => {
-			// Retrieve all param keys from query and check all essential ones are present
-			const keys = Object.keys(req.query);
-			// eslint-disable-next-line max-len
-			if (options.requiredParams.every(element => keys.map(x => x.toUpperCase()).includes(element.toUpperCase()))) {
-				try {
-					// Remove preceding /? from string so it can be used
-					// in obfuscation method BlackPear provided
-					const originalParams = req.originalUrl.substring(2, req.originalUrl.length);
-
-					const obfuscatedParams = obfuscate(originalParams, options);
-					const espUrl = `https://pyrusapps.blackpear.com/esp/#!/launch?${obfuscatedParams}`;
-					console.log(espUrl);
-					res.redirect(espUrl);
-				} catch (error) {
-					res.status(500).send(error);
-				}
-			} else {
-				res.status(400).send('An essential parameter is missing');
-			}
-		});
-	}
-
-	close() {
+	shutdown() {
 		this.app.close();
+
+		// return self for chaining
+		return this;
 	}
 }
 
-module.exports = expressServer;
+module.exports = Server;
