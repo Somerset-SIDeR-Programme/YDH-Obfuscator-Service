@@ -4,7 +4,7 @@ const fs = require('fs');
 const helmet = require('helmet');
 const https = require('https');
 const http = require('http');
-const obfuscate = require('../node_modules/obfuscated-querystring/lib').obfuscate;
+const obfuscate = require('obfuscated-querystring/lib').obfuscate;
 
 class Server {
 	/**
