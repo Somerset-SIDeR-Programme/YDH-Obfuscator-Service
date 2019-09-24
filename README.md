@@ -75,10 +75,10 @@ The options for this service are set in src/config.json, with the default values
             "patient"
         ],
         "requiredParams": [ // params required to be passed to the parser for it to attempt a connection to Black Pear's eSP
-            "PATIENT",
-            "BIRTHDATE",
-            "LOCATION",
-            "PRACTITIONER"
+            "patient",
+            "birthdate",
+            "location",
+            "practitioner"
         ]
     }
 }
