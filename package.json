@@ -12,7 +12,7 @@
     "start": "node src/app.js",
     "nodemon": "nodemon src/app.js",
     "jest": "jest src --detectOpenHandles --forceExit",
-    "lint": "eslint \"src/*.js\"",
+    "lint": "eslint \"src/*/*.js\"",
     "test": "npm run lint; npm run jest;",
     "install-windows-service": "winser -i -s -c -a -n \"SIDeR Contextual Link Obfuscation Service\"",
     "uninstall-windows-service": "winser -r -x -s -n \"SIDeR Contextual Link Obfuscation Service\""
@@ -28,7 +28,7 @@
   "license": "MIT",
   "devDependencies": {
     "coveralls": "^3.0.6",
-    "eslint": "^6.3.0",
+    "eslint": "^6.4.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-nhsuk": "^0.20.0",
     "eslint-plugin-import": "^2.18.2",
@@ -40,7 +40,7 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "helmet": "^3.21.0",
+    "helmet": "^3.21.1",
     "obfuscated-querystring": "git+https://github.com/BlackPearSw/obfuscated-querystring.git",
     "winser": "^1.0.3"
   },

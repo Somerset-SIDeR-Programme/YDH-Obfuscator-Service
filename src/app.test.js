@@ -1,30 +1,35 @@
-/* eslint-disable no-undef */
 
 const fs = require('fs');
 const request = require('supertest');
-const ExpressServer = require('./expressServer');
+const Server = require('./server/server');
 
+// Fetch config
 const rawData = fs.readFileSync('./src/config.json');
 const config = JSON.parse(rawData);
 let server;
 const params = {
-	BIRTHDATE: '1932-04-15',
-	LOCATION: 'https://fhir.nhs.uk/Id/ods-organization-code|RA4',
-	PATIENT: 'https://fhir.nhs.uk/Id/nhs-number|9467335646&birthdate=1932-04-15',
-	PRACTITIONER: 'https://sider.nhs.uk/auth|frazer.smith@ydh.nhs.uk'
+	birthdate: '1932-04-15',
+	location: 'https://fhir.nhs.uk/Id/ods-organization-code|RA4',
+	patient: 'https://fhir.nhs.uk/Id/nhs-number|9467335646&birthdate=1932-04-15',
+	practitioner: 'https://sider.nhs.uk/auth|frazer.smith@ydh.nhs.uk'
 };
 const path = `http://127.0.0.1:${config.port}`;
 
 describe('HTTP GET requests', () => {
-	beforeAll(() => {
+	beforeAll(async () => {
 		// Stand up server
-		server = new ExpressServer(config);
-		server.configureRoute(config.obfuscation);
-		server.listen(config.port);
+		server = new Server(config)
+			.configureRoute(config.obfuscation)
+			.listen(config.port);
 	});
 
-	afterAll(() => {
-		server.close();
+	afterAll(async () => {
+		try {
+			await server.shutdown();
+		} catch (e) {
+			console.log(e);
+			throw e;
+		}
 	});
 
 	test('Redirects to Black Pear\'s ESP with all params present', async () => {
@@ -40,7 +45,7 @@ describe('HTTP GET requests', () => {
 
 	test('Fail to redirect when any required param is missing', () => {
 		Object.keys(params).forEach(async (key) => {
-			const alteredParams = Object.assign({}, params);
+			const alteredParams = { ...params };
 			delete alteredParams[key];
 			const response = await request(path)
 				.get('')
