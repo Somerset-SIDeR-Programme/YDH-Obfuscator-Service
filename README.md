@@ -14,7 +14,7 @@ This will be running on a local server that the SIDeR contextual link within our
 
 
 ## Test Setup
-1. Download this repository from Github
+1. Clone or download this repository from Github
 2. Navigate to the repo directory using a CLI (after it has been extracted if downloaded as ZIP)
 3. Run `npm install`
 4. Run `npm run nodemon`
