@@ -3,11 +3,17 @@
         "es6": true,
         "node": true
     },
-    "extends": "nhsuk",
+    "extends": [
+        "nhsuk",
+        "plugin:jest/recommended"
+    ],
     "parserOptions": {
         "ecmaVersion": 2019,
         "sourceType": "module"
     },
+    "plugins": [
+        "jest"
+    ],
     "rules": {
         "no-tabs": [
             "error",
