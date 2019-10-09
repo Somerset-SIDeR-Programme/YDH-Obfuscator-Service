@@ -1,11 +1,7 @@
-
-const fs = require('fs');
 const request = require('supertest');
-const Server = require('./server/server');
+const { obfuscationConfig, serverConfig } = require('../config');
+const Server = require('./server');
 
-// Fetch config
-const rawData = fs.readFileSync('./src/config.json');
-const config = JSON.parse(rawData);
 let server;
 const params = {
 	birthdate: '1932-04-15',
@@ -13,14 +9,14 @@ const params = {
 	patient: 'https://fhir.nhs.uk/Id/nhs-number|9467335646&birthdate=1932-04-15',
 	practitioner: 'https://sider.nhs.uk/auth|frazer.smith@ydh.nhs.uk'
 };
-const path = `http://127.0.0.1:${config.port}`;
+const path = `http://127.0.0.1:${serverConfig.port}`;
 
 describe('HTTP GET requests', () => {
 	beforeAll(async () => {
 		// Stand up server
-		server = new Server(config)
-			.configureRoute(config.obfuscation)
-			.listen(config.port);
+		server = await new Server(serverConfig)
+			.configureRoute(obfuscationConfig.obfuscation)
+			.listen(serverConfig.port);
 	});
 
 	afterAll(async () => {

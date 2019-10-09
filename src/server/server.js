@@ -15,7 +15,7 @@ class Server {
 		// Setup our express instance
 		this.app = express();
 
-		// Use helmet for basic HTTP security header settings (doesn't matter as gets redirected anyway)
+		// Use helmet for basic HTTP security header settings (doesn't matter as it is redirected)
 		this.app.use(helmet());
 
 		// return self for chaining
@@ -34,11 +34,8 @@ class Server {
 			// eslint-disable-next-line max-len
 			if (options.requiredParams.every((element) => keys.map((x) => x.toLowerCase()).includes(element.toLowerCase()))) {
 				try {
-					// Remove preceding /? from string so it can be used
-					// in obfuscation method BlackPear provided
-					const originalParams = req.originalUrl.substring(2, req.originalUrl.length);
-
-					const obfuscatedParams = obfuscate(originalParams, options);
+					// eslint-disable-next-line no-underscore-dangle
+					const obfuscatedParams = obfuscate(req._parsedUrl.query, options);
 					const espUrl = `https://pyrusapps.blackpear.com/esp/#!/launch?${obfuscatedParams}`;
 					console.log(espUrl);
 					res.redirect(espUrl);
@@ -61,6 +58,7 @@ class Server {
 	 * @param {Function} callback
 	 */
 	listen(port, callback) {
+		// eslint-disable-next-line prefer-destructuring
 		const server = this.config;
 		let protocol;
 		// Update the express app to be an instance of createServer
