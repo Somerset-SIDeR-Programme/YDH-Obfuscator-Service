@@ -9,6 +9,7 @@ To provide further security [Helmet](https://helmetjs.github.io/) is used as par
 
 This is intended to be deployed on a local server that the SIDeR contextual link within the PAS (TrakCare) can be pointed at.
 
+
 ## Prerequisites
 - [Node.js](https://nodejs.org/en/)
 
@@ -25,6 +26,7 @@ The Express server should now be up and running using [nodemon](https://nodemon.
 Contextual-Link-Parser listening for requests at http://127.0.0.1:8204
 ```
 If an error is returned due to the port already being in use, change the value of the port key in src/config.js.
+
 
 ## Testing
 Open a browser of your choice or, if using a request builder (i.e. Postman) create a new GET request, and input the following URL:
@@ -44,7 +46,6 @@ Both the patient and birthdate query parameters of the URL have been obfuscated.
 The web browser or request builder used should be redirected to Black Pear's ESP site, and once logged in will provide the patient note's for the test patient with NHS Number 9467335646, success!
 
 If the patient, birthdate, location or practitioner parameters are removed from the original URL the obfuscation process and redirect will not occur, and a status 400 will be returned with the message "An essential parameter is missing". 
-
 
 
 ## Setting up as a Windows Service
