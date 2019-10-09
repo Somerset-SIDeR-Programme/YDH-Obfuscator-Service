@@ -7,10 +7,10 @@ This is Yeovil District Hospital's contextual link obfuscator, a Node.js script 
 
 To provide further security [Helmet](https://helmetjs.github.io/) is used as part of this service.
 
-This will be running on a local server that the SIDeR contextual link within our PAS (TrakCare) will be pointed at.
+This is intended to be deployed on a local server that the SIDeR contextual link within the PAS (TrakCare) can be pointed at.
 
 ## Prerequisites
-[Node.js](https://nodejs.org/en/) if you do not already have it installed.
+- [Node.js](https://nodejs.org/en/)
 
 
 ## Test Setup
@@ -24,7 +24,7 @@ The Express server should now be up and running using [nodemon](https://nodemon.
 ```
 Contextual-Link-Parser listening for requests at http://127.0.0.1:8204
 ```
-If an error is returned due to the port already being in use, change the value of the port key in src/config.json.
+If an error is returned due to the port already being in use, change the value of the port key in src/config.js.
 
 ## Testing
 Open a browser of your choice or, if using a request builder (i.e. Postman) create a new GET request, and input the following URL:
@@ -52,40 +52,7 @@ The test listener will stop running once the CLI is exited or the Node.js REPL i
 As such this implementation uses the [winser](https://github.com/jfromaniello/winser) package to set up the Node.js application
 as a Windows Service.
 
-### Configuration Options:
-
-The options for this service are set in src/config.json, with the default values:
-
-```jsonc
-{
-    "name": "Contextual-Link-Parser",
-    "port": "8204",
-    "USE_HTTPS": false, // If USE_HTTPS set to true, server will use the ssl key and cert in the object to provide HTTPS.
-    "ssl": {
-        "key": "./ssl_certificate/ydhclientcert.key",
-        "cert": "./ssl_certificate/ydhclientcert.cer"
-    },
-    "obfuscation": { // Contains obfuscate array with list of query params to obfuscate, alongside a test encryption key and value.
-        "encryptionKey": {
-            "name": "k01",
-            "value": "0123456789"
-        },
-        "obfuscate": [
-            "birthdate",
-            "patient"
-        ],
-        "requiredParams": [ // params required to be passed to the parser for it to attempt a connection to Black Pear's eSP
-            "patient",
-            "birthdate",
-            "location",
-            "practitioner"
-        ]
-    }
-}
-```
-
-Alter these as needed prior to deploying as a Windows service.
-
+**Note:** When you change any settings in the config file, you will need to restart the service for the changes to take effect.
 
 ### To install as a service:
 1. Navigate to the repo
