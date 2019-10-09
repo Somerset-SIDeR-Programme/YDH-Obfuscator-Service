@@ -1,10 +1,6 @@
-const fs = require('fs');
+const { obfuscationConfig, serverConfig } = require('./config');
 const Server = require('./server/server');
 
-// Retrieve config values
-const rawData = fs.readFileSync('./src/config.json');
-const serverConfig = JSON.parse(rawData);
-
 new Server(serverConfig)
-	.configureRoute(serverConfig.obfuscation)
+	.configureRoute(obfuscationConfig.obfuscation)
 	.listen(serverConfig.port);
