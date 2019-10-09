@@ -15,7 +15,7 @@ class Server {
 		// Setup our express instance
 		this.app = express();
 
-		// Use helmet for basic HTTP security header settings (doesn't matter as gets redirected anyway)
+		// Use helmet for basic HTTP security header settings (doesn't matter as it is redirected)
 		this.app.use(helmet());
 
 		// return self for chaining
@@ -58,6 +58,7 @@ class Server {
 	 * @param {Function} callback
 	 */
 	listen(port, callback) {
+		// eslint-disable-next-line prefer-destructuring
 		const server = this.config;
 		let protocol;
 		// Update the express app to be an instance of createServer
