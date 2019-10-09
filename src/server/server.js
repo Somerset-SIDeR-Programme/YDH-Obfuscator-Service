@@ -14,15 +14,17 @@ class Server {
 		this.config = config;
 		// Setup our express instance
 		this.app = express();
+
 		// Use helmet for basic HTTP security header settings (doesn't matter as gets redirected anyway)
 		this.app.use(helmet());
+
 		// return self for chaining
 		return this;
 	}
 
 	/**
 	 * @author Frazer Smith
-	 * @summary Sets routing options for Express server.
+	 * @description Sets routing options for Express server.
 	 * @param {Object} options - Route configuration values.
 	 */
 	configureRoute(options) {
@@ -54,14 +56,15 @@ class Server {
 
 	/**
 	 * @author Frazer Smith
-	 * @summary Start the server.
+	 * @description Start the server.
 	 * @param {string} port - Port for server to listen on.
+	 * @param {Function} callback
 	 */
 	listen(port, callback) {
 		const server = this.config;
 		let protocol;
 		// Update the express app to be an instance of createServer
-		if (server.USE_HTTPS === true) {
+		if (server.https === true) {
 			this.app = https.createServer({
 				cert: fs.readFileSync(server.ssl.cert),
 				key: fs.readFileSync(server.ssl.key)
@@ -82,7 +85,7 @@ class Server {
 
 	/**
 	 * @author Frazer Smith
-	 * @summary Shut down server (non-gracefully).
+	 * @description Shut down server (non-gracefully).
 	 */
 	shutdown() {
 		this.app.close();
