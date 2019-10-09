@@ -34,11 +34,8 @@ class Server {
 			// eslint-disable-next-line max-len
 			if (options.requiredParams.every((element) => keys.map((x) => x.toLowerCase()).includes(element.toLowerCase()))) {
 				try {
-					// Remove preceding /? from string so it can be used
-					// in obfuscation method BlackPear provided
-					const originalParams = req.originalUrl.substring(2, req.originalUrl.length);
-
-					const obfuscatedParams = obfuscate(originalParams, options);
+					// eslint-disable-next-line no-underscore-dangle
+					const obfuscatedParams = obfuscate(req._parsedUrl.query, options);
 					const espUrl = `https://pyrusapps.blackpear.com/esp/#!/launch?${obfuscatedParams}`;
 					console.log(espUrl);
 					res.redirect(espUrl);
