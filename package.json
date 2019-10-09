@@ -1,6 +1,6 @@
 {
   "name": "ydh-sider-obfuscation-service",
-  "version": "2.2.1",
+  "version": "3.0.0",
   "description": "NodeJS Express Service to obfuscate URL query parameters before sending to SIDeR eSP.",
   "keywords": [
     "YDH",
@@ -11,8 +11,8 @@
   "scripts": {
     "start": "node src/app.js",
     "nodemon": "nodemon src/app.js",
-    "jest": "jest src --detectOpenHandles --forceExit",
-    "lint": "eslint \"src/*/*.js\"",
+    "jest": "jest src --detectOpenHandles",
+    "lint": "eslint \"src/*.js\"",
     "test": "npm run lint; npm run jest;",
     "install-windows-service": "winser -i -s -c -a -n \"SIDeR Contextual Link Obfuscation Service\"",
     "uninstall-windows-service": "winser -r -x -s -n \"SIDeR Contextual Link Obfuscation Service\""
@@ -28,14 +28,14 @@
   "license": "MIT",
   "devDependencies": {
     "coveralls": "^3.0.6",
-    "eslint": "^6.4.0",
+    "eslint": "^6.5.1",
     "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-config-nhsuk": "^0.20.0",
+    "eslint-config-nhsuk": "^0.22.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jest": "^22.17.0",
     "eslint-plugin-json": "^1.4.0",
     "jest": "^24.9.0",
-    "nodemon": "^1.19.2",
+    "nodemon": "^1.19.3",
     "supertest": "^4.0.2"
   },
   "dependencies": {
