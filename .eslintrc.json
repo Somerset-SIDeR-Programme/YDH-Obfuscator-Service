@@ -8,7 +8,7 @@
         "plugin:jest/recommended"
     ],
     "parserOptions": {
-        "ecmaVersion": 2019,
+        "ecmaVersion": 2020,
         "sourceType": "module"
     },
     "plugins": [
@@ -27,7 +27,10 @@
         ],
         "indent": [
             "error",
-            "tab"
+            "tab",
+            {
+                "SwitchCase": 1
+            }
         ],
         "quotes": [
             "error",
@@ -38,6 +41,9 @@
             "always"
         ],
         "no-console": [
+            "off"
+        ],
+        "prefer-destructuring": [
             "off"
         ]
     }
