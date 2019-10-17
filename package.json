@@ -1,6 +1,6 @@
 {
   "name": "ydh-sider-obfuscation-service",
-  "version": "3.0.1",
+  "version": "3.1.0",
   "description": "NodeJS Express Service to obfuscate URL query parameters before sending to SIDeR eSP.",
   "keywords": [
     "YDH",
@@ -18,8 +18,10 @@
     "uninstall-windows-service": "winser -r -x -s -n \"SIDeR Contextual Link Obfuscation Service\""
   },
   "jest": {
-    "verbose": true,
-    "collectCoverage": true
+    "clearMocks": true,
+    "collectCoverage": true,
+    "testEnvironment": "node",
+    "verbose": true
   },
   "author": {
     "name": "Frazer Smith",
