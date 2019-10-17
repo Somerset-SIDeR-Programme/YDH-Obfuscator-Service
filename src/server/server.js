@@ -11,6 +11,13 @@ class Server {
 	 * @param {Object} config - Server configuration values.
 	 */
 	constructor(config = {}) {
+		// Define any default settings the server should have to get up and running
+		const defaultConfig = {
+			https: false,
+			name: ''
+		};
+		this.config = Object.assign(defaultConfig, config);
+
 		this.config = config;
 		// Setup our express instance
 		this.app = express();
@@ -26,6 +33,7 @@ class Server {
 	 * @author Frazer Smith
 	 * @description Sets routing options for Express server.
 	 * @param {Object} options - Route configuration values.
+	 * @returns {this} self
 	 */
 	configureRoute(options) {
 		this.app.get('/', (req, res) => {
@@ -55,27 +63,25 @@ class Server {
 	 * @author Frazer Smith
 	 * @description Start the server.
 	 * @param {string} port - Port for server to listen on.
-	 * @param {Function} callback
+	 * @returns {this} self
 	 */
-	listen(port, callback) {
-		// eslint-disable-next-line prefer-destructuring
+	listen(port) {
 		const server = this.config;
-		let protocol;
 		// Update the express app to be an instance of createServer
 		if (server.https === true) {
 			this.app = https.createServer({
 				cert: fs.readFileSync(server.ssl.cert),
 				key: fs.readFileSync(server.ssl.key)
 			}, this.app);
-			protocol = 'https';
+			this.config.protocol = 'https';
 		} else {
-			protocol = 'http';
+			this.config.protocol = 'http';
 			this.app = http.createServer(this.app);
 		}
 
 		// Start the app
-		this.app.listen(port, callback);
-		console.log(`${server.name} listening for requests at ${protocol}://127.0.0.1:${port}`);
+		this.app.listen(port);
+		console.log(`${server.name} listening for requests at ${this.config.protocol}://127.0.0.1:${port}`);
 
 		// return self for chaining
 		return this;
@@ -84,12 +90,13 @@ class Server {
 	/**
 	 * @author Frazer Smith
 	 * @description Shut down server (non-gracefully).
+	 * @returns {Promise<this>} self
 	 */
 	shutdown() {
-		this.app.close();
-
-		// return self for chaining
-		return this;
+		return new Promise((resolve) => {
+			this.app.close();
+			resolve(this);
+		});
 	}
 }
 
