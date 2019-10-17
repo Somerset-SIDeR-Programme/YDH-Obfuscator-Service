@@ -62,9 +62,9 @@ class Server {
 	 * @author Frazer Smith
 	 * @description Start the server.
 	 * @param {string} port - Port for server to listen on.
-	 * @param {Function} callback
 	 */
-	listen(port, callback) {
+	listen(port) {
+
 		const server = this.config;
 		let protocol;
 		// Update the express app to be an instance of createServer
@@ -80,22 +80,24 @@ class Server {
 		}
 
 		// Start the app
-		this.app.listen(port, callback);
+		this.app.listen(port);
 		console.log(`${server.name} listening for requests at ${protocol}://127.0.0.1:${port}`);
 
 		// return self for chaining
 		return this;
+
 	}
 
 	/**
 	 * @author Frazer Smith
 	 * @description Shut down server (non-gracefully).
+	 * @returns {Promise}
 	 */
 	shutdown() {
-		this.app.close();
-
-		// return self for chaining
-		return this;
+		return new Promise((resolve) => {
+			this.app.close();
+			resolve(this);
+		});
 	}
 }
 
