@@ -65,7 +65,6 @@ class Server {
 	 * @param {Function} callback
 	 */
 	listen(port, callback) {
-		// eslint-disable-next-line prefer-destructuring
 		const server = this.config;
 		let protocol;
 		// Update the express app to be an instance of createServer
