@@ -64,28 +64,25 @@ class Server {
 	 * @param {string} port - Port for server to listen on.
 	 */
 	listen(port) {
-
 		const server = this.config;
-		let protocol;
 		// Update the express app to be an instance of createServer
 		if (server.https === true) {
 			this.app = https.createServer({
 				cert: fs.readFileSync(server.ssl.cert),
 				key: fs.readFileSync(server.ssl.key)
 			}, this.app);
-			protocol = 'https';
+			this.config.protocol = 'https';
 		} else {
-			protocol = 'http';
+			this.config.protocol = 'http';
 			this.app = http.createServer(this.app);
 		}
 
 		// Start the app
 		this.app.listen(port);
-		console.log(`${server.name} listening for requests at ${protocol}://127.0.0.1:${port}`);
+		console.log(`${server.name} listening for requests at ${this.config.protocol}://127.0.0.1:${port}`);
 
 		// return self for chaining
 		return this;
-
 	}
 
 	/**
