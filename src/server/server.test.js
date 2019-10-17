@@ -2,7 +2,6 @@ const request = require('supertest');
 const { obfuscationConfig, serverConfig } = require('../config');
 const Server = require('./server');
 
-let server;
 const params = {
 	birthdate: '1932-04-15',
 	location: 'https://fhir.nhs.uk/Id/ods-organization-code|RA4',
@@ -11,10 +10,13 @@ const params = {
 };
 const path = `http://127.0.0.1:${serverConfig.port}`;
 
-describe('HTTP GET requests', () => {
+describe('Redirects', () => {
+	let server;
+
 	beforeAll(async () => {
+		jest.setTimeout(300000);
 		// Stand up server
-		server = await new Server(serverConfig)
+		server = new Server(serverConfig)
 			.configureRoute(obfuscationConfig.obfuscation)
 			.listen(serverConfig.port);
 	});
@@ -28,7 +30,7 @@ describe('HTTP GET requests', () => {
 		}
 	});
 
-	test('Redirects to Black Pear\'s ESP with all params present', async () => {
+	test('Should redirect to Black Pear\'s ESP with all params present', async () => {
 		const response = await request(path)
 			.get('')
 			.set('Content-Type', 'application/json')
@@ -37,10 +39,10 @@ describe('HTTP GET requests', () => {
 
 		expect(response.statusCode).toBe(302);
 		expect(response.headers.location.substring(0, 46)).toBe('https://pyrusapps.blackpear.com/esp/#!/launch?');
-	}, 30000);
+	});
 
-	test('Fail to redirect when any required param is missing', () => {
-		Object.keys(params).forEach(async (key) => {
+	test('Should fail to redirect when any required param is missing', async () => {
+		await Promise.all(Object.keys(params).map(async (key) => {
 			const alteredParams = { ...params };
 			delete alteredParams[key];
 			const response = await request(path)
@@ -51,6 +53,7 @@ describe('HTTP GET requests', () => {
 
 			expect(response.statusCode).toBe(400);
 			expect(response.text).toBe('An essential parameter is missing');
-		});
-	}, 30000);
+		}));
+	});
+});
 });
