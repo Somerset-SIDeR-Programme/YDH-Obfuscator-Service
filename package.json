@@ -18,8 +18,10 @@
     "uninstall-windows-service": "winser -r -x -s -n \"SIDeR Contextual Link Obfuscation Service\""
   },
   "jest": {
-    "verbose": true,
-    "collectCoverage": true
+    "clearMocks": true,
+    "collectCoverage": true,
+    "testEnvironment": "node",
+    "verbose": true
   },
   "author": {
     "name": "Frazer Smith",
