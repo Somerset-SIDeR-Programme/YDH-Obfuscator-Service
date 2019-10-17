@@ -33,6 +33,7 @@ class Server {
 	 * @author Frazer Smith
 	 * @description Sets routing options for Express server.
 	 * @param {Object} options - Route configuration values.
+	 * @returns {this} self
 	 */
 	configureRoute(options) {
 		this.app.get('/', (req, res) => {
@@ -62,6 +63,7 @@ class Server {
 	 * @author Frazer Smith
 	 * @description Start the server.
 	 * @param {string} port - Port for server to listen on.
+	 * @returns {this} self
 	 */
 	listen(port) {
 		const server = this.config;
@@ -88,7 +90,7 @@ class Server {
 	/**
 	 * @author Frazer Smith
 	 * @description Shut down server (non-gracefully).
-	 * @returns {Promise}
+	 * @returns {Promise<this>} self
 	 */
 	shutdown() {
 		return new Promise((resolve) => {
