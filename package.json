@@ -1,6 +1,6 @@
 {
   "name": "ydh-sider-obfuscation-service",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "NodeJS Express Service to obfuscate URL query parameters before sending to SIDeR eSP.",
   "keywords": [
     "YDH",
