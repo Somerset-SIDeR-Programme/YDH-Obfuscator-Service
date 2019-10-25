@@ -42,7 +42,7 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "helmet": "^3.21.1",
+    "helmet": "^3.21.2",
     "obfuscated-querystring": "git+https://github.com/BlackPearSw/obfuscated-querystring.git",
     "winser": "^1.0.3"
   },
