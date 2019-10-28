@@ -41,15 +41,11 @@ class Server {
 			const keys = Object.keys(req.query);
 			// eslint-disable-next-line max-len
 			if (options.requiredParams.every((element) => keys.map((x) => x.toLowerCase()).includes(element.toLowerCase()))) {
-				try {
-					// eslint-disable-next-line no-underscore-dangle
-					const obfuscatedParams = obfuscate(req._parsedUrl.query, options);
-					const espUrl = `https://pyrusapps.blackpear.com/esp/#!/launch?${obfuscatedParams}`;
-					console.log(espUrl);
-					res.redirect(espUrl);
-				} catch (error) {
-					res.status(500).send(error);
-				}
+				// eslint-disable-next-line no-underscore-dangle
+				const obfuscatedParams = obfuscate(req._parsedUrl.query, options);
+				const espUrl = `https://pyrusapps.blackpear.com/esp/#!/launch?${obfuscatedParams}`;
+				console.log(espUrl);
+				res.redirect(espUrl);
 			} else {
 				res.status(400).send('An essential parameter is missing');
 			}
@@ -69,10 +65,17 @@ class Server {
 		const server = this.config;
 		// Update the express app to be an instance of createServer
 		if (server.https === true) {
-			this.app = https.createServer({
-				cert: fs.readFileSync(server.ssl.cert),
-				key: fs.readFileSync(server.ssl.key)
-			}, this.app);
+			const options = {};
+			// Attempt to use PFX file if present
+			if (server.ssl.pfx.pfx) {
+				options.pfx = fs.readFileSync(server.ssl.pfx.pfx);
+				options.passphrase = server.ssl.pfx.passphrase;
+			} else {
+				options.cert = fs.readFileSync(server.ssl.cert);
+				options.key = fs.readFileSync(server.ssl.key);
+			}
+
+			this.app = https.createServer(options, this.app);
 			this.config.protocol = 'https';
 		} else {
 			this.config.protocol = 'http';

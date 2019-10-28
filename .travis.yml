@@ -19,7 +19,6 @@ branches:
   - master
   - develop
   - /^greenkeeper/.*$/
-  - /^version/.*$/
 
 script: echo "Running tests against $(node -v)..."
 

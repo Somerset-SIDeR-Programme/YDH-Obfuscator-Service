@@ -1,10 +1,14 @@
 const serverConfig = {
 	https: false,
 	name: 'Contextual-Link-Parser',
-	port: '8204',
+	port: 8204,
 	ssl: {
 		cert: './ssl_certs/ydhclientcert.cer',
-		key: './ssl_certs/ydhclientcert.key'
+		key: './ssl_certs/ydhclientcert.key',
+		pfx: {
+			passphrase: '',
+			pfx: 'ssl_certs/ydhwildcard.pfx'
+		}
 	}
 };
 
