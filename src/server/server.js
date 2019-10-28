@@ -41,15 +41,11 @@ class Server {
 			const keys = Object.keys(req.query);
 			// eslint-disable-next-line max-len
 			if (options.requiredParams.every((element) => keys.map((x) => x.toLowerCase()).includes(element.toLowerCase()))) {
-				try {
-					// eslint-disable-next-line no-underscore-dangle
-					const obfuscatedParams = obfuscate(req._parsedUrl.query, options);
-					const espUrl = `https://pyrusapps.blackpear.com/esp/#!/launch?${obfuscatedParams}`;
-					console.log(espUrl);
-					res.redirect(espUrl);
-				} catch (error) {
-					res.status(500).send(error);
-				}
+				// eslint-disable-next-line no-underscore-dangle
+				const obfuscatedParams = obfuscate(req._parsedUrl.query, options);
+				const espUrl = `https://pyrusapps.blackpear.com/esp/#!/launch?${obfuscatedParams}`;
+				console.log(espUrl);
+				res.redirect(espUrl);
 			} else {
 				res.status(400).send('An essential parameter is missing');
 			}
