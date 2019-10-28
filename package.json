@@ -1,6 +1,6 @@
 {
   "name": "ydh-sider-obfuscation-service",
-  "version": "3.1.1",
+  "version": "3.2.0",
   "description": "NodeJS Express Service to obfuscate URL query parameters before sending to SIDeR eSP.",
   "keywords": [
     "YDH",
@@ -12,7 +12,7 @@
     "start": "node src/app.js",
     "nodemon": "nodemon src/app.js",
     "jest": "jest src --detectOpenHandles",
-    "lint": "eslint \"src/*.js\"",
+    "lint": "eslint \"src/*/*.js\"",
     "test": "npm run lint; npm run jest;",
     "install-windows-service": "winser -i -s -c -a -n \"SIDeR Contextual Link Obfuscation Service\"",
     "uninstall-windows-service": "winser -r -x -s -n \"SIDeR Contextual Link Obfuscation Service\""
