@@ -13,7 +13,7 @@ describe('Server deployment', () => {
 	const port = '8204';
 	const path = `http://127.0.0.1:${port}`;
 	beforeAll(async () => {
-		jest.setTimeout(300000);
+		jest.setTimeout(30000);
 	});
 
 	test('Should assign default values if none provided', async () => {
@@ -63,7 +63,7 @@ describe('Redirects', () => {
 	const path = `http://127.0.0.1:${port}`;
 
 	beforeAll(async () => {
-		jest.setTimeout(300000);
+		jest.setTimeout(30000);
 		// Stand up server
 		server = new Server(serverConfig)
 			.configureRoute(obfuscationConfig.obfuscation)
