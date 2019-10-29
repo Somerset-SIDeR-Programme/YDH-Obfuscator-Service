@@ -7,7 +7,7 @@ const serverConfig = {
 		key: './ssl_certs/ydhclientcert.key',
 		pfx: {
 			passphrase: '',
-			pfx: 'ssl_certs/ydhwildcard.pfx'
+			pfx: './ssl_certs/ydhwildcard.pfx'
 		}
 	}
 };
