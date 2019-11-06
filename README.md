@@ -2,7 +2,7 @@ Yeovil District Hospital - SIDeR Contextual Link Obfuscation Service
 ==========================================
 [![GitHub Release](https://img.shields.io/github/release/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service.svg)](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/releases/latest/) [![Build Status](https://travis-ci.org/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service.svg?branch=master)](https://travis-ci.org/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service) [![Coverage Status](https://coveralls.io/repos/github/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/badge.svg?branch=master)](https://coveralls.io/github/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service?branch=master) [![Greenkeeper badge](https://badges.greenkeeper.io/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service.svg)](https://greenkeeper.io/) 
 
-## Intro
+# Intro
 This is Yeovil District Hospital's contextual link obfuscator, a Node.js script using the Express framework and Black Pear's [obfuscated-querystring](https://github.com/BlackPearSw/obfuscated-querystring), running as a Windows service.
 
 To provide further security [Helmet](https://helmetjs.github.io/) is used as part of this service.
@@ -10,11 +10,11 @@ To provide further security [Helmet](https://helmetjs.github.io/) is used as par
 This is intended to be deployed on a local server that the SIDeR contextual link within the PAS (TrakCare) can be pointed at.
 
 
-## Prerequisites
+# Prerequisites
 - [Node.js](https://nodejs.org/en/)
 
 
-## Test Setup
+# Test Setup
 1. Clone or download this repository from Github
 2. Navigate to the repo directory using a CLI (after it has been extracted if downloaded as ZIP)
 3. Run `npm install`
@@ -47,23 +47,21 @@ The web browser or request builder used should be redirected to Black Pear's ESP
 
 If the patient, birthdate, location or practitioner parameters are removed from the original URL the obfuscation process and redirect will not occur, and a status 400 will be returned with the message "An essential parameter is missing". 
 
-
+# Deployment
 ## Setting up as a Windows Service
 The test listener will stop running once the CLI is exited or the Node.js REPL is terminated using `Ctrl+C`, which isn't ideal.
 As such, this implementation uses the [winser](https://github.com/jfromaniello/winser) package to set up the Node.js application
 as a Windows Service.
 
-**Note:** When you change any settings in the configuration file, you will need to restart the service for the changes to take effect.
-
 ### To install as a service:
 1. Navigate to the repo
 2. Run `npm run install-windows-service` as administrator
 3. A prompt will appear asking for confirmation of installation type `y` and hit enter
-
-The service should now be visible in Services:
+4. The service should now be visible in Services
 
 <img src="https://raw.githubusercontent.com/Somerset-SIDeR-Programme/YDH-Obfuscator-Service/master/SIDeR-Windows-Service.png" width="800">
 
+**Note:** When you change any settings in the configuration file, you will need to restart the service for the changes to take effect.
 
 ### To uninstall the service:
 1. Navigate to the repo
@@ -71,5 +69,5 @@ The service should now be visible in Services:
 3. The service will be uninstalled silently
 
 
-## License
+# License
 `ydh-sider-obfuscation-service` is licensed under the [MIT](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/blob/master/LICENSE) license.
