@@ -3,7 +3,7 @@ Yeovil District Hospital - SIDeR Contextual Link Obfuscation Service
 [![GitHub Release](https://img.shields.io/github/release/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service.svg)](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/releases/latest/) [![Build Status](https://travis-ci.org/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service.svg?branch=master)](https://travis-ci.org/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service) [![Coverage Status](https://coveralls.io/repos/github/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/badge.svg?branch=master)](https://coveralls.io/github/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service?branch=master) [![Greenkeeper badge](https://badges.greenkeeper.io/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service.svg)](https://greenkeeper.io/) 
 
 ## Intro
-This is Yeovil District Hospital's contextual link obfuscator, a Node.js script using the Express framework and BlackPear's [obfuscated-querystring](https://github.com/BlackPearSw/obfuscated-querystring), running as a Windows service.
+This is Yeovil District Hospital's contextual link obfuscator, a Node.js script using the Express framework and Black Pear's [obfuscated-querystring](https://github.com/BlackPearSw/obfuscated-querystring), running as a Windows service.
 
 To provide further security [Helmet](https://helmetjs.github.io/) is used as part of this service.
 
@@ -29,11 +29,11 @@ If an error is returned due to the port already being in use, change the value o
 
 
 ## Testing
-Open a browser of your choice or, if using a request builder (i.e. Postman) create a new GET request, and input the following URL:
+Open a browser of your choice or, if using a request builder (i.e. Insomnia) create a new GET request, and input the following URL:
 
 http://127.0.0.1:8204?patient=https://fhir.nhs.uk/Id/nhs-number|9467335646&birthdate=1932-04-15&location=https://fhir.nhs.uk/Id/ods-organization-code|RA4&practitioner=https://sider.nhs.uk/auth|frazer.smith@ydh.nhs.uk
 
-swap out the organization code and email address with your own if you have already been set up an account on the eSP.
+Swap out the organization code and email address with your own if you have already been set up an account on the eSP.
 
 In the CLI you will see something similar to the following returned:
 
@@ -50,10 +50,10 @@ If the patient, birthdate, location or practitioner parameters are removed from 
 
 ## Setting up as a Windows Service
 The test listener will stop running once the CLI is exited or the Node.js REPL is terminated using `Ctrl+C`, which isn't ideal.
-As such this implementation uses the [winser](https://github.com/jfromaniello/winser) package to set up the Node.js application
+As such, this implementation uses the [winser](https://github.com/jfromaniello/winser) package to set up the Node.js application
 as a Windows Service.
 
-**Note:** When you change any settings in the config file, you will need to restart the service for the changes to take effect.
+**Note:** When you change any settings in the configuration file, you will need to restart the service for the changes to take effect.
 
 ### To install as a service:
 1. Navigate to the repo
