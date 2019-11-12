@@ -7,7 +7,7 @@ This is Yeovil District Hospital's contextual link obfuscator, a Node.js script 
 
 To provide further security [Helmet](https://helmetjs.github.io/) is used as part of this service.
 
-This has been deployed on a local server that the SIDeR contextual link within the PAS (TrakCare) is pointed at.
+This has been deployed on a local server that the SIDeR contextual link within the PAS (TrakCare) is pointed at. This was deployed with the assistance of David Suckling (App Support Manager at YDH) and [Will Jehring](https://github.com/wjehring) (Web Developer at Black Pear).
 
 
 # Prerequisites
