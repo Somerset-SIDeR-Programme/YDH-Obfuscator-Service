@@ -5,6 +5,23 @@ const https = require('https');
 const http = require('http');
 const { obfuscate } = require('obfuscated-querystring/lib');
 
+const keycloakRetrieve = require('./middleware/keycloak-retrieve.middleware');
+const keycloakConfig = require('../keycloak-retrieve.config');
+
+function serialise(obj, prefix) {
+	const str = [];
+	Object.keys(obj).forEach((key) => {
+		if (Object.prototype.hasOwnProperty.call(obj, key)) {
+			const k = prefix ? `${prefix}[${key}]` : key;
+			const value = obj[key];
+			str.push((value !== null && typeof value === 'object')
+				? serialise(value, k)
+				: `${encodeURIComponent(k)}=${encodeURIComponent(value)}`);
+		}
+	});
+	return str.join('&');
+}
+
 class Server {
 	/**
 	 * @class
@@ -36,13 +53,13 @@ class Server {
 	 * @returns {this} self
 	 */
 	configureRoute(options) {
-		this.app.get('/', (req, res) => {
+		this.app.get('/', keycloakRetrieve(keycloakConfig.keycloakRetrieveConfig), (req, res) => {
 			// Retrieve all param keys from query and check all essential ones are present
 			const keys = Object.keys(req.query);
+
 			// eslint-disable-next-line max-len
 			if (options.requiredParams.every((element) => keys.map((x) => x.toLowerCase()).includes(element.toLowerCase()))) {
-				// eslint-disable-next-line no-underscore-dangle
-				const obfuscatedParams = obfuscate(req._parsedUrl.query, options);
+				const obfuscatedParams = obfuscate(serialise(req.query), options);
 				const espUrl = `https://pyrusapps.blackpear.com/esp/#!/launch?${obfuscatedParams}`;
 				console.log(espUrl);
 				res.redirect(espUrl);
