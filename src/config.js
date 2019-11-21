@@ -32,7 +32,44 @@ const obfuscationConfig = {
 	}
 };
 
+// Empty example config
+const keycloakRetrieveConfig = {
+	requestToken: {
+		form: {
+			audience: '',
+			client_id: '',
+			client_secret: '',
+			grant_type: '',
+			requested_subject: '',
+			requested_token_type: ''
+
+		},
+		options: {
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded'
+			}
+		},
+		url: ''
+	},
+	serviceAuthorisation: {
+		form: {
+			client_id: '',
+			client_secret: '',
+			grant_type: '',
+			password: '',
+			username: ''
+		},
+		options: {
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded'
+			}
+		},
+		url: ''
+	}
+};
+
 module.exports = {
+	keycloakRetrieveConfig,
 	obfuscationConfig,
 	serverConfig
 };
