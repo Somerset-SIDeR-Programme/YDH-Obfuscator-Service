@@ -3,7 +3,8 @@ const { keycloakRetrieveConfig } = require('./keycloak-retrieve.config');
 const Server = require('./server/server');
 
 new Server(serverConfig)
-	.configureKeycloakRetrival(keycloakRetrieveConfig)
+	// Comment back in when wanting to use keycloak
+	// .configureKeycloakRetrival(keycloakRetrieveConfig)
 	.configureObfuscation(obfuscationConfig.obfuscation)
 	.configureRoute()
 	.listen(serverConfig.port);
