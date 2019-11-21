@@ -92,3 +92,6 @@ typings/
 
 # Local Development Certs
 ssl_certs/
+
+# Dev KeyCloak endpoint config
+src/keycloak-retrieve.config.js
