@@ -2,8 +2,32 @@ const request = require('request-promise');
 
 /**
  * @author Frazer Smith
- * @description
+ * @description Retrieves Keycloak access token for passed practitioner.
  * @param {Object} config - Keycloak endpoint access config values.
+ *
+ * @param {Object} config.serviceAuthorisation
+ * @param {Object} config.serviceAuthorisation.form
+ * @param {String} config.serviceAuthorisation.form.client_id
+ * @param {String} config.serviceAuthorisation.form.client_secret
+ * @param {String} config.serviceAuthorisation.form.grant_type
+ * @param {String} config.serviceAuthorisation.form.password
+ * @param {String} config.serviceAuthorisation.form.username
+ * @param {Object} config.serviceAuthorisation.options
+ * @param {Object} config.serviceAuthorisation.options.headers
+ * @param {String} config.serviceAuthorisation.url
+ *
+ * @param {Object} config.requestTokens
+ * @param {Object} config.requestToken.form
+ * @param {String} config.requestToken.form.audience
+ * @param {String} config.requestToken.form.client_id
+ * @param {String} config.requestToken.form.client_secret
+ * @param {String} config.requestToken.form.grant_type
+ * @param {String} config.requestToken.form.request_subject
+ * @param {String} config.requestToken.form.request_token_type
+ * @param {Object} config.requestToken.options
+ * @param {Object} config.requestToken.options.headers
+ * @param {String} config.requestToken.url
+ *
  * @return {Function} express middleware
  */
 module.exports = function keycloakRetrieveMiddleware(config) {
