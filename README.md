@@ -13,7 +13,6 @@ This has been deployed on a local server that the SIDeR contextual link within t
 # Prerequisites
 - [Node.js](https://nodejs.org/en/)
 
-
 # Test Setup
 1. Clone or download this repository from Github
 2. Navigate to the repo directory using a CLI (after it has been extracted if downloaded as ZIP)
@@ -26,7 +25,6 @@ The Express server should now be up and running using [nodemon](https://nodemon.
 Contextual-Link-Parser listening for requests at http://127.0.0.1:8204
 ```
 If an error is returned due to the port already being in use, change the value of the port key in src/config.js.
-
 
 ## Testing
 Open a browser of your choice or, if using a request builder (i.e. Insomnia) create a new GET request, and input the following URL:
@@ -48,6 +46,11 @@ The web browser or request builder used should be redirected to Black Pear's ESP
 If the patient, birthdate, location or practitioner parameters are removed from the original URL the obfuscation process and redirect will not occur, and a status 400 will be returned with the message "An essential parameter is missing". 
 
 # Deployment
+
+## Enabling Keycloak status_token retrival
+1. Set the values for the Keycloak endpoints in the keycloakRetrieveConfig object in src/config.js
+2. Uncomment the configureKeycloakRetrival function in src/app.js
+
 ## Setting up as a Windows Service
 The test listener will stop running once the CLI is exited or the Node.js REPL is terminated using `Ctrl+C`, which isn't ideal.
 As such, this implementation uses the [winser](https://github.com/jfromaniello/winser) package to set up the Node.js application

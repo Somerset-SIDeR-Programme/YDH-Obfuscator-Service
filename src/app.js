@@ -1,5 +1,4 @@
-const { obfuscationConfig, serverConfig } = require('./config');
-const { keycloakRetrieveConfig } = require('./keycloak-retrieve.config');
+const { obfuscationConfig, serverConfig, keycloakRetrieveConfig } = require('./config');
 const Server = require('./server/server');
 
 new Server(serverConfig)

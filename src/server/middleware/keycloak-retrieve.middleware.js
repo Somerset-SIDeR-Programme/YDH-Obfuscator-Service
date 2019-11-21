@@ -38,8 +38,9 @@ module.exports = function keycloakRetrieveMiddleware(config) {
 			// Service authorisation to retrieve subject access token
 			const serviceAuth = await request.post(config.serviceAuthorisation);
 			requestToken.form.subject_token = JSON.parse(serviceAuth).access_token;
-			// Implement in LIVE
-			// requestToken.form.requested_subject = req.query.practitioner.split('|')[1];
+
+			// Expects the practitioner query to be in [system]|[code] format
+			requestToken.form.requested_subject = req.query.practitioner.split('|')[1];
 
 			// Request access token for user
 			const userAccess = await request.post(requestToken);
