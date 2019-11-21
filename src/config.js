@@ -33,6 +33,7 @@ const obfuscationConfig = {
 
 // Empty example config
 const keycloakRetrieveConfig = {
+	// Request access token for user
 	requestToken: {
 		form: {
 			audience: '',
@@ -50,6 +51,7 @@ const keycloakRetrieveConfig = {
 		},
 		url: ''
 	},
+	// Service authorisation to retrieve subject access token
 	serviceAuthorisation: {
 		form: {
 			client_id: '',
