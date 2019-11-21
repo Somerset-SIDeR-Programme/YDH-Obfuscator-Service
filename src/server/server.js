@@ -3,10 +3,8 @@ const fs = require('fs');
 const helmet = require('helmet');
 const https = require('https');
 const http = require('http');
-
 const keycloakRetrieve = require('./middleware/keycloak-retrieve.middleware');
 const obfuscate = require('./middleware/obfuscate.middleware');
-const keycloakConfig = require('../keycloak-retrieve.config');
 
 class Server {
 	/**
@@ -34,12 +32,38 @@ class Server {
 
 	/**
 	 * @author Frazer Smith
-	 * @description Sets routing options for Express server.
+	 * @description Sets obfuscation options server.
+	 * @param {Object} obsConfig - obfuscation configuration values.
+	 * @returns {this} self
+	 */
+	configureObfuscation(obsConfig) {
+		this.app.use(obfuscate(obsConfig));
+
+		// return self for chaining
+		return this;
+	}
+
+	/**
+	 * @author Frazer Smith
+	 * @description Sets Keycloak token retrival options for server.
+	 * @param {Object} kcConfig - Keycloak endpoint configuration values.
+	 * @returns {this} self
+	 */
+	configureKeycloakRetrival(kcConfig) {
+		this.app.use(keycloakRetrieve(kcConfig));
+
+		// return self for chaining
+		return this;
+	}
+
+	/**
+	 * @author Frazer Smith
+	 * @description Sets routing options for server.
 	 * @param {Object} options - Route configuration values.
 	 * @returns {this} self
 	 */
-	configureRoute(options) {
-		this.app.get('/', keycloakRetrieve(keycloakConfig.keycloakRetrieveConfig), obfuscate(options), (req, res, next) => {
+	configureRoute() {
+		this.app.get('/', (req, res, next) => {
 			// eslint-disable-next-line no-underscore-dangle
 			const espUrl = `https://pyrusapps.blackpear.com/esp/#!/launch?${req._parsedUrl.query}`;
 			console.log(espUrl);

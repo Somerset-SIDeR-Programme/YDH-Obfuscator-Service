@@ -30,14 +30,18 @@ module.exports = function serialiseObfuscateMiddleware(config) {
 		// Retrieve all param keys from query and check all essential ones are present
 		const keys = Object.keys(req.query);
 
-		// eslint-disable-next-line max-len
-		if (config.requiredParams.every((element) => keys.map((x) => x.toLowerCase()).includes(element.toLowerCase()))) {
-			const obfuscatedParams = obfuscate(serialise(req.query), config);
-			// eslint-disable-next-line no-underscore-dangle
-			req._parsedUrl.query = obfuscatedParams;
-		} else {
-			res.status(400).send('An essential parameter is missing');
+		try {
+			// eslint-disable-next-line max-len
+			if (config.requiredParams.every((element) => keys.map((x) => x.toLowerCase()).includes(element.toLowerCase()))) {
+				const obfuscatedParams = obfuscate(serialise(req.query), config);
+				// eslint-disable-next-line no-underscore-dangle
+				req._parsedUrl.query = obfuscatedParams;
+				next();
+			} else {
+				res.status(400).send('An essential parameter is missing');
+			}
+		} catch (error) {
+			res.status(500).send(error);
 		}
-		next();
 	};
 };
