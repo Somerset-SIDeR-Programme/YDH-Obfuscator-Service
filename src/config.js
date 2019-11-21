@@ -26,13 +26,51 @@ const obfuscationConfig = {
 			'patient',
 			'birthdate',
 			'location',
-			'practitioner',
-			'status_token'
+			'practitioner'
 		]
 	}
 };
 
+// Empty example config
+const keycloakRetrieveConfig = {
+	// Request access token for user
+	requestToken: {
+		form: {
+			audience: '',
+			client_id: '',
+			client_secret: '',
+			grant_type: '',
+			requested_subject: '',
+			requested_token_type: ''
+
+		},
+		options: {
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded'
+			}
+		},
+		url: ''
+	},
+	// Service authorisation to retrieve subject access token
+	serviceAuthorisation: {
+		form: {
+			client_id: '',
+			client_secret: '',
+			grant_type: '',
+			password: '',
+			username: ''
+		},
+		options: {
+			headers: {
+				'Content-Type': 'application/x-www-form-urlencoded'
+			}
+		},
+		url: ''
+	}
+};
+
 module.exports = {
+	keycloakRetrieveConfig,
 	obfuscationConfig,
 	serverConfig
 };
