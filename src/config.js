@@ -26,7 +26,8 @@ const obfuscationConfig = {
 			'patient',
 			'birthdate',
 			'location',
-			'practitioner'
+			'practitioner',
+			'status_token'
 		]
 	}
 };
