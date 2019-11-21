@@ -44,6 +44,8 @@
     "express": "^4.17.1",
     "helmet": "^3.21.2",
     "obfuscated-querystring": "git+https://github.com/BlackPearSw/obfuscated-querystring.git",
+    "request": "^2.88.0",
+    "request-promise": "^4.2.5",
     "winser": "^1.0.3"
   },
   "repository": {

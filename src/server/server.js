@@ -3,7 +3,10 @@ const fs = require('fs');
 const helmet = require('helmet');
 const https = require('https');
 const http = require('http');
-const { obfuscate } = require('obfuscated-querystring/lib');
+
+const keycloakRetrieve = require('./middleware/keycloak-retrieve.middleware');
+const obfuscate = require('./middleware/obfuscate.middleware');
+const keycloakConfig = require('../keycloak-retrieve.config');
 
 class Server {
 	/**
@@ -36,19 +39,12 @@ class Server {
 	 * @returns {this} self
 	 */
 	configureRoute(options) {
-		this.app.get('/', (req, res) => {
-			// Retrieve all param keys from query and check all essential ones are present
-			const keys = Object.keys(req.query);
-			// eslint-disable-next-line max-len
-			if (options.requiredParams.every((element) => keys.map((x) => x.toLowerCase()).includes(element.toLowerCase()))) {
-				// eslint-disable-next-line no-underscore-dangle
-				const obfuscatedParams = obfuscate(req._parsedUrl.query, options);
-				const espUrl = `https://pyrusapps.blackpear.com/esp/#!/launch?${obfuscatedParams}`;
-				console.log(espUrl);
-				res.redirect(espUrl);
-			} else {
-				res.status(400).send('An essential parameter is missing');
-			}
+		this.app.get('/', keycloakRetrieve(keycloakConfig.keycloakRetrieveConfig), obfuscate(options), (req, res, next) => {
+			// eslint-disable-next-line no-underscore-dangle
+			const espUrl = `https://pyrusapps.blackpear.com/esp/#!/launch?${req._parsedUrl.query}`;
+			console.log(espUrl);
+			res.redirect(espUrl);
+			next();
 		});
 
 		// return self for chaining
