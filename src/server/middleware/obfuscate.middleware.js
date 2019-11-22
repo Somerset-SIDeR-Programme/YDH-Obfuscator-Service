@@ -1,14 +1,13 @@
 const { obfuscate } = require('obfuscated-querystring/lib');
 
-function serialise(obj, prefix) {
+function serialise(obj) {
 	const str = [];
 	Object.keys(obj).forEach((key) => {
 		if (Object.prototype.hasOwnProperty.call(obj, key)) {
-			const k = prefix ? `${prefix}[${key}]` : key;
 			const value = obj[key];
 			str.push((value !== null && typeof value === 'object')
-				? serialise(value, k)
-				: `${encodeURIComponent(k)}=${encodeURIComponent(value)}`);
+				? serialise(value, key)
+				: `${encodeURIComponent(key)}=${encodeURIComponent(value)}`);
 		}
 	});
 	return str.join('&');
