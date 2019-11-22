@@ -109,3 +109,39 @@ describe('Redirects', () => {
 		}));
 	});
 });
+
+describe('Keycloak token retrival', () => {
+	let server;
+	const port = '8206';
+	const path = `http://127.0.0.1:${port}`;
+
+	beforeAll(async () => {
+		jest.setTimeout(30000);
+		// Stand up server
+		server = new Server(serverConfig)
+			.configureKeycloakRetrival()
+			.configureObfuscation(obfuscationConfig.obfuscation)
+			.configureRoute()
+			.listen(port);
+	});
+
+	afterAll(async () => {
+		try {
+			await server.shutdown();
+		} catch (error) {
+			console.log(error);
+			throw error;
+		}
+	});
+
+	test('Should fail if Keycloak endpoint config missing', async () => {
+
+		const response = await request(path)
+			.get('')
+			.set('Content-Type', 'application/json')
+			.set('cache-control', 'no-cache')
+			.query(params);
+
+		expect(response.statusCode).toBe(500);
+	});
+});
