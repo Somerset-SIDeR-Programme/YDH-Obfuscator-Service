@@ -18,7 +18,8 @@ describe('Server deployment', () => {
 
 	test('Should assign default values if none provided', async () => {
 		const server = new Server()
-			.configureRoute(obfuscationConfig.obfuscation)
+			.configureObfuscation(obfuscationConfig.obfuscation)
+			.configureRoute()
 			.listen(port);
 		expect(server.config.protocol).toBe('http');
 		await server.shutdown();
@@ -26,6 +27,7 @@ describe('Server deployment', () => {
 
 	test('Should fail if obfuscation config missing', async () => {
 		const server = new Server(serverConfig)
+			.configureObfuscation()
 			.configureRoute()
 			.listen(port);
 
@@ -47,11 +49,12 @@ describe('Server deployment', () => {
 
 		try {
 			const server = new Server(httpsServerConfig)
-				.configureRoute(obfuscationConfig.obfuscation)
+				.configureObfuscation(obfuscationConfig.obfuscation)
+				.configureRoute()
 				.listen(port);
 
 			expect(server.config.protocol).toBe('https');
-		} catch (e) {
+		} catch (error) {
 			// Do nothing
 		}
 	});
@@ -66,16 +69,17 @@ describe('Redirects', () => {
 		jest.setTimeout(30000);
 		// Stand up server
 		server = new Server(serverConfig)
-			.configureRoute(obfuscationConfig.obfuscation)
+			.configureObfuscation(obfuscationConfig.obfuscation)
+			.configureRoute()
 			.listen(port);
 	});
 
 	afterAll(async () => {
 		try {
 			await server.shutdown();
-		} catch (e) {
-			console.log(e);
-			throw e;
+		} catch (error) {
+			console.log(error);
+			throw error;
 		}
 	});
 
@@ -103,5 +107,41 @@ describe('Redirects', () => {
 			expect(response.statusCode).toBe(400);
 			expect(response.text).toBe('An essential parameter is missing');
 		}));
+	});
+});
+
+describe('Keycloak token retrival', () => {
+	let server;
+	const port = '8206';
+	const path = `http://127.0.0.1:${port}`;
+
+	beforeAll(async () => {
+		jest.setTimeout(30000);
+		// Stand up server
+		server = new Server(serverConfig)
+			.configureKeycloakRetrival()
+			.configureObfuscation(obfuscationConfig.obfuscation)
+			.configureRoute()
+			.listen(port);
+	});
+
+	afterAll(async () => {
+		try {
+			await server.shutdown();
+		} catch (error) {
+			console.log(error);
+			throw error;
+		}
+	});
+
+	test('Should fail if Keycloak endpoint config missing', async () => {
+
+		const response = await request(path)
+			.get('')
+			.set('Content-Type', 'application/json')
+			.set('cache-control', 'no-cache')
+			.query(params);
+
+		expect(response.statusCode).toBe(500);
 	});
 });
