@@ -47,12 +47,12 @@ If the patient, birthdate, location or practitioner parameters are removed from 
 
 # Deployment
 
-## Enabling Keycloak status_token retrival
+## Enabling Keycloak status_token retrieval
 1. Set the values for the Keycloak endpoints in the keycloakRetrieveConfig object in src/config.js
 2. Uncomment the configureKeycloakRetrival function in src/app.js
 
 ## Setting up as a Windows Service
-The test listener will stop running once the CLI is exited or the Node.js REPL is terminated using `Ctrl+C`, which isn't ideal.
+The test listener will stop running once the CLI is exited or the Node.js REPL is terminated using `Ctrl+C`, which is not ideal.
 As such, this implementation uses the [winser](https://github.com/jfromaniello/winser) package to set up the Node.js application
 as a Windows Service.
 
