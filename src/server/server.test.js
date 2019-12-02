@@ -135,7 +135,6 @@ describe('Keycloak token retrival', () => {
 	});
 
 	test('Should fail if Keycloak endpoint config missing', async () => {
-
 		const response = await request(path)
 			.get('')
 			.set('Content-Type', 'application/json')
