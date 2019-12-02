@@ -16,7 +16,7 @@ const request = require('request-promise');
  * @param {Object} config.serviceAuthorisation.options.headers
  * @param {String} config.serviceAuthorisation.url
  *
- * @param {Object} config.requestTokens
+ * @param {Object} config.requestToken
  * @param {Object} config.requestToken.form
  * @param {String} config.requestToken.form.audience
  * @param {String} config.requestToken.form.client_id
@@ -28,7 +28,7 @@ const request = require('request-promise');
  * @param {Object} config.requestToken.options.headers
  * @param {String} config.requestToken.url
  *
- * @return {Function} express middleware
+ * @return {Function} express middleware.
  */
 module.exports = function keycloakRetrieveMiddleware(config) {
 	return async (req, res, next) => {

@@ -1,5 +1,10 @@
 const { obfuscate } = require('obfuscated-querystring/lib');
 
+/**
+ * @description Serialises a query object into a URI encoded string.
+ * @param {Object} obj - Request query object.
+ * @returns {String} URI encoded string.
+ */
 function serialise(obj) {
 	const str = [];
 	Object.keys(obj).forEach((key) => {
@@ -22,7 +27,7 @@ function serialise(obj) {
  * @param {String} config.encryptionKey.value - Encryption key value.
  * @param {Array} config.obfuscate - Parameters that should be obfuscated.
  * @param {Array} config.requiredParams - Parameters that are essential and needed for requesting.
- * @return {Function} express middleware
+ * @return {Function} express middleware.
  */
 module.exports = function serialiseObfuscateMiddleware(config) {
 	return (req, res, next) => {
