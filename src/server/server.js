@@ -8,7 +8,6 @@ const obfuscate = require('./middleware/obfuscate.middleware');
 
 class Server {
 	/**
-	 * @class
 	 * @param {Object} config - Server configuration values.
 	 */
 	constructor(config = {}) {
