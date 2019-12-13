@@ -23,10 +23,7 @@
     "testEnvironment": "node",
     "verbose": true
   },
-  "author": {
-    "name": "Frazer Smith",
-    "email": "frazer.smith@ydh.nhs.uk"
-  },
+  "author": "Frazer Smith <frazer.smith@ydh.nhs.uk>",
   "license": "MIT",
   "devDependencies": {
     "coveralls": "^3.0.9",
@@ -48,10 +45,7 @@
     "request-promise": "^4.2.5",
     "winser": "^1.0.3"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service.git"
-  },
+  "repository": "git+https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service.git",
   "bugs": {
     "url": "https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/issues"
   }
