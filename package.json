@@ -1,6 +1,6 @@
 {
   "name": "ydh-sider-obfuscation-service",
-  "version": "3.4.2",
+  "version": "3.4.3",
   "description": "NodeJS Express Service to obfuscate URL query parameters before sending to SIDeR eSP.",
   "keywords": [
     "YDH",
@@ -23,21 +23,18 @@
     "testEnvironment": "node",
     "verbose": true
   },
-  "author": {
-    "name": "Frazer Smith",
-    "email": "frazer.smith@ydh.nhs.uk"
-  },
+  "author": "Frazer Smith <frazer.smith@ydh.nhs.uk>",
   "license": "MIT",
   "devDependencies": {
     "coveralls": "^3.0.9",
     "eslint": "^6.7.2",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-nhsuk": "^1.0.0",
-    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-import": "^2.19.1",
     "eslint-plugin-jest": "^23.1.1",
     "eslint-plugin-json": "^2.0.1",
     "jest": "^24.9.0",
-    "nodemon": "^2.0.1",
+    "nodemon": "^2.0.2",
     "supertest": "^4.0.2"
   },
   "dependencies": {
@@ -48,10 +45,7 @@
     "request-promise": "^4.2.5",
     "winser": "^1.0.3"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service.git"
-  },
+  "repository": "git+https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service.git",
   "bugs": {
     "url": "https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/issues"
   }
