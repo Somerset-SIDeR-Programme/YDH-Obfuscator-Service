@@ -1,12 +1,18 @@
 language: node_js
 
+cache: yarn
+
 node_js:
   - "lts/*"
   - "node"
 
 os:
-  - linux
   - windows
+  - linux
+
+# See https://travis-ci.community/t/build-doesnt-finish-after-completing-tests/288/9
+env:
+  - YARN_GPG=no
 
 matrix:
   allow_failures:
@@ -17,7 +23,7 @@ matrix:
 branches:
   only:
   - master
-  - develop
+  - /^feat/.*$/
   - /^dependabot/.*$/
 
 script: echo "Running tests against $(node -v)..."
