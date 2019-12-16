@@ -23,7 +23,7 @@ matrix:
 branches:
   only:
   - master
-  - develop
+  - /^feat/.*$/
   - /^dependabot/.*$/
 
 script: echo "Running tests against $(node -v)..."
