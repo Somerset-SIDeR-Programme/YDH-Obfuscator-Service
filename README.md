@@ -61,8 +61,7 @@ as a Windows Service.
 1. Navigate to the repo
 2. Run `npm install` to install dependencies (if not done so in testing)
 3. Run `npm run install-windows-service` as administrator
-4. A prompt will appear asking for confirmation of installation type `y` and hit enter
-5. The service should now be visible in Services
+4. The service should now be visible in Services
 
 <img src="https://raw.githubusercontent.com/Somerset-SIDeR-Programme/YDH-Obfuscator-Service/master/SIDeR-Windows-Service.png" width="800">
 
