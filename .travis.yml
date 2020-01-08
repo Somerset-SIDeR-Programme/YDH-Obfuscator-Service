@@ -3,8 +3,8 @@ language: node_js
 cache: yarn
 
 node_js:
-  - "lts/*"
-  - "node"
+  - 'lts/*'
+  - 'node'
 
 os:
   - windows
@@ -18,13 +18,12 @@ matrix:
   allow_failures:
     - os: windows
 
-
 # safelist
 branches:
   only:
-  - master
-  - /^feat/.*$/
-  - /^dependabot/.*$/
+    - master
+    - /^feat/.*$/
+    - /^dependabot/.*$/
 
 script: echo "Running tests against $(node -v)..."
 
