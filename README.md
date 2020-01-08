@@ -1,20 +1,22 @@
-Yeovil District Hospital - SIDeR Contextual Link Obfuscation Service
-==========================================
-[![GitHub Release](https://img.shields.io/github/release/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service.svg)](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/releases/latest/) [![Build Status](https://travis-ci.org/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service.svg?branch=master)](https://travis-ci.org/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service) [![Coverage Status](https://coveralls.io/repos/github/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/badge.svg?branch=master)](https://coveralls.io/github/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service?branch=master) [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&identifier=177117466)](https://dependabot.com)
+# Yeovil District Hospital - SIDeR Contextual Link Obfuscation Service
+
+[![GitHub Release](https://img.shields.io/github/release/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service.svg)](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/releases/latest/) [![Build Status](https://travis-ci.org/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service.svg?branch=master)](https://travis-ci.org/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service) [![Coverage Status](https://coveralls.io/repos/github/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/badge.svg?branch=master)](https://coveralls.io/github/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service?branch=master) [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&identifier=177117466)](https://dependabot.com) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 # Intro
+
 This is Yeovil District Hospital's contextual link obfuscator, a Node.js script using the Express framework and Black Pear's [obfuscated-querystring](https://github.com/BlackPearSw/obfuscated-querystring), running as a Windows service.
 
 To provide further security [Helmet](https://helmetjs.github.io/) is used as part of this service.
 
 This has been deployed on a local server that the SIDeR contextual link within the PAS (TrakCare) is pointed at. This was deployed with the assistance of David Suckling (App Support Manager at YDH) and [Will Jehring](https://github.com/wjehring) (Web Developer at Black Pear).
 
-
 # Prerequisites
+
 - [Node.js](https://nodejs.org/en/)
 - [Yarn](https://yarnpkg.com) (optional)
 
 # Test Setup
+
 1. Clone or download this repository from Github
 2. Navigate to the repo directory using a CLI (after it has been extracted if downloaded as ZIP)
 3. Run `yarn install` or `npm install` (if using `npm install` then delete the yarn.lock file to stop conflicting lock files)
@@ -25,9 +27,11 @@ The Express server should now be up and running using [nodemon](https://nodemon.
 ```
 Contextual-Link-Parser listening for requests at http://127.0.0.1:8204
 ```
+
 If an error is returned due to the port already being in use, change the value of the port key in src/config.js.
 
 ## Testing
+
 Open a browser of your choice or, if using a request builder (i.e. Insomnia) create a new GET request, and input the following URL:
 
 http://127.0.0.1:8204?patient=https://fhir.nhs.uk/Id/nhs-number|9467335646&birthdate=1932-04-15&location=https://fhir.nhs.uk/Id/ods-organization-code|RA4&practitioner=https://sider.nhs.uk/auth|frazer.smith@ydh.nhs.uk
@@ -49,15 +53,18 @@ If the patient, birthdate, location or practitioner parameters are removed from 
 # Deployment
 
 ## Enabling Keycloak status_token retrieval
+
 1. Set the values for the Keycloak endpoints in the keycloakRetrieveConfig object in src/config.js
 2. Uncomment the configureKeycloakRetrival function in src/app.js
 
 ## Setting up as a Windows Service
+
 The test listener will stop running once the CLI is exited or the Node.js REPL is terminated using `Ctrl+C`, which is not ideal.
 As such, this implementation uses the [winser](https://github.com/jfromaniello/winser) package to set up the Node.js application
 as a Windows Service.
 
 ### To install as a service:
+
 1. Navigate to the repo
 2. Run `npm install` to install dependencies (if not done so in testing)
 3. Run `npm run install-windows-service` as administrator
@@ -68,10 +75,11 @@ as a Windows Service.
 **Note:** When you change any settings in the configuration file, you will need to restart the service for the changes to take effect.
 
 ### To uninstall the service:
+
 1. Navigate to the repo
 2. Run `npm run uninstall-windows-service` as administrator
 3. The service will be uninstalled silently
 
-
 # License
+
 `ydh-sider-obfuscation-service` is licensed under the [MIT](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/blob/master/LICENSE) license.
