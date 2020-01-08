@@ -31,23 +31,23 @@ const request = require('request-promise');
  * @return {Function} express middleware.
  */
 module.exports = function keycloakRetrieveMiddleware(config) {
-	return async (req, res, next) => {
-		try {
-			const requestToken = config.requestToken;
+  return async (req, res, next) => {
+    try {
+      const requestToken = config.requestToken;
 
-			// Service authorisation to retrieve subject access token
-			const serviceAuth = await request.post(config.serviceAuthorisation);
-			requestToken.form.subject_token = JSON.parse(serviceAuth).access_token;
+      // Service authorisation to retrieve subject access token
+      const serviceAuth = await request.post(config.serviceAuthorisation);
+      requestToken.form.subject_token = JSON.parse(serviceAuth).access_token;
 
-			// Expects the practitioner query to be in [system]|[code] format
-			requestToken.form.requested_subject = req.query.practitioner.split('|')[1];
+      // Expects the practitioner query to be in [system]|[code] format
+      requestToken.form.requested_subject = req.query.practitioner.split('|')[1];
 
-			// Request access token for user
-			const userAccess = await request.post(requestToken);
-			req.query.status_token = JSON.parse(userAccess).access_token;
-			next();
-		} catch (error) {
-			res.status(500).send(error);
-		}
-	};
+      // Request access token for user
+      const userAccess = await request.post(requestToken);
+      req.query.status_token = JSON.parse(userAccess).access_token;
+      next();
+    } catch (error) {
+      res.status(500).send(error);
+    }
+  };
 };
