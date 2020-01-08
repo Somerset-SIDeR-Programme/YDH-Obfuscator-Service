@@ -12,6 +12,7 @@
     "dupe-check": "yarn jsinspect ./src",
     "lint": "eslint .",
     "nodemon": "nodemon src/app.js",
+    "prettier": "prettier src/*.js --write",
     "start": "node src/app.js",
     "test": "yarn lint && yarn test-coverage",
     "test-coverage": "jest --coverage --verbose",
