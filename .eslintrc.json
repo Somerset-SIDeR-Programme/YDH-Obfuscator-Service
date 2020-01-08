@@ -16,22 +16,7 @@
         "devDependencies": true
       }
     ],
-    "lines-between-class-members": ["error", "always"],
     "no-console": ["off"],
-    "no-multiple-empty-lines": [
-      "error",
-      {
-        "max": 1,
-        "maxBOF": 0,
-        "maxEOF": 0
-      }
-    ],
-    "no-tabs": [
-      "error",
-      {
-        "allowIndentationTabs": true
-      }
-    ],
     "prefer-destructuring": ["off"]
   }
 }
