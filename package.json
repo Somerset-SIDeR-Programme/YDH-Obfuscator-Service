@@ -1,66 +1,67 @@
 {
-  "name": "ydh-sider-obfuscation-service",
-  "version": "3.4.5",
-  "description": "NodeJS Express Service to obfuscate URL query parameters before sending to SIDeR eSP.",
-  "keywords": [
-    "YDH",
-    "NHS",
-    "obfuscation"
-  ],
-  "main": "src/app.js",
-  "scripts": {
-    "dupe-check": "yarn jsinspect ./src",
-    "lint": "eslint .",
-    "nodemon": "nodemon src/app.js",
-    "prettier": "prettier src/*.js --write",
-    "start": "node src/app.js",
-    "test": "yarn lint && yarn test-coverage",
-    "test-coverage": "jest --coverage --verbose",
-    "test-only": "jest --verbose",
-    "install-windows-service": "winser -i -s -a -n \"SIDeR Contextual Link Obfuscation Service\"",
-    "uninstall-windows-service": "winser -r -x -s -n \"SIDeR Contextual Link Obfuscation Service\""
-  },
-  "jest": {
-    "clearMocks": true,
-    "collectCoverage": true,
-    "testEnvironment": "node",
-    "verbose": true
-  },
-  "author": "Frazer Smith <frazer.smith@ydh.nhs.uk>",
-  "license": "MIT",
-  "prettier": {
-    "arrowParens": "always",
-    "bracketSpacing": true,
-    "endOfLine": "lf",
-    "printWidth": 120,
-    "semi": true,
-    "singleQuote": true,
-    "trailingComma": "none"
-  },
-  "devDependencies": {
-    "coveralls": "^3.0.9",
-    "eslint": "^6.8.0",
-    "eslint-config-prettier": "^6.9.0",
-    "eslint-plugin-import": "^2.19.1",
-    "eslint-plugin-jest": "^23.3.0",
-    "eslint-plugin-json": "^2.0.1",
-    "jest": "^24.9.0",
-    "jsinspect": "^0.12.7",
-    "nodemon": "^2.0.2",
-    "prettier": "1.19.1",
-    "supertest": "^4.0.2",
-    "typescript": "^3.7.4"
-  },
-  "dependencies": {
-    "express": "^4.17.1",
-    "helmet": "^3.21.2",
-    "obfuscated-querystring": "git+https://github.com/BlackPearSw/obfuscated-querystring.git",
-    "request": "^2.88.0",
-    "request-promise": "^4.2.5",
-    "winser": "^1.0.3"
-  },
-  "repository": "git+https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service.git",
-  "bugs": {
-    "url": "https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/issues"
-  }
+	"name": "ydh-sider-obfuscation-service",
+	"version": "3.4.5",
+	"description": "NodeJS Express Service to obfuscate URL query parameters before sending to SIDeR eSP.",
+	"keywords": [
+		"YDH",
+		"NHS",
+		"obfuscation"
+	],
+	"main": "src/app.js",
+	"scripts": {
+		"dupe-check": "yarn jsinspect ./src",
+		"lint": "eslint .",
+		"nodemon": "nodemon src/app.js",
+		"prettier": "prettier src/*.js --write",
+		"start": "node src/app.js",
+		"test": "yarn lint && yarn test-coverage",
+		"test-coverage": "jest --coverage --verbose",
+		"test-only": "jest --verbose",
+		"install-windows-service": "winser -i -s -a -n \"SIDeR Contextual Link Obfuscation Service\"",
+		"uninstall-windows-service": "winser -r -x -s -n \"SIDeR Contextual Link Obfuscation Service\""
+	},
+	"jest": {
+		"clearMocks": true,
+		"collectCoverage": true,
+		"testEnvironment": "node",
+		"verbose": true
+	},
+	"author": "Frazer Smith <frazer.smith@ydh.nhs.uk>",
+	"license": "MIT",
+	"prettier": {
+		"arrowParens": "always",
+		"bracketSpacing": true,
+		"endOfLine": "lf",
+		"semi": true,
+		"singleQuote": true,
+		"tabWidth": 4,
+		"trailingComma": "none",
+		"useTabs": true
+	},
+	"devDependencies": {
+		"coveralls": "^3.0.9",
+		"eslint": "^6.8.0",
+		"eslint-config-prettier": "^6.9.0",
+		"eslint-plugin-import": "^2.19.1",
+		"eslint-plugin-jest": "^23.3.0",
+		"eslint-plugin-json": "^2.0.1",
+		"jest": "^24.9.0",
+		"jsinspect": "^0.12.7",
+		"nodemon": "^2.0.2",
+		"prettier": "1.19.1",
+		"supertest": "^4.0.2",
+		"typescript": "^3.7.4"
+	},
+	"dependencies": {
+		"express": "^4.17.1",
+		"helmet": "^3.21.2",
+		"obfuscated-querystring": "git+https://github.com/BlackPearSw/obfuscated-querystring.git",
+		"request": "^2.88.0",
+		"request-promise": "^4.2.5",
+		"winser": "^1.0.3"
+	},
+	"repository": "git+https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service.git",
+	"bugs": {
+		"url": "https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/issues"
+	}
 }
