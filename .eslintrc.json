@@ -16,7 +16,18 @@
 				"devDependencies": true
 			}
 		],
-		"no-console": ["off"],
-		"prefer-destructuring": ["off"]
+		"lines-between-class-members": "error",
+		"no-multiple-empty-lines": [
+			"error",
+			{
+				"max": 1,
+				"maxBOF": 0,
+				"maxEOF": 0
+			}
+		],
+		"no-console": "off",
+		"prefer-destructuring": "off",
+		"prefer-const": "error",
+		"no-var": "error"
 	}
 }
