@@ -1,7 +1,7 @@
-// eslint-disable-next-line no-unused-vars
 const {
 	obfuscationConfig,
 	serverConfig,
+	// eslint-disable-next-line no-unused-vars
 	keycloakRetrieveConfig
 } = require('./config');
 const Server = require('./server/server');
