@@ -9,6 +9,7 @@
 	],
 	"main": "src/app.js",
 	"scripts": {
+		"changelog": "conventional-changelog -p @commitlint/config-conventional -s -i CHANGELOG.md",
 		"dupe-check": "yarn jsinspect ./src",
 		"lint": "eslint src/**/*.js",
 		"nodemon": "nodemon src/app.js",
@@ -39,6 +40,8 @@
 		"useTabs": true
 	},
 	"devDependencies": {
+		"@commitlint/config-conventional": "^8.3.4",
+		"conventional-changelog-cli": "^2.0.31",
 		"coveralls": "^3.0.9",
 		"eslint": "^6.8.0",
 		"eslint-config-airbnb-base": "^14.0.0",
