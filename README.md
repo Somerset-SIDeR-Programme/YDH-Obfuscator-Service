@@ -13,7 +13,7 @@ This has been deployed on a local server that the SIDeR contextual link within t
 # Prerequisites
 
 -   [Node.js](https://nodejs.org/en/)
--   [Yarn](https://yarnpkg.com) (optional)
+-   [Yarn](https://yarnpkg.com)
 
 # Test Setup
 
