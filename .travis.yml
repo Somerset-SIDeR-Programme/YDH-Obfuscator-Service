@@ -14,10 +14,6 @@ os:
 env:
     - YARN_GPG=no
 
-matrix:
-    allow_failures:
-        - os: windows
-
 # safelist
 branches:
     only:
@@ -28,6 +24,8 @@ branches:
 script: echo "Running tests against $(node -v)..."
 
 jobs:
+    allow_failures:
+        - os: windows
     include:
         - stage: Produce Coverage
           node_js: node
