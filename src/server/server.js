@@ -3,6 +3,9 @@ const fs = require('fs');
 const helmet = require('helmet');
 const https = require('https');
 const http = require('http');
+const expressWinston = require('express-winston');
+const winston = require('winston');
+const WinstonRotate = require('winston-daily-rotate-file');
 const keycloakRetrieve = require('./middleware/keycloak-retrieve.middleware');
 const obfuscate = require('./middleware/obfuscate.middleware');
 
@@ -50,6 +53,41 @@ class Server {
 	 */
 	configureKeycloakRetrival(kcConfig) {
 		this.app.use(keycloakRetrieve(kcConfig));
+
+		// return self for chaining
+		return this;
+	}
+
+	/**
+	 * @author Frazer Smith
+	 * @description Sets Winston Daily Rotate options for server.
+	 * Useful as the Mirth logs will only show the requests coming from
+	 * localhost.
+	 * @param {Object} winstonRotateConfig - Winston Daily Rotate configuration values.
+	 * @returns {this} self
+	 */
+	configureWinston(winstonRotateConfig) {
+		const transport = new WinstonRotate(winstonRotateConfig);
+
+		this.app.use(
+			expressWinston.logger({
+				format: winston.format.combine(
+					winston.format.colorize(),
+					winston.format.json()
+				),
+				requestWhitelist: [
+					'url',
+					'headers',
+					'method',
+					'httpVersion',
+					'originalUrl',
+					'query',
+					'ip',
+					'_startTime'
+				],
+				transports: [transport]
+			})
+		);
 
 		// return self for chaining
 		return this;
