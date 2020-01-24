@@ -1,5 +1,5 @@
 const request = require('supertest');
-const { obfuscationConfig, serverConfig } = require('../config');
+const { obfuscationConfig, serverConfig, winstonRotateConfig } = require('../config');
 const Server = require('./server');
 
 const params = {
@@ -20,6 +20,7 @@ describe('Server deployment', () => {
 	test('Should assign default values if none provided', async () => {
 		const server = new Server()
 			.configureObfuscation(obfuscationConfig.obfuscation)
+			.configureWinston(winstonRotateConfig)
 			.configureRoute()
 			.listen(port);
 		expect(server.config.protocol).toBe('http');
