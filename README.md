@@ -80,6 +80,10 @@ as a Windows Service.
 2. Run `npm run uninstall-windows-service` as administrator
 3. The service will be uninstalled silently
 
+# Contributing
+
+Please see [CONTRIBUTING.md](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/blob/master/CONTRIBUTING.md) for more details regarding contributing to this project.
+
 # License
 
 `ydh-sider-obfuscation-service` is licensed under the [MIT](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/blob/master/LICENSE) license.
