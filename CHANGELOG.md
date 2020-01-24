@@ -1,4 +1,4 @@
-## 3.7.0 (2020-01-24)
+## 3.5.0 (2020-01-24)
 
 * docs: add contributing guide ([c0e06c7](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/c0e06c7))
 * docs: declare yarn a non-optional prerequisite ([ae29921](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/ae29921))
