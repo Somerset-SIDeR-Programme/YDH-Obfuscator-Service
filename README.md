@@ -15,60 +15,32 @@ This has been deployed on a local server that the SIDeR contextual link within t
 -   [Node.js](https://nodejs.org/en/)
 -   [Yarn](https://yarnpkg.com)
 
-# Test Setup
-
-1. Clone or download this repository from Github
-2. Navigate to the repo directory using a CLI (after it has been extracted if downloaded as ZIP)
-3. Run `yarn install` or `npm install` (if using `npm install` then delete the yarn.lock file to stop conflicting lock files)
-4. Run `npm run nodemon`
-
-The Express server should now be up and running using [nodemon](https://nodemon.io/) on the default port 8204. You should see the following output:
-
-```
-Contextual-Link-Parser listening for requests at http://127.0.0.1:8204
-```
-
-If an error is returned due to the port already being in use, change the value of the port key in src/config.js.
-
-## Testing
-
-Open a browser of your choice or, if using a request builder (i.e. Insomnia) create a new GET request, and input the following URL:
-
-http://127.0.0.1:8204?patient=https://fhir.nhs.uk/Id/nhs-number|9467335646&birthdate=1932-04-15&location=https://fhir.nhs.uk/Id/ods-organization-code|RA4&practitioner=https://sider.nhs.uk/auth|frazer.smith@ydh.nhs.uk
-
-Swap out the organization code and email address with your own if you have already been set up an account on the eSP.
-
-In the CLI you will see something similar to the following returned:
-
-```
-https://pyrusapps.blackpear.com/esp/#!/launch?location=https://fhir.nhs.uk/Id/ods-organization-code|RA4&practitioner=https://sider.nhs.uk/auth|frazer.smith@ydh.nhs.uk&enc=k01|38a70335f6c1d7d74a5889e107aef5820fb7073fa7dbe553b396272fbf2b30341f49104c167b6990563b283914bf29cbd76b145f204cb65fa7b5caa193bdd74e62a9859856bffeb1031d6e97ac995fe7ab244a0c8bb20113851d54a18633d132
-```
-
-Both the patient and birthdate query parameters of the URL have been obfuscated.
-
-The web browser or request builder used should be redirected to Black Pear's ESP site, and once logged in will provide the patient note's for the test patient with NHS Number 9467335646, success!
-
-If the patient, birthdate, location or practitioner parameters are removed from the original URL the obfuscation process and redirect will not occur, and a status 400 will be returned with the message "An essential parameter is missing".
-
 # Deployment
 
 ## Enabling Keycloak status_token retrieval
 
-1. Set the values for the Keycloak endpoints in the keycloakRetrieveConfig object in src/config.js
-2. Uncomment the configureKeycloakRetrival function in src/app.js
+1. Set the values for the Keycloak endpoints in the keycloakRetrieveConfig object in `src/config.js`
+2. Uncomment the configureKeycloakRetrival function in `src/app.js`
+
+## Regular deployment (not as a service)
+
+1. Navigate to the repo
+2. Run `yarn install` to install dependencies
+3. Configure the application in `src/config.js`
+4. Run `yarn start`
 
 ## Setting up as a Windows Service
 
-The test listener will stop running once the CLI is exited or the Node.js REPL is terminated using `Ctrl+C`, which is not ideal.
-As such, this implementation uses the [winser](https://github.com/jfromaniello/winser) package to set up the Node.js application
-as a Windows Service.
+Yeovil District Hospital is heavily invested in Microsoft's ecosystem.
+As such, this implementation uses the [winser](https://github.com/jfromaniello/winser) package to allow the Node.js application to be deployed as a Windows Service.
 
 ### To install as a service:
 
 1. Navigate to the repo
-2. Run `npm install` to install dependencies (if not done so in testing)
-3. Run `npm run install-windows-service` as administrator
-4. The service should now be visible in Services
+2. Run `yarn install` to install dependencies
+3. Configure the application in `src/config.js`
+4. Run `yarn install-windows-service` as administrator
+5. The service should now be visible in Services
 
 <img src="https://raw.githubusercontent.com/Somerset-SIDeR-Programme/YDH-Obfuscator-Service/master/SIDeR-Windows-Service.png" width="800">
 
@@ -77,7 +49,7 @@ as a Windows Service.
 ### To uninstall the service:
 
 1. Navigate to the repo
-2. Run `npm run uninstall-windows-service` as administrator
+2. Run `yarn uninstall-windows-service` as administrator
 3. The service will be uninstalled silently
 
 # Contributing
