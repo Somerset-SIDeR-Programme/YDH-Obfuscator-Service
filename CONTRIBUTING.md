@@ -26,7 +26,7 @@ After cloning and installing all the dependencies, there are several commands av
 -   `yarn lint` - Lints everything in src directory
 -   `yarn jest` - Runs Jest over all tests in src directory
 -   `yarn test` - Runs `yarn lint` and `yarn jest` together
--   `yarn nodemon` - Starts a development server with live reload. Available on `localhost:8204` unless you specify your own port.
+-   `yarn nodemon` - Starts a development server with live reload, available on `localhost:8204` unless you specify your own port
 
 ### Production Workflow
 
