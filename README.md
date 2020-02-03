@@ -34,6 +34,7 @@ The Express server should now be up and running on the port set in the config. Y
 ```
 Contextual-Link-Parser listening for requests at http://127.0.0.1:8204
 ```
+
 To quickly test it open a browser of your choice or, if using a request builder (i.e. Insomnia or Postman) create a new GET request, and input the following URL:
 
 http://127.0.0.1:8204?patient=https://fhir.nhs.uk/Id/nhs-number|9467335646&birthdate=1932-04-15&location=https://fhir.nhs.uk/Id/ods-organization-code|RA4&practitioner=https://sider.nhs.uk/auth|frazer.smith@ydh.nhs.uk
