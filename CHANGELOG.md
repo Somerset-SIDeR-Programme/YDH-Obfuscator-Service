@@ -1,3 +1,8 @@
+## <small>3.5.3 (2020-02-05)</small>
+
+-   fix(package): remove cross-env from winser scripts ([4fa1717](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/4fa1717))
+-   docs(changelog): fix concom style ([8d002d7](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/8d002d7))
+
 ## <small>3.5.2 (2020-02-05)</small>
 
 -   refactor(config): reduce log files to daily rather than hourly ([d371f3d](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/d371f3d))
