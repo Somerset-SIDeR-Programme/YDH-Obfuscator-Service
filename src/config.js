@@ -63,7 +63,7 @@ const keycloakRetrieveConfig = {
 // Refer to option documention here: https://github.com/winstonjs/winston-daily-rotate-file/blob/master/README.md#options
 const winstonRotateConfig = {
 	auditFile: 'logs/logging-audit.json',
-	datePattern: 'YYYY-MM-DD-HH',
+	datePattern: 'YYYY-MM-DD',
 	dirname: 'logs',
 	extension: '.json',
 	filename: 'obs-service-log-%DATE%',
