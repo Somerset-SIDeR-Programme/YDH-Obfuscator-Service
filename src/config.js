@@ -66,7 +66,7 @@ const winstonRotateConfig = {
 	datePattern: 'YYYY-MM-DD-HH',
 	dirname: 'logs',
 	extension: '.json',
-	filename: 'auth-service-log-%DATE%',
+	filename: 'obs-service-log-%DATE%',
 	maxFiles: '14d',
 	maxSize: '20m',
 	zippedArchive: true
