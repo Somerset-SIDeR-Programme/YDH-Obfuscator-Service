@@ -1,3 +1,9 @@
+## <small>3.5.2 (2020-02-05)</small>
+
+-   refactor(config): reduce log files to daily rather than hourly ([d371f3d](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/d371f3d))
+-   fix(config): fix name of log files generated ([bd3db4a](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/bd3db4a))
+-   bug(server): remove reassigning config values ([2a08c25](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/2a08c25))
+
 ## <small>3.5.1 (2020-02-03)</small>
 
 -   docs: refine test example ([c393217](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/c393217))
