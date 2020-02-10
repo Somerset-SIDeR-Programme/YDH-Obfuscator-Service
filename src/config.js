@@ -9,10 +9,7 @@ const serverConfig = {
 			passphrase: '',
 			pfx: './ssl_certs/ydhwildcard.pfx'
 		}
-	}
-};
-
-const obfuscationConfig = {
+	},
 	obfuscation: {
 		encryptionKey: {
 			name: 'k01',
@@ -74,7 +71,6 @@ const winstonRotateConfig = {
 
 module.exports = {
 	keycloakRetrieveConfig,
-	obfuscationConfig,
 	serverConfig,
 	winstonRotateConfig
 };

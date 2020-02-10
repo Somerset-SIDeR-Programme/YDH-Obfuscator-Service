@@ -31,11 +31,10 @@ class Server {
 	/**
 	 * @author Frazer Smith
 	 * @description Sets obfuscation options server.
-	 * @param {Object} obsConfig - obfuscation configuration values.
 	 * @returns {this} self
 	 */
-	configureObfuscation(obsConfig) {
-		this.app.use(obfuscate(obsConfig));
+	configureObfuscation() {
+		this.app.use(obfuscate(this.config.obfuscation));
 
 		// return self for chaining
 		return this;
@@ -57,8 +56,6 @@ class Server {
 	/**
 	 * @author Frazer Smith
 	 * @description Sets Winston Daily Rotate options for server.
-	 * Useful as the Mirth logs will only show the requests coming from
-	 * localhost.
 	 * @param {Object} winstonRotateConfig - Winston Daily Rotate configuration values.
 	 * @returns {this} self
 	 */
