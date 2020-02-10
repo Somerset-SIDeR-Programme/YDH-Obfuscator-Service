@@ -2,6 +2,7 @@ const serverConfig = {
 	https: false,
 	name: 'Contextual-Link-Parser',
 	port: 8204,
+	recievingEndpoint: 'https://pyrusapps.blackpear.com/esp/#!/launch?',
 	ssl: {
 		cert: './ssl_certs/ydhclientcert.cer',
 		key: './ssl_certs/ydhclientcert.key',

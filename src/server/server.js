@@ -109,7 +109,7 @@ class Server {
 	configureRoutes() {
 		this.app.get('/', (req, res, next) => {
 			// eslint-disable-next-line no-underscore-dangle
-			const espUrl = `https://pyrusapps.blackpear.com/esp/#!/launch?${req._parsedUrl.query}`;
+			const espUrl = this.config.recievingEndpoint + req._parsedUrl.query;
 			console.log(espUrl);
 			res.redirect(espUrl);
 			next();
