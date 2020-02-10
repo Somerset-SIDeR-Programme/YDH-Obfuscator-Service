@@ -23,6 +23,7 @@ describe('Server deployment', () => {
 
 	test('Should assign default values if none provided', async () => {
 		const server = new Server()
+			.configureHelmet()
 			.configureObfuscation(obfuscationConfig.obfuscation)
 			.configureWinston(winstonRotateConfig)
 			.configureRoutes()
@@ -33,6 +34,7 @@ describe('Server deployment', () => {
 
 	test('Should fail if obfuscation config missing', async () => {
 		const server = new Server(serverConfig)
+			.configureHelmet()
 			.configureObfuscation()
 			.configureRoutes()
 			.listen(port);
@@ -55,6 +57,7 @@ describe('Server deployment', () => {
 
 		try {
 			const server = new Server(httpsServerConfig)
+				.configureHelmet()
 				.configureObfuscation(obfuscationConfig.obfuscation)
 				.configureRoutes()
 				.listen(port);
@@ -75,6 +78,7 @@ describe('Redirects', () => {
 		jest.setTimeout(30000);
 		// Stand up server
 		server = new Server(serverConfig)
+			.configureHelmet()
 			.configureObfuscation(obfuscationConfig.obfuscation)
 			.configureRoutes()
 			.listen(port);
@@ -129,6 +133,7 @@ describe('Keycloak token retrival', () => {
 		jest.setTimeout(30000);
 		// Stand up server
 		server = new Server(serverConfig)
+			.configureHelmet()
 			.configureKeycloakRetrival()
 			.configureObfuscation(obfuscationConfig.obfuscation)
 			.configureRoutes()
