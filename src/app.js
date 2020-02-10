@@ -12,5 +12,5 @@ new Server(serverConfig)
 	// .configureKeycloakRetrival(keycloakRetrieveConfig)
 	.configureObfuscation(obfuscationConfig.obfuscation)
 	.configureWinston(winstonRotateConfig)
-	.configureRoute()
+	.configureRoutes()
 	.listen(serverConfig.port);

@@ -98,7 +98,7 @@ class Server {
 	 * @param {Object} options - Route configuration values.
 	 * @returns {this} self
 	 */
-	configureRoute() {
+	configureRoutes() {
 		this.app.get('/', (req, res, next) => {
 			// eslint-disable-next-line no-underscore-dangle
 			const espUrl = `https://pyrusapps.blackpear.com/esp/#!/launch?${req._parsedUrl.query}`;

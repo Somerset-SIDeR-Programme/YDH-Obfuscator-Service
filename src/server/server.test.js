@@ -25,7 +25,7 @@ describe('Server deployment', () => {
 		const server = new Server()
 			.configureObfuscation(obfuscationConfig.obfuscation)
 			.configureWinston(winstonRotateConfig)
-			.configureRoute()
+			.configureRoutes()
 			.listen(port);
 		expect(server.config.protocol).toBe('http');
 		await server.shutdown();
@@ -34,7 +34,7 @@ describe('Server deployment', () => {
 	test('Should fail if obfuscation config missing', async () => {
 		const server = new Server(serverConfig)
 			.configureObfuscation()
-			.configureRoute()
+			.configureRoutes()
 			.listen(port);
 
 		const response = await request(path)
@@ -56,7 +56,7 @@ describe('Server deployment', () => {
 		try {
 			const server = new Server(httpsServerConfig)
 				.configureObfuscation(obfuscationConfig.obfuscation)
-				.configureRoute()
+				.configureRoutes()
 				.listen(port);
 
 			expect(server.config.protocol).toBe('https');
@@ -76,7 +76,7 @@ describe('Redirects', () => {
 		// Stand up server
 		server = new Server(serverConfig)
 			.configureObfuscation(obfuscationConfig.obfuscation)
-			.configureRoute()
+			.configureRoutes()
 			.listen(port);
 	});
 
@@ -131,7 +131,7 @@ describe('Keycloak token retrival', () => {
 		server = new Server(serverConfig)
 			.configureKeycloakRetrival()
 			.configureObfuscation(obfuscationConfig.obfuscation)
-			.configureRoute()
+			.configureRoutes()
 			.listen(port);
 	});
 
