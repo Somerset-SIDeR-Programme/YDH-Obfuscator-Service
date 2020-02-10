@@ -24,9 +24,6 @@ class Server {
 		// Setup our express instance
 		this.app = express();
 
-		// Use helmet for basic HTTP security header settings (doesn't matter as it is redirected)
-		this.app.use(helmet());
-
 		// return self for chaining
 		return this;
 	}
@@ -89,6 +86,20 @@ class Server {
 		);
 
 		// return self for chaining
+		return this;
+	}
+
+	/**
+	 * @author Frazer Smith
+	 * @description Sets Helmet options for server.
+	 * @param {Object=} helmetConfig - Helmet configuration values.
+	 * @returns {this} self
+	 */
+	configureHelmet(helmetConfig) {
+		// Use Helmet to set response headers
+		this.app.use(helmet(helmetConfig));
+
+		// Return self for chaining
 		return this;
 	}
 
