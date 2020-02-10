@@ -1,6 +1,5 @@
 const request = require('supertest');
 const {
-	obfuscationConfig,
 	serverConfig,
 	winstonRotateConfig
 } = require('../config');
@@ -16,7 +15,6 @@ const params = {
 
 describe('Server deployment', () => {
 	const port = '8204';
-	const path = `http://127.0.0.1:${port}`;
 	beforeAll(async () => {
 		jest.setTimeout(30000);
 	});
@@ -24,29 +22,11 @@ describe('Server deployment', () => {
 	test('Should assign default values if none provided', async () => {
 		const server = new Server()
 			.configureHelmet()
-			.configureObfuscation(obfuscationConfig.obfuscation)
+			.configureObfuscation()
 			.configureWinston(winstonRotateConfig)
 			.configureRoutes()
 			.listen(port);
 		expect(server.config.protocol).toBe('http');
-		await server.shutdown();
-	});
-
-	test('Should fail if obfuscation config missing', async () => {
-		const server = new Server(serverConfig)
-			.configureHelmet()
-			.configureObfuscation()
-			.configureRoutes()
-			.listen(port);
-
-		const response = await request(path)
-			.get('')
-			.set('Content-Type', 'application/json')
-			.set('cache-control', 'no-cache')
-			.query(params);
-
-		expect(response.statusCode).toBe(500);
-
 		await server.shutdown();
 	});
 
@@ -58,7 +38,7 @@ describe('Server deployment', () => {
 		try {
 			const server = new Server(httpsServerConfig)
 				.configureHelmet()
-				.configureObfuscation(obfuscationConfig.obfuscation)
+				.configureObfuscation()
 				.configureRoutes()
 				.listen(port);
 
@@ -79,7 +59,7 @@ describe('Redirects', () => {
 		// Stand up server
 		server = new Server(serverConfig)
 			.configureHelmet()
-			.configureObfuscation(obfuscationConfig.obfuscation)
+			.configureObfuscation()
 			.configureRoutes()
 			.listen(port);
 	});
@@ -135,7 +115,7 @@ describe('Keycloak token retrival', () => {
 		server = new Server(serverConfig)
 			.configureHelmet()
 			.configureKeycloakRetrival()
-			.configureObfuscation(obfuscationConfig.obfuscation)
+			.configureObfuscation()
 			.configureRoutes()
 			.listen(port);
 	});
