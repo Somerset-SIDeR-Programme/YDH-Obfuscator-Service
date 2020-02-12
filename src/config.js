@@ -17,7 +17,7 @@ const serverConfig = {
 		},
 		obfuscate: ['birthdate', 'patient'],
 		requiredParams: {
-			patient: 'string', 
+			patient: 'string',
 			birthdate: 'string',
 			location: 'string',
 			practitioner: 'string'

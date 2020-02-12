@@ -58,39 +58,38 @@ function parseValues(args, config) {
  * @author Frazer Smith
  * @description Sanitize and validate query, param and body of requests
  * to protect against cross-site scripting (XSS) and command injection attacks.
- * 
+ *
  * @param {Object=} config - sanitization configuration values.
  * @return {Function} express middleware.
  */
 module.exports = function sanitizeMiddleware(config = {}) {
 	return (req, res, next) => {
-
-			if (
-				req.query &&
-				req.method === 'GET' &&
-				Object.keys(req.query).length
-			) {
-				req.query = parseValues(req.query, config);
-				if (req.query instanceof Error) {
-					res.status(400).send(req.query.message);
-				}
+		if (
+			req.query &&
+			req.method === 'GET' &&
+			Object.keys(req.query).length
+		) {
+			req.query = parseValues(req.query, config);
+			if (req.query instanceof Error) {
+				res.status(400).send(req.query.message);
 			}
-			if (
-				req.body &&
-				['PUT', 'POST'].includes(req.method) &&
-				Object.keys(req.body).length
-			) {
-				req.body = parseValues(req.body, config);
-				if (req.body instanceof Error) {
-					res.status(400).send(req.body.message);
-				}
+		}
+		if (
+			req.body &&
+			['PUT', 'POST'].includes(req.method) &&
+			Object.keys(req.body).length
+		) {
+			req.body = parseValues(req.body, config);
+			if (req.body instanceof Error) {
+				res.status(400).send(req.body.message);
 			}
-			if (req.params && Object.keys(req.params).length) {
-				req.params = parseValues(req.params, config);
-				if (req.params instanceof Error) {
-					res.status(400).send(req.params.message);
-				}
+		}
+		if (req.params && Object.keys(req.params).length) {
+			req.params = parseValues(req.params, config);
+			if (req.params instanceof Error) {
+				res.status(400).send(req.params.message);
 			}
+		}
 		next();
 	};
 };

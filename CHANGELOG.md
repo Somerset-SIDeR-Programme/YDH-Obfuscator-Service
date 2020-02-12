@@ -1,3 +1,29 @@
+## 4.0.0 (2020-02-12)
+
+-   tests(middleware): add obfuscate middleware tests ([578ac12](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/578ac12))
+-   tests(middleware): update tests to support sanitization middleware ([b53c32d](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/b53c32d))
+-   tests(server): update server tests to accommodate listen function change ([ce7e98e](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/ce7e98e))
+-   refactor(config): move obfuscation options to config file ([845e4dd](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/845e4dd))
+-   refactor(middleware): add check for array ([e8efc31](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/e8efc31))
+-   refactor(middleware): replace serialise function with query-string dep ([0f99979](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/0f99979))
+-   refactor(server): move helmet middleware init to own function ([1801a7e](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/1801a7e))
+-   refactor(server): move recieving endpoint string to config file ([67899f0](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/67899f0))
+-   refactor(server): rename configureRoute function to configureRoutes ([80b8db8](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/80b8db8))
+-   refactor(server): use name key value from package.json ([b5c27f7](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/b5c27f7))
+-   feat(middleware): add sanitize middleware ([482e55b](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/482e55b))
+-   feat(server): remove port param from listen function; add env port usage ([3c696df](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/3c696df))
+-   chore(middleware): remove redundant code comment ([2b36cd5](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/2b36cd5))
+-   chore(server): remove name key from defaultConfig ([4895975](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/4895975))
+-   chore(server): reorder functions ([fabed6f](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/fabed6f))
+-   style(server): alphabetically sort imports ([8c5e3c4](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/8c5e3c4))
+-   build(deps-dev): bump eslint-plugin-jest from 23.6.0 to 23.7.0 ([8bd4c97](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/8bd4c97))
+-   build(deps): bump request from 2.88.0 to 2.88.2 ([8aa767a](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/8aa767a))
+
+### BREAKING CHANGE
+
+-   `obfuscationConfig` object has been removed from config file, contents moved to `serverConfig.obfuscation`
+-   `port` param for listen function of Server class removed
+
 ## <small>3.5.3 (2020-02-05)</small>
 
 -   fix(package): remove cross-env from winser scripts ([4fa1717](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/4fa1717))
