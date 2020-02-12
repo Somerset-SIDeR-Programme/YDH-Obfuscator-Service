@@ -21,7 +21,6 @@ describe('Server deployment', () => {
 	test('Should assign default values if none provided', async () => {
 		const server = new Server()
 			.configureHelmet()
-			.configureObfuscation()
 			.configureWinston(winstonRotateConfig)
 			.configureRoutes()
 			.listen();
