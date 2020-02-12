@@ -1,11 +1,13 @@
 const express = require('express');
+const expressWinston = require('express-winston');
 const fs = require('fs');
 const helmet = require('helmet');
-const https = require('https');
 const http = require('http');
-const expressWinston = require('express-winston');
+const https = require('https');
 const winston = require('winston');
 const WinstonRotate = require('winston-daily-rotate-file');
+
+// Import middleware
 const keycloakRetrieve = require('./middleware/keycloak-retrieve.middleware');
 const obfuscate = require('./middleware/obfuscate.middleware');
 
