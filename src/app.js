@@ -13,4 +13,4 @@ new Server(serverConfig)
 	.configureObfuscation()
 	.configureWinston(winstonRotateConfig)
 	.configureRoutes()
-	.listen(serverConfig.port);
+	.listen();

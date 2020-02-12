@@ -14,7 +14,6 @@ const params = {
 };
 
 describe('Server deployment', () => {
-	const port = '8204';
 	beforeAll(async () => {
 		jest.setTimeout(30000);
 	});
@@ -25,7 +24,7 @@ describe('Server deployment', () => {
 			.configureObfuscation()
 			.configureWinston(winstonRotateConfig)
 			.configureRoutes()
-			.listen(port);
+			.listen();
 		expect(server.config.protocol).toBe('http');
 		await server.shutdown();
 	});
@@ -40,7 +39,7 @@ describe('Server deployment', () => {
 				.configureHelmet()
 				.configureObfuscation()
 				.configureRoutes()
-				.listen(port);
+				.listen();
 
 			expect(server.config.protocol).toBe('https');
 		} catch (error) {
@@ -61,7 +60,7 @@ describe('Redirects', () => {
 			.configureHelmet()
 			.configureObfuscation()
 			.configureRoutes()
-			.listen(port);
+			.listen();
 	});
 
 	afterAll(async () => {
@@ -117,7 +116,7 @@ describe('Keycloak token retrival', () => {
 			.configureKeycloakRetrival()
 			.configureObfuscation()
 			.configureRoutes()
-			.listen(port);
+			.listen();
 	});
 
 	afterAll(async () => {
