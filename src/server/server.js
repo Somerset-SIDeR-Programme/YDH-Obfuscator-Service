@@ -10,6 +10,7 @@ const WinstonRotate = require('winston-daily-rotate-file');
 // Import middleware
 const keycloakRetrieve = require('./middleware/keycloak-retrieve.middleware');
 const obfuscate = require('./middleware/obfuscate.middleware');
+const sanitize = require('./middleware/sanitize.middleware');
 
 class Server {
 	/**
@@ -35,6 +36,7 @@ class Server {
 	 * @returns {this} self
 	 */
 	configureObfuscation() {
+		this.app.use(sanitize(this.config.obfuscation.requiredParams));
 		this.app.use(obfuscate(this.config.obfuscation));
 
 		// return self for chaining

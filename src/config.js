@@ -16,7 +16,12 @@ const serverConfig = {
 			value: '0123456789'
 		},
 		obfuscate: ['birthdate', 'patient'],
-		requiredParams: ['patient', 'birthdate', 'location', 'practitioner']
+		requiredParams: {
+			patient: 'string', 
+			birthdate: 'string',
+			location: 'string',
+			practitioner: 'string'
+		}
 	}
 };
 
