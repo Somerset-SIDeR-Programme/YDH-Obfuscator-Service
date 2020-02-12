@@ -36,9 +36,18 @@ module.exports = function serialiseObfuscateMiddleware(config) {
 		// Retrieve all param keys from query and check all essential ones are present
 		const keys = Object.keys(req.query);
 
+		let keyArray = [];
+
+		//	If object provided then take keys of object to be parsed
+		if (Array.isArray(config.requiredParams)) {
+			keyArray = config.requiredParams;
+		} else if (typeof config.requiredParams === 'object') {
+			keyArray = Object.keys(config.requiredParams);
+		}
+
 		try {
 			if (
-				config.requiredParams.every((element) =>
+				keyArray.every((element) =>
 					keys
 						.map((x) => x.toLowerCase())
 						.includes(element.toLowerCase())
