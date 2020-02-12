@@ -58,7 +58,7 @@
 		"express-winston": "^4.0.2",
 		"helmet": "^3.21.2",
 		"obfuscated-querystring": "git+https://github.com/BlackPearSw/obfuscated-querystring.git",
-		"request": "^2.88.0",
+		"request": "^2.88.2",
 		"request-promise": "^4.2.5",
 		"winser": "^1.0.3",
 		"winston": "^3.2.1",
