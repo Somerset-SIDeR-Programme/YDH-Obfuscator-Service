@@ -32,7 +32,7 @@ This has been deployed on a local server that the SIDeR contextual link within t
 The Express server should now be up and running on the port set in the config. You should see the following output:
 
 ```
-Contextual-Link-Parser listening for requests at http://127.0.0.1:8204
+ydh-sider-obfuscation-service listening for requests at http://127.0.0.1:8204
 ```
 
 To quickly test it open a browser of your choice or, if using a request builder (i.e. Insomnia or Postman) create a new GET request, and input the following URL:
