@@ -4,12 +4,14 @@ const fs = require('fs');
 const helmet = require('helmet');
 const http = require('http');
 const https = require('https');
+const queryString = require('query-string');
 const winston = require('winston');
 const WinstonRotate = require('winston-daily-rotate-file');
 
 // Import middleware
 const keycloakRetrieve = require('./middleware/keycloak-retrieve.middleware');
 const obfuscate = require('./middleware/obfuscate.middleware');
+const sanitize = require('./middleware/sanitize.middleware');
 
 class Server {
 	/**
@@ -35,6 +37,7 @@ class Server {
 	 * @returns {this} self
 	 */
 	configureObfuscation() {
+		this.app.use(sanitize(this.config.obfuscation.requiredParams));
 		this.app.use(obfuscate(this.config.obfuscation));
 
 		// return self for chaining
@@ -76,8 +79,9 @@ class Server {
 	 */
 	configureRoutes() {
 		this.app.get('/', (req, res, next) => {
-			// eslint-disable-next-line no-underscore-dangle
-			const espUrl = this.config.recievingEndpoint + req._parsedUrl.query;
+			const espUrl =
+				this.config.recievingEndpoint +
+				queryString.stringify(req.query);
 			console.log(espUrl);
 			res.redirect(espUrl);
 			next();
