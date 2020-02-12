@@ -1,11 +1,13 @@
 const express = require('express');
+const expressWinston = require('express-winston');
 const fs = require('fs');
 const helmet = require('helmet');
-const https = require('https');
 const http = require('http');
-const expressWinston = require('express-winston');
+const https = require('https');
 const winston = require('winston');
 const WinstonRotate = require('winston-daily-rotate-file');
+
+// Import middleware
 const keycloakRetrieve = require('./middleware/keycloak-retrieve.middleware');
 const obfuscate = require('./middleware/obfuscate.middleware');
 
@@ -16,16 +18,12 @@ class Server {
 	constructor(config = {}) {
 		// Define any default settings the server should have to get up and running
 		const defaultConfig = {
-			https: false,
-			name: ''
+			https: false
 		};
 		this.config = Object.assign(defaultConfig, config);
 
 		// Setup our express instance
 		this.app = express();
-
-		// Use helmet for basic HTTP security header settings (doesn't matter as it is redirected)
-		this.app.use(helmet());
 
 		// return self for chaining
 		return this;
@@ -34,11 +32,10 @@ class Server {
 	/**
 	 * @author Frazer Smith
 	 * @description Sets obfuscation options server.
-	 * @param {Object} obsConfig - obfuscation configuration values.
 	 * @returns {this} self
 	 */
-	configureObfuscation(obsConfig) {
-		this.app.use(obfuscate(obsConfig));
+	configureObfuscation() {
+		this.app.use(obfuscate(this.config.obfuscation));
 
 		// return self for chaining
 		return this;
@@ -59,9 +56,40 @@ class Server {
 
 	/**
 	 * @author Frazer Smith
+	 * @description Sets Helmet options for server.
+	 * @param {Object=} helmetConfig - Helmet configuration values.
+	 * @returns {this} self
+	 */
+	configureHelmet(helmetConfig) {
+		// Use Helmet to set response headers
+		this.app.use(helmet(helmetConfig));
+
+		// Return self for chaining
+		return this;
+	}
+
+	/**
+	 * @author Frazer Smith
+	 * @description Sets routing options for server.
+	 * @param {Object} options - Route configuration values.
+	 * @returns {this} self
+	 */
+	configureRoutes() {
+		this.app.get('/', (req, res, next) => {
+			// eslint-disable-next-line no-underscore-dangle
+			const espUrl = this.config.recievingEndpoint + req._parsedUrl.query;
+			console.log(espUrl);
+			res.redirect(espUrl);
+			next();
+		});
+
+		// return self for chaining
+		return this;
+	}
+
+	/**
+	 * @author Frazer Smith
 	 * @description Sets Winston Daily Rotate options for server.
-	 * Useful as the Mirth logs will only show the requests coming from
-	 * localhost.
 	 * @param {Object} winstonRotateConfig - Winston Daily Rotate configuration values.
 	 * @returns {this} self
 	 */
@@ -94,31 +122,12 @@ class Server {
 
 	/**
 	 * @author Frazer Smith
-	 * @description Sets routing options for server.
-	 * @param {Object} options - Route configuration values.
-	 * @returns {this} self
-	 */
-	configureRoute() {
-		this.app.get('/', (req, res, next) => {
-			// eslint-disable-next-line no-underscore-dangle
-			const espUrl = `https://pyrusapps.blackpear.com/esp/#!/launch?${req._parsedUrl.query}`;
-			console.log(espUrl);
-			res.redirect(espUrl);
-			next();
-		});
-
-		// return self for chaining
-		return this;
-	}
-
-	/**
-	 * @author Frazer Smith
 	 * @description Start the server.
-	 * @param {string} port - Port for server to listen on.
 	 * @returns {this} self
 	 */
-	listen(port) {
+	listen() {
 		const server = this.config;
+		const port = process.env.PORT;
 		// Update the express app to be an instance of createServer
 		if (server.https === true) {
 			const options = {};
@@ -139,12 +148,14 @@ class Server {
 		}
 
 		// Start the app
-		this.app.listen(port);
+		this.app.listen(port || server.port);
 		console.log(
-			`${server.name} listening for requests at ${this.config.protocol}://127.0.0.1:${port}`
+			`${process.env.npm_package_name} listening for requests at ${
+				this.config.protocol
+			}://127.0.0.1:${port || server.port}`
 		);
 
-		// return self for chaining
+		// Return self for chaining
 		return this;
 	}
 

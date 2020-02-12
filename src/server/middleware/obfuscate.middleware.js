@@ -37,7 +37,6 @@ module.exports = function serialiseObfuscateMiddleware(config) {
 		const keys = Object.keys(req.query);
 
 		try {
-			// eslint-disable-next-line max-len
 			if (
 				config.requiredParams.every((element) =>
 					keys
