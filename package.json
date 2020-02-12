@@ -47,6 +47,7 @@
 		"eslint-plugin-json": "^2.0.1",
 		"jest": "^25.1.0",
 		"jsinspect": "^0.12.7",
+		"node-mocks-http": "^1.8.1",
 		"nodemon": "^2.0.2",
 		"prettier": "1.19.1",
 		"supertest": "^4.0.2",
@@ -58,10 +59,14 @@
 		"express-winston": "^4.0.2",
 		"helmet": "^3.21.2",
 		"obfuscated-querystring": "git+https://github.com/BlackPearSw/obfuscated-querystring.git",
+		"query-string": "^6.10.1",
 		"request": "^2.88.2",
 		"request-promise": "^4.2.5",
+		"sanitize-html": "^1.21.1",
+		"validator": "^12.2.0",
 		"winser": "^1.0.3",
 		"winston": "^3.2.1",
-		"winston-daily-rotate-file": "^4.4.2"
+		"winston-daily-rotate-file": "^4.4.2",
+		"xss": "^1.0.6"
 	}
 }

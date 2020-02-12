@@ -1,28 +1,9 @@
 const { obfuscate } = require('obfuscated-querystring/lib');
-
-/**
- * @description Serialises a query object into a URI encoded string.
- * @param {Object} obj - Request query object.
- * @returns {String} URI encoded string.
- */
-function serialise(obj) {
-	const str = [];
-	Object.keys(obj).forEach((key) => {
-		if (Object.prototype.hasOwnProperty.call(obj, key)) {
-			const value = obj[key];
-			str.push(
-				value !== null && typeof value === 'object'
-					? serialise(value, key)
-					: `${encodeURIComponent(key)}=${encodeURIComponent(value)}`
-			);
-		}
-	});
-	return str.join('&');
-}
+const queryString = require('query-string');
 
 /**
  * @author Frazer Smith
- * @description Obfuscates and serialises request parameter keys and values.
+ * @description Obfuscates request parameter keys and values.
  * @param {Object} config - Obfuscation values.
  * @param {Object} config.encryptionKey
  * @param {String} config.encryptionKey.name - Encryption key name.
@@ -31,25 +12,39 @@ function serialise(obj) {
  * @param {Array} config.requiredParams - Parameters that are essential and needed for requesting.
  * @return {Function} express middleware.
  */
-module.exports = function serialiseObfuscateMiddleware(config) {
+module.exports = function obfuscateMiddleware(config) {
 	return (req, res, next) => {
+		let values = [];
+		let keyArray = [];
+
 		// Retrieve all param keys from query and check all essential ones are present
-		const keys = Object.keys(req.query);
+		if (req.query && Object.keys(req.query).length) {
+			values = Object.keys(req.query);
+		}
+
+		//	If object provided then take keys of object to then be parsed
+		if (config && config.requiredParams) {
+			if (Array.isArray(config.requiredParams)) {
+				keyArray = config.requiredParams;
+			} else if (typeof config.requiredParams === 'object') {
+				keyArray = Object.keys(config.requiredParams);
+			}
+		}
 
 		try {
 			if (
-				config.requiredParams.every((element) =>
-					keys
+				keyArray.every((element) =>
+					values
 						.map((x) => x.toLowerCase())
 						.includes(element.toLowerCase())
 				)
 			) {
 				const obfuscatedParams = obfuscate(
-					serialise(req.query),
+					queryString.stringify(req.query),
 					config
 				);
-				// eslint-disable-next-line no-underscore-dangle
-				req._parsedUrl.query = obfuscatedParams;
+
+				req.query = queryString.parse(obfuscatedParams);
 				next();
 			} else {
 				res.status(400).send('An essential parameter is missing');
