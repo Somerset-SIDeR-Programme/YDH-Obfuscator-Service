@@ -1,6 +1,6 @@
 {
 	"name": "ydh-sider-obfuscation-service",
-	"version": "3.5.3",
+	"version": "4.0.0",
 	"description": "NodeJS Express Service to obfuscate URL query parameters before sending to SIDeR eSP.",
 	"main": "src/app.js",
 	"repository": "git+https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service.git",

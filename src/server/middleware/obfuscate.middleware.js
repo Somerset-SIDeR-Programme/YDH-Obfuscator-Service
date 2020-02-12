@@ -9,7 +9,7 @@ const queryString = require('query-string');
  * @param {String} config.encryptionKey.name - Encryption key name.
  * @param {String} config.encryptionKey.value - Encryption key value.
  * @param {Array} config.obfuscate - Parameters that should be obfuscated.
- * @param {Array} config.requiredParams - Parameters that are essential and needed for requesting.
+ * @param {Array|Object} config.requiredParams - Parameters that are essential and needed for requesting.
  * @return {Function} express middleware.
  */
 module.exports = function obfuscateMiddleware(config) {
