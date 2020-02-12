@@ -1,8 +1,5 @@
 const request = require('supertest');
-const {
-	serverConfig,
-	winstonRotateConfig
-} = require('../config');
+const { serverConfig, winstonRotateConfig } = require('../config');
 const Server = require('./server');
 
 const params = {
