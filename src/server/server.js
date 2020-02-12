@@ -149,7 +149,7 @@ class Server {
 		// Start the app
 		this.app.listen(port || server.port);
 		console.log(
-			`${server.name} listening for requests at ${
+			`${process.env.npm_package_name} listening for requests at ${
 				this.config.protocol
 			}://127.0.0.1:${port || server.port}`
 		);
