@@ -30,9 +30,8 @@ describe('Server deployment', () => {
 	});
 
 	test('Should set protocol to https', async () => {
-		const httpsServerConfig = {
-			https: true
-		};
+		const httpsServerConfig = { ...serverConfig };
+		httpsServerConfig.https = true;
 
 		try {
 			const server = new Server(httpsServerConfig)
@@ -50,7 +49,7 @@ describe('Server deployment', () => {
 
 describe('Redirects', () => {
 	let server;
-	const port = '8205';
+	const port = '8204';
 	const path = `http://127.0.0.1:${port}`;
 
 	beforeAll(async () => {
@@ -107,11 +106,13 @@ describe('Keycloak token retrival', () => {
 	let server;
 	const port = '8206';
 	const path = `http://127.0.0.1:${port}`;
+	const keycloakServerConfig = { ...serverConfig };
+	keycloakServerConfig.port = port;
 
 	beforeAll(async () => {
 		jest.setTimeout(30000);
 		// Stand up server
-		server = new Server(serverConfig)
+		server = new Server(keycloakServerConfig)
 			.configureHelmet()
 			.configureKeycloakRetrival()
 			.configureObfuscation()
