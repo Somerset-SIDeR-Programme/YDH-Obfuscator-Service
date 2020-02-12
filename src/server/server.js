@@ -55,39 +55,6 @@ class Server {
 
 	/**
 	 * @author Frazer Smith
-	 * @description Sets Winston Daily Rotate options for server.
-	 * @param {Object} winstonRotateConfig - Winston Daily Rotate configuration values.
-	 * @returns {this} self
-	 */
-	configureWinston(winstonRotateConfig) {
-		const transport = new WinstonRotate(winstonRotateConfig);
-
-		this.app.use(
-			expressWinston.logger({
-				format: winston.format.combine(
-					winston.format.colorize(),
-					winston.format.json()
-				),
-				requestWhitelist: [
-					'url',
-					'headers',
-					'method',
-					'httpVersion',
-					'originalUrl',
-					'query',
-					'ip',
-					'_startTime'
-				],
-				transports: [transport]
-			})
-		);
-
-		// return self for chaining
-		return this;
-	}
-
-	/**
-	 * @author Frazer Smith
 	 * @description Sets Helmet options for server.
 	 * @param {Object=} helmetConfig - Helmet configuration values.
 	 * @returns {this} self
@@ -114,6 +81,39 @@ class Server {
 			res.redirect(espUrl);
 			next();
 		});
+
+		// return self for chaining
+		return this;
+	}
+
+	/**
+	 * @author Frazer Smith
+	 * @description Sets Winston Daily Rotate options for server.
+	 * @param {Object} winstonRotateConfig - Winston Daily Rotate configuration values.
+	 * @returns {this} self
+	 */
+	configureWinston(winstonRotateConfig) {
+		const transport = new WinstonRotate(winstonRotateConfig);
+
+		this.app.use(
+			expressWinston.logger({
+				format: winston.format.combine(
+					winston.format.colorize(),
+					winston.format.json()
+				),
+				requestWhitelist: [
+					'url',
+					'headers',
+					'method',
+					'httpVersion',
+					'originalUrl',
+					'query',
+					'ip',
+					'_startTime'
+				],
+				transports: [transport]
+			})
+		);
 
 		// return self for chaining
 		return this;
