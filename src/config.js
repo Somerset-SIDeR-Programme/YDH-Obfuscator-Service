@@ -25,7 +25,7 @@ const serverConfig = {
 	}
 };
 
-// Empty example config
+// Refer to option documentation: https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/token-exchange/token-exchange.adoc
 const keycloakRetrieveConfig = {
 	// Request access token for user
 	requestToken: {
@@ -62,7 +62,7 @@ const keycloakRetrieveConfig = {
 	}
 };
 
-// Refer to option documention here: https://github.com/winstonjs/winston-daily-rotate-file/blob/master/README.md#options
+// Refer to option documention: https://github.com/winstonjs/winston-daily-rotate-file/blob/master/README.md#options
 const winstonRotateConfig = {
 	auditFile: 'logs/logging-audit.json',
 	datePattern: 'YYYY-MM-DD',
