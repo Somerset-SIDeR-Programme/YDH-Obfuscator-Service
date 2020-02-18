@@ -3,11 +3,11 @@ const serverConfig = {
 	port: 8204,
 	recievingEndpoint: 'https://pyrusapps.blackpear.com/esp/#!/launch?',
 	ssl: {
-		cert: './ssl_certs/ydhclientcert.cer',
-		key: './ssl_certs/ydhclientcert.key',
+		cert: './ssl_certs/ydhclientcert.cer', // example path
+		key: '',
 		pfx: {
 			passphrase: '',
-			pfx: './ssl_certs/ydhwildcard.pfx'
+			pfx: ''
 		}
 	},
 	obfuscation: {
