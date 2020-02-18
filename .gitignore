@@ -90,8 +90,5 @@ typings/
 # OSX folder attributes
 .DS_Store
 
-# Local Development Certs
-ssl_certs/
-
 # Dev KeyCloak endpoint config
 src/keycloak-retrieve.config.js
