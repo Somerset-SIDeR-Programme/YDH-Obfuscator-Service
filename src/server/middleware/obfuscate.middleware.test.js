@@ -32,6 +32,7 @@ describe('Obfuscation and serialisation middleware', () => {
 		const next = jest.fn();
 
 		middleware(req, res, next);
+		expect(next).toHaveBeenCalledTimes(1);
 		expect(typeof req.query.patient).toBe('undefined');
 		expect(typeof req.query.birthdate).toBe('undefined');
 		expect(typeof req.query.enc).toBe('string');
@@ -58,6 +59,7 @@ describe('Obfuscation and serialisation middleware', () => {
 		const next = jest.fn();
 
 		middleware(req, res, next);
+		expect(next).toHaveBeenCalledTimes(1);
 		expect(typeof req.query.patient).toBe('undefined');
 		expect(typeof req.query.birthdate).toBe('undefined');
 		expect(typeof req.query.enc).toBe('string');
