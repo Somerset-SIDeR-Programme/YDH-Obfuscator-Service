@@ -1,4 +1,4 @@
-const  keycloakMiddleware = require('./keycloak-retrieve.middleware');
+const  keycloakMiddleware = require('./keycloak.middleware');
 
 describe('Keycloak middleware', () => {
 	test('Should return a middleware function', () => {
