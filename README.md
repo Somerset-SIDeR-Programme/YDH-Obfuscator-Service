@@ -17,7 +17,7 @@ This has been deployed on a local server that the SIDeR contextual link within t
 
 # Deployment
 
-## Enabling Keycloak status_token retrieval
+## Enabling Keycloak access_token retrieval
 
 1. Set the values for the Keycloak endpoints in the keycloakRetrieveConfig object in `src/config.js`
 2. Uncomment the configureKeycloakRetrival function in `src/app.js`

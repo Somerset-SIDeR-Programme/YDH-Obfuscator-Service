@@ -48,7 +48,7 @@ module.exports = function keycloakRetrieveMiddleware(config) {
 
 			// Request access token for user
 			const userAccess = await request.post(requestToken);
-			req.query.status_token = JSON.parse(userAccess).access_token;
+			req.query.access_token = JSON.parse(userAccess).access_token;
 			next();
 		} catch (error) {
 			res.status(500).send(error);
