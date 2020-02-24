@@ -1,3 +1,21 @@
+## <small>4.0.1 (2020-02-24)</small>
+
+-   tests(middleware): add missing checks for next function calls ([0a45394](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/0a45394))
+-   chore: add pm2 config file ([a57b2bc](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/a57b2bc))
+-   chore: convert pm2 config file from yml to js ([6859e53](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/6859e53))
+-   chore(config): add comment for example cert path ([d30c5b4](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/d30c5b4))
+-   chore(config): add link to keycloak docs ([99f2b0c](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/99f2b0c))
+-   chore(gitignore): remove ssl_certs from list ([01af8ab](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/01af8ab))
+-   chore(prettierignore): add comment ([c33b5d6](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/c33b5d6))
+-   build(deps-dev): bump eslint-plugin-jest from 23.7.0 to 23.8.0 ([a755db2](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/a755db2))
+-   build(deps-dev): bump eslint-plugin-json from 2.0.1 to 2.1.0 ([a1e4afb](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/a1e4afb))
+-   build(deps-dev): bump typescript from 3.7.5 to 3.8.2 ([cadd83a](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/cadd83a))
+-   build(deps): bump express-winston from 4.0.2 to 4.0.3 ([e058aac](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/e058aac))
+-   build(deps): bump query-string from 6.10.1 to 6.11.0 ([39e6cdd](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/39e6cdd))
+-   build(deps): bump sanitize-html from 1.21.1 to 1.22.0 ([b182329](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/b182329))
+-   docs(readme): add pm2 deployment section ([38c8ed5](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/38c8ed5))
+-   docs(readme): change process manager link ([a74bde2](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/a74bde2))
+
 ## 4.0.0 (2020-02-12)
 
 -   tests(middleware): add obfuscate middleware tests ([578ac12](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/578ac12))
