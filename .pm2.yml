@@ -1,8 +1,0 @@
-# Used by PM2 for deployment
-apps:
-  - script : ./src/app.js
-    name: sider-obfus
-    instances:  4
-    exec_mode: cluster
-    env:
-      NODE_ENV: production
