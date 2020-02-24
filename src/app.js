@@ -7,8 +7,7 @@ const {
 const Server = require('./server/server');
 
 new Server(serverConfig)
-	// Comment back in when wanting to use keycloak
-	// .configureKeycloakRetrival(keycloakRetrieveConfig)
+	.configureKeycloakRetrival(keycloakRetrieveConfig)
 	.configureHelmet()
 	.configureObfuscation()
 	.configureWinston(winstonRotateConfig)
