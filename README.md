@@ -61,7 +61,7 @@ It is [recommended](https://expressjs.com/en/advanced/pm.html) that you use a pr
 2. Run `yarn install` to install dependencies
 3. Configure the application in `src/config.js`
 4. Run `yarn global add pm2` to install pm2 globally
-5. Launch application with `pm2 start .pm2.yml`
+5. Launch application with `pm2 start .pm2.config.js`
 6. Check the application has been deployed using `pm2 list` or `pm2 monit`
 
 ## Setting up as a Windows Service
