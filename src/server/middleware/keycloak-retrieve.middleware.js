@@ -30,11 +30,11 @@ const request = require('request-promise');
  *
  * @return {Function} express middleware.
  */
-module.exports = function keycloakRetrieveMiddleware(config) {
+module.exports = function keycloakRetrieveMiddleware(config = {}) {
 	return async (req, res, next) => {
 
-		// Don't attempt to retrieve access tokens for testing
-		if (process.env.NODE_ENV.toLowerCase() === 'test') {
+		// Don't attempt to retrieve access tokens if testing or if config not supplied
+		if (process.env.NODE_ENV.toLowerCase() === 'test' || Object.keys(config).length === 0) {
 			next();
 		}
 
