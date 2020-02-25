@@ -33,6 +33,21 @@ class Server {
 
 	/**
 	 * @author Frazer Smith
+	 * @description Sets up basic error handling for server.
+	 * @returns {this} self
+	 */
+	configureErrorHandling() {
+		// eslint-disable-next-line no-unused-vars
+		this.app.use((err, req, res, next) => {
+			res.send(err.message);
+		  });
+
+		// return self for chaining
+		return this;
+	}
+
+	/**
+	 * @author Frazer Smith
 	 * @description Sets obfuscation options server.
 	 * @returns {this} self
 	 */
