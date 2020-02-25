@@ -195,7 +195,7 @@ module.exports = function sanitizeMiddleware(config = {}) {
 			req.query = parseValues(req.query, config);
 			if (req.query instanceof Error) {
 				res.status(400);
-				return next(req.query.message);
+				return next(req.query);
 			}
 		}
 		if (
@@ -206,14 +206,14 @@ module.exports = function sanitizeMiddleware(config = {}) {
 			req.body = parseValues(req.body, config);
 			if (req.body instanceof Error) {
 				res.status(400);
-				return next(req.body.message);
+				return next(req.body);
 			}
 		}
 		if (req.params && Object.keys(req.params).length) {
 			req.params = parseValues(req.params, config);
 			if (req.params instanceof Error) {
 				res.status(400);
-				return next(req.params.message);
+				return next(req.params);
 			}
 		}
 		return next();

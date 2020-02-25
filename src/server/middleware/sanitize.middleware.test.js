@@ -87,7 +87,7 @@ describe('Sanitization and validation middleware', () => {
 		const next = jest.fn();
 
 		middleware(req, res, next);
-		expect(next.mock.calls[0][0]).toBe(
+		expect(next.mock.calls[0][0].message).toBe(
 			'Invalid option provided: argInvalid'
 		);
 		expect(next).toHaveBeenCalledTimes(1);
@@ -128,7 +128,7 @@ describe('Sanitization and validation middleware', () => {
 		const next = jest.fn();
 
 		middleware(req, res, next);
-		expect(next.mock.calls[0][0]).toBe(
+		expect(next.mock.calls[0][0].message).toBe(
 			'Invalid option provided: argInvalid'
 		);
 		expect(next).toHaveBeenCalledTimes(1);
@@ -169,7 +169,7 @@ describe('Sanitization and validation middleware', () => {
 		const next = jest.fn();
 
 		middleware(req, res, next);
-		expect(next.mock.calls[0][0]).toBe(
+		expect(next.mock.calls[0][0].message).toBe(
 			'Invalid option provided: argInvalid'
 		);
 		expect(next).toHaveBeenCalledTimes(1);
@@ -192,7 +192,7 @@ describe('Sanitization and validation middleware', () => {
 		delete req.params.argString;
 
 		middleware(req, res, next);
-		expect(next.mock.calls[0][0]).toBe(
+		expect(next.mock.calls[0][0].message).toBe(
 			'A mandatory parameter is missing from the list: argString'
 		);
 		expect(next).toHaveBeenCalledTimes(1);
