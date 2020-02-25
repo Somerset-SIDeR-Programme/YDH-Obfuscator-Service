@@ -92,7 +92,6 @@ describe('Redirects', () => {
 					.query(alteredParams);
 
 				expect(response.statusCode).toBe(400);
-				expect(response.text).toBe('An essential parameter is missing');
 			})
 		);
 	});
@@ -125,13 +124,14 @@ describe('Keycloak token retrival', () => {
 		}
 	});
 
-	test('Should fail if Keycloak endpoint config missing', async () => {
+	test('Should continue if Keycloak endpoint config missing', async () => {
 		const response = await request(path)
 			.get('')
 			.set('Content-Type', 'application/json')
 			.set('cache-control', 'no-cache')
 			.query(params);
 
-		expect(response.statusCode).toBe(500);
+		expect(response.statusCode).toBe(302);
+		expect(process.env.NODE_ENV).toBe('test');
 	});
 });
