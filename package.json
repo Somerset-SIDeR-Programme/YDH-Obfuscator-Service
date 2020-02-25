@@ -57,7 +57,7 @@
 		"cross-env": "^7.0.0",
 		"express": "^4.17.1",
 		"express-winston": "^4.0.3",
-		"helmet": "^3.21.2",
+		"helmet": "^3.21.3",
 		"obfuscated-querystring": "git+https://github.com/BlackPearSw/obfuscated-querystring.git",
 		"query-string": "^6.11.0",
 		"request": "^2.88.2",
