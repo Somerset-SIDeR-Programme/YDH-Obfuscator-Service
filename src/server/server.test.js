@@ -92,7 +92,6 @@ describe('Redirects', () => {
 					.query(alteredParams);
 
 				expect(response.statusCode).toBe(400);
-				expect(response.text).toBe('An essential parameter is missing');
 			})
 		);
 	});
