@@ -50,7 +50,7 @@ module.exports = function obfuscateMiddleware(config) {
 				res.status(400).send('An essential parameter is missing');
 			}
 		} catch (error) {
-			res.status(500).send(error);
+			res.status(500);
 		}
 	};
 };
