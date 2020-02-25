@@ -7,7 +7,7 @@ const params = {
 	location: 'https://fhir.nhs.uk/Id/ods-organization-code|RA4',
 	patient:
 		'https://fhir.nhs.uk/Id/nhs-number|9467335646&birthdate=1932-04-15',
-	practitioner: 'https://sider.nhs.uk/auth|frazer.smith@ydh.nhs.uk'
+	practitioner: 'https://sider.nhs.uk/auth|frazer.smith@ydh.nhs.uk',
 };
 
 describe('Server deployment', () => {
@@ -17,9 +17,11 @@ describe('Server deployment', () => {
 
 	test('Should assign default values if none provided', async () => {
 		const server = new Server()
-			.configureHelmet()
-			.configureWinston(winstonRotateConfig)
-			.configureRoutes()
+		.configureKeycloakRetrival()
+		.configureHelmet()
+		.configureWinston(winstonRotateConfig)
+		.configureRoutes()
+		.configureErrorHandling()
 			.listen();
 		expect(server.config.protocol).toBe('http');
 		await server.shutdown();
@@ -31,9 +33,11 @@ describe('Server deployment', () => {
 
 		try {
 			const server = new Server(httpsServerConfig)
-				.configureHelmet()
-				.configureObfuscation()
-				.configureRoutes()
+			.configureKeycloakRetrival()
+			.configureHelmet()
+			.configureObfuscation()
+			.configureRoutes()
+			.configureErrorHandling()
 				.listen();
 
 			expect(server.config.protocol).toBe('https');
@@ -52,9 +56,11 @@ describe('Redirects', () => {
 		jest.setTimeout(30000);
 		// Stand up server
 		server = new Server(serverConfig)
-			.configureHelmet()
-			.configureObfuscation()
-			.configureRoutes()
+		.configureKeycloakRetrival()
+		.configureHelmet()
+		.configureObfuscation()
+		.configureRoutes()
+		.configureErrorHandling()
 			.listen();
 	});
 
@@ -80,10 +86,26 @@ describe('Redirects', () => {
 		);
 	});
 
+	test("Should fail to redirect when an unexpect param is present", async () => {
+		const altParams = {};
+		Object.assign(altParams, params);
+		altParams.invalidParam = 'invalid';
+		console.log(JSON.stringify(altParams));
+
+		const response = await request(path)
+			.get('')
+			.set('Content-Type', 'application/json')
+			.set('cache-control', 'no-cache')
+			.query(altParams);
+
+		expect(response.statusCode).toBe(400);
+	});
+
 	test('Should fail to redirect when any required param is missing', async () => {
 		await Promise.all(
 			Object.keys(params).map(async (key) => {
-				const alteredParams = { ...params };
+				const alteredParams = {};
+				Object.assign(alteredParams, params);
 				delete alteredParams[key];
 				const response = await request(path)
 					.get('')
@@ -112,6 +134,7 @@ describe('Keycloak token retrival', () => {
 			.configureKeycloakRetrival()
 			.configureObfuscation()
 			.configureRoutes()
+			.configureErrorHandling()
 			.listen();
 	});
 

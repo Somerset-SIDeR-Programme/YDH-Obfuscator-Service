@@ -5,9 +5,10 @@ const {
 const Server = require('./server/server');
 
 new Server(serverConfig)
-	.configureKeycloakRetrival()
 	.configureHelmet()
-	.configureObfuscation()
 	.configureWinston(winstonRotateConfig)
+	.configureKeycloakRetrival()
+	.configureObfuscation()
 	.configureRoutes()
+	.configureErrorHandling()
 	.listen();
