@@ -15,9 +15,7 @@
 		"start": "node src/app.js",
 		"test": "cross-env NODE_ENV=test yarn lint && yarn test-coverage",
 		"test-coverage": "cross-env NODE_ENV=test jest --coverage --verbose",
-		"test-only": "cross-env NODE_ENV=test jest --verbose",
-		"install-windows-service": "cross-env NODE_ENV=production winser -i -s -a -n \"SIDeR Contextual Link Obfuscation Service\"",
-		"uninstall-windows-service": "winser -r -x -s -n \"SIDeR Contextual Link Obfuscation Service\""
+		"test-only": "cross-env NODE_ENV=test jest --verbose"
 	},
 	"jest": {
 		"clearMocks": true,
@@ -65,7 +63,6 @@
 		"request-promise": "^4.2.5",
 		"sanitize-html": "^1.22.0",
 		"validator": "^12.2.0",
-		"winser": "^1.0.3",
 		"winston": "^3.2.1",
 		"winston-daily-rotate-file": "^4.4.2",
 		"xss": "^1.0.6"
