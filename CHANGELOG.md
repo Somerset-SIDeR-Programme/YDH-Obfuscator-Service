@@ -1,3 +1,24 @@
+## 5.0.0 (2020-02-26)
+
+-   docs(readme): add pm2 windows service steps ([dfd2ef7](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/dfd2ef7))
+-   feat(middleware): add validation and deriving to sanitize middleware ([d9e1537](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/d9e1537))
+-   feat(server): add basic error handling ([8e9e143](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/8e9e143))
+-   refactor(middleware): return entire error rather than just message ([d57b528](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/d57b528))
+-   refactor(middleware): skip over keycloak request if test environment ([d002f06](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/d002f06))
+-   tests(middleware): add basic keycloak middleware test ([a3cdd45](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/a3cdd45))
+-   tests(middleware): test request go through keycloak middleware ([b0f8a2b](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/b0f8a2b))
+-   build(deps): bump helmet from 3.21.2 to 3.21.3 ([4ad87fc](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/4ad87fc))
+-   chore: shorten name of keycloak middleware ([70b1b62](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/70b1b62))
+-   chore: stop sending error ([4595e5f](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/4595e5f))
+-   chore(app): remove commented out keycloak middleware ([956d5dc](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/956d5dc))
+-   chore(config): add type values ([451c2ea](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/451c2ea))
+-   fix(middleware): change status_token param to access_token ([3f08fb4](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/3f08fb4))
+-   fix(middleware): skip over keycloak middleware if config empty ([3efd1f5](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/3efd1f5))
+
+### BREAKING CHANGE
+
+-   keys in requiredParam object in config file now reference objects rather than strings
+
 ## <small>4.0.1 (2020-02-24)</small>
 
 -   tests(middleware): add missing checks for next function calls ([0a45394](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/0a45394))
