@@ -40,7 +40,7 @@ class Server {
 		// eslint-disable-next-line no-unused-vars
 		this.app.use((err, req, res, next) => {
 			res.send(err.message);
-		  });
+		});
 
 		// return self for chaining
 		return this;

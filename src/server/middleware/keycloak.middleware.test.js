@@ -6,15 +6,15 @@ describe('Keycloak middleware', () => {
 		const middleware = keycloakMiddleware();
 		expect(typeof middleware).toBe('function');
 	});
-	
+
 	test('Should continue if no config values are provided', () => {
 		const middleware = keycloakMiddleware();
 
 		const req = httpMocks.createRequest();
 		const res = httpMocks.createResponse();
 		const next = jest.fn();
-		
+
 		middleware(req, res, next);
 		expect(next).toHaveBeenCalledTimes(1);
-    });
+	});
 });

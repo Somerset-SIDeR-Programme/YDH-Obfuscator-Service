@@ -64,6 +64,16 @@ It is [recommended](https://expressjs.com/en/advanced/pm.html) that you use a pr
 5. Launch application with `pm2 start .pm2.config.js`
 6. Check the application has been deployed using `pm2 list` or `pm2 monit`
 
+### To install as a Windows service:
+
+1. Run `yarn global add pm2-windows-service` to install [pm2-windows-service](https://classic.yarnpkg.com/en/package/pm2-windows-service)
+2. PM2 creates a default PM2 home folder under `C:/Users/<username>/.pm2`, copy the folder to a system accessible level i.e `C:/.pm2`
+3. Create a new PM2_HOME variable at the System level and set the value to `C:/.pm2`
+4. Run `pm2 start .pm2.config.js`
+5. Run `pm2 save`
+
+The service will then restart that set of processes when the service is next started (by default this will be on system boot).
+
 ## Setting up as a Windows Service
 
 Yeovil District Hospital is heavily invested in Microsoft's ecosystem.

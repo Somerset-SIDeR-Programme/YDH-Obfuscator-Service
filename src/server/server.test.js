@@ -7,7 +7,7 @@ const params = {
 	location: 'https://fhir.nhs.uk/Id/ods-organization-code|RA4',
 	patient:
 		'https://fhir.nhs.uk/Id/nhs-number|9467335646&birthdate=1932-04-15',
-	practitioner: 'https://sider.nhs.uk/auth|frazer.smith@ydh.nhs.uk',
+	practitioner: 'https://sider.nhs.uk/auth|frazer.smith@ydh.nhs.uk'
 };
 
 describe('Server deployment', () => {
@@ -17,11 +17,11 @@ describe('Server deployment', () => {
 
 	test('Should assign default values if none provided', async () => {
 		const server = new Server()
-		.configureKeycloakRetrival()
-		.configureHelmet()
-		.configureWinston(winstonRotateConfig)
-		.configureRoutes()
-		.configureErrorHandling()
+			.configureKeycloakRetrival()
+			.configureHelmet()
+			.configureWinston(winstonRotateConfig)
+			.configureRoutes()
+			.configureErrorHandling()
 			.listen();
 		expect(server.config.protocol).toBe('http');
 		await server.shutdown();
@@ -33,11 +33,11 @@ describe('Server deployment', () => {
 
 		try {
 			const server = new Server(httpsServerConfig)
-			.configureKeycloakRetrival()
-			.configureHelmet()
-			.configureObfuscation()
-			.configureRoutes()
-			.configureErrorHandling()
+				.configureKeycloakRetrival()
+				.configureHelmet()
+				.configureObfuscation()
+				.configureRoutes()
+				.configureErrorHandling()
 				.listen();
 
 			expect(server.config.protocol).toBe('https');
@@ -56,11 +56,11 @@ describe('Redirects', () => {
 		jest.setTimeout(30000);
 		// Stand up server
 		server = new Server(serverConfig)
-		.configureKeycloakRetrival()
-		.configureHelmet()
-		.configureObfuscation()
-		.configureRoutes()
-		.configureErrorHandling()
+			.configureKeycloakRetrival()
+			.configureHelmet()
+			.configureObfuscation()
+			.configureRoutes()
+			.configureErrorHandling()
 			.listen();
 	});
 
@@ -86,7 +86,7 @@ describe('Redirects', () => {
 		);
 	});
 
-	test("Should fail to redirect when an unexpect param is present", async () => {
+	test('Should fail to redirect when an unexpect param is present', async () => {
 		const altParams = {};
 		Object.assign(altParams, params);
 		altParams.invalidParam = 'invalid';
