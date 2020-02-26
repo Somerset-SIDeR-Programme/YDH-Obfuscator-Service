@@ -65,37 +65,20 @@ It is [recommended](https://expressjs.com/en/advanced/pm.html) that you use a pr
 6. Check the application has been deployed using `pm2 list` or `pm2 monit`
 
 ### To install as a Windows service:
+Yeovil District Hospital is heavily invested in Microsoft's ecosystem, as such the service can be deployed on Windows as a service.
 
 1. Run `yarn global add pm2-windows-service` to install [pm2-windows-service](https://classic.yarnpkg.com/en/package/pm2-windows-service)
 2. PM2 creates a default PM2 home folder under `C:/Users/<username>/.pm2`, copy the folder to a system accessible level i.e `C:/.pm2`
 3. Create a new PM2_HOME variable at the System level and set the value to `C:/.pm2`
 4. Run `pm2 start .pm2.config.js`
 5. Run `pm2 save`
+6. Run `pm2-service-install` to start as a service
 
 The service will then restart that set of processes when the service is next started (by default this will be on system boot).
 
-## Setting up as a Windows Service
-
-Yeovil District Hospital is heavily invested in Microsoft's ecosystem.
-As such, this implementation uses the [winser](https://github.com/jfromaniello/winser) package to allow the Node.js application to be deployed as a Windows Service.
-
-### To install as a service:
-
-1. Navigate to the repo
-2. Run `yarn install` to install dependencies
-3. Configure the application in `src/config.js`
-4. Run `yarn install-windows-service` as administrator
-5. The service should now be visible in Services
-
-<img src="https://raw.githubusercontent.com/Somerset-SIDeR-Programme/YDH-Obfuscator-Service/master/SIDeR-Windows-Service.png" width="800">
-
 **Note:** When you change any settings in the configuration file, you will need to restart the service for the changes to take effect.
 
-### To uninstall the service:
-
-1. Navigate to the repo
-2. Run `yarn uninstall-windows-service` as administrator
-3. The service will be uninstalled silently
+To uninstall the service run `pm2-service-uninstall`
 
 # Contributing
 
