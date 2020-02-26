@@ -17,10 +17,10 @@ const serverConfig = {
 		},
 		obfuscate: ['birthdate', 'patient'],
 		requiredParams: {
-			patient: {type: 'string', mandatory: true },
-			birthdate: {type: 'string', mandatory: true },
-			location: {type: 'string', mandatory: true },
-			practitioner: {type: 'string', mandatory: true }
+			patient: { type: 'string', mandatory: true },
+			birthdate: { type: 'string', mandatory: true },
+			location: { type: 'string', mandatory: true },
+			practitioner: { type: 'string', mandatory: true }
 		}
 	}
 };
@@ -35,7 +35,8 @@ const keycloakRetrieveConfig = {
 			client_secret: '',
 			grant_type: 'urn:ietf:params:oauth:grant-type:token-exchange',
 			requested_subject: '',
-			requested_token_type: 'urn:ietf:params:oauth:token-type:access_token'
+			requested_token_type:
+				'urn:ietf:params:oauth:token-type:access_token'
 		},
 		options: {
 			headers: {
