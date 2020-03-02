@@ -1,3 +1,11 @@
+## <small>5.0.1 (2020-03-02)</small>
+
+-   refactor(middleware): move sanitization middleware to own module ([5e00d49](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/5e00d49))
+-   build(deps-dev): bump eslint-plugin-jest from 23.8.0 to 23.8.1 ([5e569ec](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/5e569ec))
+-   build(deps-dev): bump typescript from 3.8.2 to 3.8.3 ([9214c96](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/9214c96))
+-   docs(readme): remove winser steps ([caac519](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/caac519))
+-   chore(deps): remove redundant winser dependency ([d754c21](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/d754c21))
+
 ## 5.0.0 (2020-02-26)
 
 -   docs(readme): add pm2 windows service steps ([dfd2ef7](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/dfd2ef7))
