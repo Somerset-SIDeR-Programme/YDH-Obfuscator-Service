@@ -65,6 +65,7 @@ It is [recommended](https://expressjs.com/en/advanced/pm.html) that you use a pr
 6. Check the application has been deployed using `pm2 list` or `pm2 monit`
 
 ### To install as a Windows service:
+
 Yeovil District Hospital is heavily invested in Microsoft's ecosystem, as such the service can be deployed on Windows as a service.
 
 1. Run `yarn global add pm2-windows-service` to install [pm2-windows-service](https://classic.yarnpkg.com/en/package/pm2-windows-service)

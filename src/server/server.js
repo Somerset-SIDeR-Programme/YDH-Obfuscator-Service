@@ -13,7 +13,6 @@ const sanitize = require('sanitize-middleware');
 const keycloakRetrieve = require('./middleware/keycloak.middleware');
 const obfuscate = require('./middleware/obfuscate.middleware');
 
-
 class Server {
 	/**
 	 * @param {Object} config - Server configuration values.
