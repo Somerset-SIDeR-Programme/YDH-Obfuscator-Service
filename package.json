@@ -56,15 +56,12 @@
 		"express": "^4.17.1",
 		"express-winston": "^4.0.3",
 		"helmet": "^3.21.3",
-		"moment": "^2.24.0",
 		"obfuscated-querystring": "git+https://github.com/BlackPearSw/obfuscated-querystring.git",
 		"query-string": "^6.11.0",
 		"request": "^2.88.2",
 		"request-promise": "^4.2.5",
-		"sanitize-html": "^1.22.0",
-		"validator": "^12.2.0",
+		"sanitize-middleware": "^1.0.0",
 		"winston": "^3.2.1",
-		"winston-daily-rotate-file": "^4.4.2",
-		"xss": "^1.0.6"
+		"winston-daily-rotate-file": "^4.4.2"
 	}
 }
