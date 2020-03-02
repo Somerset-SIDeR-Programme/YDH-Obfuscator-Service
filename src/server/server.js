@@ -9,9 +9,10 @@ const winston = require('winston');
 const WinstonRotate = require('winston-daily-rotate-file');
 
 // Import middleware
+const sanitize = require('sanitize-middleware');
 const keycloakRetrieve = require('./middleware/keycloak.middleware');
 const obfuscate = require('./middleware/obfuscate.middleware');
-const sanitize = require('./middleware/sanitize.middleware');
+
 
 class Server {
 	/**
