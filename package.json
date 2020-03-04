@@ -52,7 +52,7 @@
 		"typescript": "^3.8.3"
 	},
 	"dependencies": {
-		"cross-env": "^7.0.0",
+		"cross-env": "^7.0.1",
 		"express": "^4.17.1",
 		"express-winston": "^4.0.3",
 		"helmet": "^3.21.3",
