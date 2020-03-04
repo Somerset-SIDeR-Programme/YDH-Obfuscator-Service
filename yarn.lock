@@ -5080,12 +5080,11 @@ sanitize-html@^1.22.0:
     srcset "^2.0.1"
     xtend "^4.0.1"
 
-sanitize-middleware@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/sanitize-middleware/-/sanitize-middleware-1.0.0.tgz#15f7334eff4db6d56da4adbfa79904acf5de8f2a"
-  integrity sha512-6tKWoUCNT1pEdhgCisbqkGOYfhc6lRAfRANJj/X1USWrdgNv/oZERzMolqvLpLdSxR0FfXj/K4GP18ul0VQTeg==
+sanitize-middleware@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/sanitize-middleware/-/sanitize-middleware-1.0.1.tgz#0f4be48028fccd97f1951ebf242cb9979145b910"
+  integrity sha512-gA4fSb85r+Y6MasO4r/W57XSXUggfT5+cgWkavusHzlzD8M59fBdiPrLqsablW7A0Zy8xn++YJT916aoz0XmVg==
   dependencies:
-    cross-env "^7.0.0"
     moment "^2.24.0"
     sanitize-html "^1.22.0"
     validator "^12.2.0"
