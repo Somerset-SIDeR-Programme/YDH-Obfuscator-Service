@@ -1,3 +1,15 @@
+## <small>5.0.2 (2020-03-10)</small>
+
+-   docs(readme): clarify pm2 usage ([b61dccf](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/b61dccf))
+-   docs(readme): remove redundant keycloak config section ([4272b59](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/4272b59))
+-   chore: update lockfile ([fb89941](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/fb89941))
+-   build(deps-dev): bump eslint-plugin-jest from 23.8.1 to 23.8.2 ([eb226a0](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/eb226a0))
+-   build(deps): bump cross-env from 7.0.0 to 7.0.1 ([9b86043](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/9b86043))
+-   build(deps): bump cross-env from 7.0.1 to 7.0.2 ([23c3bef](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/23c3bef))
+-   build(deps): bump query-string from 6.11.0 to 6.11.1 ([8aa18b8](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/8aa18b8))
+-   build(deps): bump sanitize-middleware from 1.0.0 to 1.0.1 ([e6b7ec6](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/e6b7ec6))
+-   build(deps): move cross-env to dev dependencies ([9c51bee](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/9c51bee))
+
 ## <small>5.0.1 (2020-03-02)</small>
 
 -   refactor(middleware): move sanitization middleware to own module ([5e00d49](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/5e00d49))
