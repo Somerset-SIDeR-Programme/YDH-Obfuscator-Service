@@ -72,8 +72,6 @@ Yeovil District Hospital is heavily invested in Microsoft's ecosystem, as such t
 
 When the service starts or restarts, it will start all the applications saved in the process list.
 
-The service will then restart that set of processes when the service is next started (by default this will be on system boot).
-
 **Note:** When you change any settings in the configuration file, you will need to restart the service for the changes to take effect.
 
 To uninstall the service run `pm2-service-uninstall`
