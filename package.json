@@ -37,6 +37,7 @@
 		"@commitlint/config-conventional": "^8.3.4",
 		"conventional-changelog-cli": "^2.0.31",
 		"coveralls": "^3.0.9",
+		"cross-env": "^7.0.2",
 		"eslint": "^6.8.0",
 		"eslint-config-airbnb-base": "^14.0.0",
 		"eslint-config-prettier": "^6.10.0",
@@ -52,7 +53,6 @@
 		"typescript": "^3.8.3"
 	},
 	"dependencies": {
-		"cross-env": "^7.0.2",
 		"express": "^4.17.1",
 		"express-winston": "^4.0.3",
 		"helmet": "^3.21.3",
