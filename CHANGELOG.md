@@ -1,3 +1,9 @@
+## <small>5.0.3 (2020-03-12)</small>
+
+-   chore: remove redundant image ([1e214b3](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/1e214b3))
+-   chore: update lockfile ([a06e9f8](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/a06e9f8))
+-   docs(readme): remove redundant sentence regarding pm2 service ([d0677d9](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/d0677d9))
+
 ## <small>5.0.2 (2020-03-10)</small>
 
 -   docs(readme): clarify pm2 usage ([b61dccf](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/b61dccf))
