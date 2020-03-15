@@ -16,11 +16,13 @@ const serverConfig = {
 			value: '0123456789'
 		},
 		obfuscate: ['birthdate', 'patient'],
-		requiredParams: {
-			patient: { type: 'string', mandatory: true },
-			birthdate: { type: 'string', mandatory: true },
-			location: { type: 'string', mandatory: true },
-			practitioner: { type: 'string', mandatory: true }
+		requiredProperties: {
+			query: {
+				patient: { type: 'string', mandatory: true },
+				birthdate: { type: 'string', mandatory: true },
+				location: { type: 'string', mandatory: true },
+				practitioner: { type: 'string', mandatory: true }
+			}
 		}
 	}
 };

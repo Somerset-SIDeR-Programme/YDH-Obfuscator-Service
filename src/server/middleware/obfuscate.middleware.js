@@ -9,7 +9,7 @@ const queryString = require('query-string');
  * @param {String} config.encryptionKey.name - Encryption key name.
  * @param {String} config.encryptionKey.value - Encryption key value.
  * @param {Array} config.obfuscate - Parameters that should be obfuscated.
- * @param {Array|Object} config.requiredParams - Parameters that are essential and needed for requesting.
+ * @param {Array|Object} config.requiredProperties - Parameters that are essential and needed for requesting.
  * @return {Function} express middleware.
  */
 module.exports = function obfuscateMiddleware(config) {
@@ -23,11 +23,11 @@ module.exports = function obfuscateMiddleware(config) {
 		}
 
 		//	If object provided then take keys of object to then be parsed
-		if (config && config.requiredParams) {
-			if (Array.isArray(config.requiredParams)) {
-				keyArray = config.requiredParams;
-			} else if (typeof config.requiredParams === 'object') {
-				keyArray = Object.keys(config.requiredParams);
+		if (config && config.requiredProperties) {
+			if (Array.isArray(config.requiredProperties)) {
+				keyArray = config.requiredProperties;
+			} else if (typeof config.requiredProperties === 'object') {
+				keyArray = Object.keys(config.requiredProperties);
 			}
 		}
 
