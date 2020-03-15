@@ -52,7 +52,7 @@ class Server {
 	 * @returns {this} self
 	 */
 	configureObfuscation() {
-		this.app.use(sanitize(this.config.obfuscation.requiredParams));
+		this.app.use(sanitize(this.config.obfuscation.requiredProperties));
 		this.app.use(obfuscate(this.config.obfuscation));
 
 		// return self for chaining

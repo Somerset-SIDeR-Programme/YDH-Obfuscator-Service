@@ -18,7 +18,7 @@ describe('Obfuscation and serialisation middleware', () => {
 		expect(typeof middleware).toBe('function');
 	});
 
-	test('Should obfuscate patient and birthdate parameters with config.requiredParams provided as object', () => {
+	test('Should obfuscate patient and birthdate parameters with config.requiredProperties provided as object', () => {
 		const middleware = obfuscateMiddleware(serverConfig.obfuscation);
 
 		const query = {};
@@ -38,9 +38,9 @@ describe('Obfuscation and serialisation middleware', () => {
 		expect(typeof req.query.enc).toBe('string');
 	});
 
-	test('Should obfuscate patient and birthdate parameters with config.requiredParams provided as array', () => {
+	test('Should obfuscate patient and birthdate parameters with config.requiredProperties provided as array', () => {
 		const arrayServerConfig = { ...serverConfig };
-		arrayServerConfig.obfuscation.requiredParams = [
+		arrayServerConfig.obfuscation.requiredProperties = [
 			'patient',
 			'birthdate',
 			'location',
