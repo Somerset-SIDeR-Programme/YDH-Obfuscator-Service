@@ -8,6 +8,6 @@ module.exports = {
         exec_mode: 'cluster',
         instances: 4,
         name: "sider-obfu",
-        script: './src/app.js'
+        script: './src/index.js'
     }]
 }
