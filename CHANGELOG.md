@@ -1,3 +1,13 @@
+## <small>5.0.4 (2020-03-16)</small>
+
+-   build(deps-dev): bump eslint-plugin-json from 2.1.0 to 2.1.1 ([d66f23c](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/d66f23c))
+-   build(deps): bump sanitize-middleware from 1.0.1 to 2.0.0 ([812a76f](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/812a76f))
+-   build(deps): bump sanitize-middleware from 2.0.0 to 2.0.1 ([621fb56](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/621fb56))
+-   chore: update dependencies ([051b6c2](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/051b6c2))
+-   chore(config): rename config properties to reflect content ([3628f21](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/3628f21))
+-   style: rename main file to index from app ([798caa2](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/798caa2))
+-   refactor(config): change to use new sanitize middleware structure ([068790d](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/068790d))
+
 ## <small>5.0.3 (2020-03-12)</small>
 
 -   chore: remove redundant image ([1e214b3](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/1e214b3))
