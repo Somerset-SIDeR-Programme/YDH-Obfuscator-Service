@@ -5080,10 +5080,10 @@ sanitize-html@^1.22.1:
     srcset "^2.0.1"
     xtend "^4.0.1"
 
-sanitize-middleware@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/sanitize-middleware/-/sanitize-middleware-2.0.1.tgz#e7ab4cd965fe8f02ac395115ae4aa76412cdd51a"
-  integrity sha512-pF9AWyDtcfjunpTasGvXURXf7Equ45YAAnFp7JuIXj3dUjsFx8wumzyj/yLP3UG4J+2jnAaUHDsQFbCdn9b3Zw==
+sanitize-middleware@^2.0.2:
+  version "2.0.2"
+  resolved "https://registry.yarnpkg.com/sanitize-middleware/-/sanitize-middleware-2.0.2.tgz#c571e1837555d6e85929bb9e1af997df78b174c5"
+  integrity sha512-pr3mhgUAQuI95QtMeIvc/eqciQ85AxHA5MkFRhfvcw0ekELoz+C0IjaAnmCBZV6t6/8HF4asoEYMjZr+kCYnAA==
   dependencies:
     moment "^2.24.0"
     sanitize-html "^1.22.1"
