@@ -9,6 +9,7 @@ node_js:
 os:
     - windows
     - linux
+    - osx
 
 # See https://travis-ci.community/t/build-doesnt-finish-after-completing-tests/288/9
 env:
@@ -26,6 +27,7 @@ script: echo "Running tests against $(node -v)..."
 jobs:
     allow_failures:
         - os: windows
+        - os: osx
     include:
         - stage: Produce Coverage
           node_js: node
