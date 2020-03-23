@@ -5080,14 +5080,14 @@ sanitize-html@^1.22.1:
     srcset "^2.0.1"
     xtend "^4.0.1"
 
-sanitize-middleware@^2.0.1:
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/sanitize-middleware/-/sanitize-middleware-2.0.1.tgz#e7ab4cd965fe8f02ac395115ae4aa76412cdd51a"
-  integrity sha512-pF9AWyDtcfjunpTasGvXURXf7Equ45YAAnFp7JuIXj3dUjsFx8wumzyj/yLP3UG4J+2jnAaUHDsQFbCdn9b3Zw==
+sanitize-middleware@^2.0.3:
+  version "2.0.3"
+  resolved "https://registry.yarnpkg.com/sanitize-middleware/-/sanitize-middleware-2.0.3.tgz#c295c298a81c5cb05f0c21cd2fa8b984e271c882"
+  integrity sha512-NrFjaPl4AvVCry5jE+IvBb0TZPRs4OSXjLIP7RQpuJjlh316AVCG4RoKf/rmsdfqUIRLk7sXJypldykFe43KYQ==
   dependencies:
     moment "^2.24.0"
     sanitize-html "^1.22.1"
-    validator "^12.2.0"
+    validator "^13.0.0"
     xss "^1.0.6"
 
 saxes@^3.1.9:
@@ -6009,10 +6009,10 @@ validate-npm-package-license@^3.0.1:
     spdx-correct "^3.0.0"
     spdx-expression-parse "^3.0.0"
 
-validator@^12.2.0:
-  version "12.2.0"
-  resolved "https://registry.yarnpkg.com/validator/-/validator-12.2.0.tgz#660d47e96267033fd070096c3b1a6f2db4380a0a"
-  integrity sha512-jJfE/DW6tIK1Ek8nCfNFqt8Wb3nzMoAbocBF6/Icgg1ZFSBpObdnwVY2jQj6qUqzhx5jc71fpvBWyLGO7Xl+nQ==
+validator@^13.0.0:
+  version "13.0.0"
+  resolved "https://registry.yarnpkg.com/validator/-/validator-13.0.0.tgz#0fb6c6bb5218ea23d368a8347e6d0f5a70e3bcab"
+  integrity sha512-anYx5fURbgF04lQV18nEQWZ/3wHGnxiKdG4aL8J+jEDsm98n/sU/bey+tYk6tnGJzm7ioh5FoqrAiQ6m03IgaA==
 
 vary@~1.1.2:
   version "1.1.2"
