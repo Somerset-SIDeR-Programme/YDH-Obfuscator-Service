@@ -60,7 +60,7 @@
 		"query-string": "^6.11.1",
 		"request": "^2.88.2",
 		"request-promise": "^4.2.5",
-		"sanitize-middleware": "^2.0.1",
+		"sanitize-middleware": "^2.0.3",
 		"winston": "^3.2.1",
 		"winston-daily-rotate-file": "^4.4.2"
 	}
