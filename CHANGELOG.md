@@ -1,3 +1,16 @@
+## <small>5.0.5 (2020-03-23)</small>
+
+-   ci(travis): add release tags to branch safelist ([f127cca](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/f127cca))
+-   ci(travis): test osx ([3784034](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/3784034))
+-   chore(package): add prettier call to changelog gen script ([f477e1c](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/f477e1c))
+-   chore(package): use test-only script when testing ([6883a21](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/6883a21))
+-   fix(server): add deep cloning when assigning config param ([bcbcf7c](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/bcbcf7c))
+-   tests(server): remove superfluous console logs and throws ([0e18712](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/0e18712))
+-   build(deps-dev): bump coveralls from 3.0.9 to 3.0.11 ([6d27d08](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/6d27d08))
+-   build(deps-dev): bump eslint-config-prettier from 6.10.0 to 6.10.1 ([e7a76b0](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/e7a76b0))
+-   build(deps-dev): bump prettier from 1.19.1 to 2.0.1 ([4d7dcd7](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/4d7dcd7))
+-   build(deps): bump sanitize-middleware from 2.0.1 to 2.0.3 ([3b77d61](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/3b77d61))
+
 ## <small>5.0.4 (2020-03-16)</small>
 
 -   build(deps-dev): bump eslint-plugin-json from 2.1.0 to 2.1.1 ([d66f23c](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/d66f23c))
