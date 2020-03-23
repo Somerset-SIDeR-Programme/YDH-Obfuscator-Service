@@ -22,7 +22,10 @@ class Server {
 		const defaultConfig = {
 			https: false
 		};
-		this.config = Object.assign(defaultConfig, JSON.parse(JSON.stringify(config)));
+		this.config = Object.assign(
+			defaultConfig,
+			JSON.parse(JSON.stringify(config))
+		);
 
 		// Setup our express instance
 		this.app = express();
