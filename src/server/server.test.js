@@ -69,7 +69,6 @@ describe('Redirects', () => {
 			await server.shutdown();
 		} catch (error) {
 			console.log(error);
-			throw error;
 		}
 	});
 
@@ -90,7 +89,6 @@ describe('Redirects', () => {
 		const altParams = {};
 		Object.assign(altParams, params);
 		altParams.invalidParam = 'invalid';
-		console.log(JSON.stringify(altParams));
 
 		const response = await request(path)
 			.get('')
@@ -143,7 +141,6 @@ describe('Keycloak token retrival', () => {
 			await server.shutdown();
 		} catch (error) {
 			console.log(error);
-			throw error;
 		}
 	});
 
