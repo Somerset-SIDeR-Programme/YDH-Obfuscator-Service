@@ -4,7 +4,7 @@
 
 # Intro
 
-This is Yeovil District Hospital's contextual link obfuscator, a Node.js script using the Express framework and Black Pear's [obfuscated-querystring](https://github.com/BlackPearSw/obfuscated-querystring), running as a Windows service.
+This is Yeovil District Hospital's contextual link obfuscator, a Node.js application using the Express framework and Black Pear's [obfuscated-querystring](https://github.com/BlackPearSw/obfuscated-querystring).
 
 To provide further security [Helmet](https://helmetjs.github.io/) is used as part of this service.
 
