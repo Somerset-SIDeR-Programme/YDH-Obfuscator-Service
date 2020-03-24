@@ -72,7 +72,7 @@ Yeovil District Hospital is heavily invested in Microsoft's ecosystem, as such t
 
 When the service starts or restarts, it will start all the applications saved in the process list.
 
-**Note:** When you change any settings in the configuration file, you will need to restart the service for the changes to take effect.
+**Note:** PM2 has been configured to automatically restart the application if modifications are made to `src/config.js`.
 
 To uninstall the service run `pm2-service-uninstall`
 
