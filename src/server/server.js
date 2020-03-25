@@ -56,7 +56,7 @@ class Server {
 	 */
 	configureObfuscation() {
 		this.app.use(sanitize(this.config.obfuscation.requiredProperties));
-		this.app.use(obfuscate(this.config.obfuscation));
+		this.app.use(obfuscate(this.config.obfuscation, this.config.obfuscation.requiredProperties.query));
 
 		// return self for chaining
 		return this;

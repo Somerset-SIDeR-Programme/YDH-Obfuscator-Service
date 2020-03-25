@@ -12,7 +12,7 @@ const queryString = require('query-string');
  * @param {Array|Object} config.requiredProperties - Parameters that are essential and needed for requesting.
  * @return {Function} express middleware.
  */
-module.exports = function obfuscateMiddleware(config) {
+module.exports = function obfuscateMiddleware(config, requiredProperties) {
 	return (req, res, next) => {
 		let values = [];
 		let keyArray = [];
@@ -26,11 +26,14 @@ module.exports = function obfuscateMiddleware(config) {
 		}
 
 		//	If object provided then take keys of object to then be parsed
-		if (config && config.requiredProperties) {
-			if (Array.isArray(config.requiredProperties)) {
-				keyArray = config.requiredProperties;
-			} else if (typeof config.requiredProperties === 'object') {
-				keyArray = Object.keys(config.requiredProperties);
+		if (requiredProperties) {
+			if (Array.isArray(requiredProperties)) {
+				keyArray = requiredProperties;
+			} else if (typeof requiredProperties === 'object') {
+				keyArray = Object.keys(requiredProperties);
+			} else {
+				res.status(500);
+				return next(new Error('List of required query keys not passed to server middleware in correct type'));
 			}
 		}
 
