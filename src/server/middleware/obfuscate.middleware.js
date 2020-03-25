@@ -20,6 +20,9 @@ module.exports = function obfuscateMiddleware(config) {
 		// Retrieve all param keys from query and check all essential ones are present
 		if (req.query && Object.keys(req.query).length) {
 			values = Object.keys(req.query);
+		} else {
+			res.status(400);
+			return next(new Error('Query string missing from request'));
 		}
 
 		//	If object provided then take keys of object to then be parsed
@@ -45,12 +48,16 @@ module.exports = function obfuscateMiddleware(config) {
 				);
 
 				req.query = queryString.parse(obfuscatedParams);
-				next();
+				
 			} else {
-				res.status(400).send('An essential parameter is missing');
+				res.status(400);
+				return next(new Error('An essential parameter is missing'));
 			}
 		} catch (error) {
 			res.status(500);
+			return next(new Error(error));
 		}
+
+		return next();
 	};
 };
