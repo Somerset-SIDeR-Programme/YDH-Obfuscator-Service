@@ -60,6 +60,7 @@ module.exports = function keycloakMiddleware(config = {}) {
 			next();
 		} catch (error) {
 			res.status(500);
+			next(new Error(error));
 		}
 	};
 };
