@@ -32,7 +32,9 @@ jobs:
     include:
         - stage: Produce Coverage
           node_js: node
+          os: linux
           script: jest --coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage
         - stage: Check for Code Duplication
           node_js: node
+          os: linux
           script: yarn dupe-check
