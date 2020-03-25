@@ -3,14 +3,14 @@ const queryString = require('query-string');
 
 /**
  * @author Frazer Smith
- * @description Obfuscates request parameter keys and values.
+ * @description Obfuscates request query keys and values.
  * @param {Object} config - Obfuscation values.
  * @param {Object} config.encryptionKey
  * @param {String} config.encryptionKey.name - Encryption key name.
  * @param {String} config.encryptionKey.value - Encryption key value.
- * @param {Array} config.obfuscate - Parameters that should be obfuscated.
- * @param {Array|Object} config.requiredProperties - Parameters that are essential and needed for requesting.
- * @return {Function} express middleware.
+ * @param {Array} config.obfuscate - Query values that should be obfuscated.
+ * @param {Array|Object} requiredProperties - Query values that are essential and needed for requesting.
+ * @return {Function} Express middleware.
  */
 module.exports = function obfuscateMiddleware(config, requiredProperties) {
 	return (req, res, next) => {
