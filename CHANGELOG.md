@@ -1,3 +1,22 @@
+## 6.0.0 (2020-03-25)
+
+-   build(deps-dev): bump prettier from 2.0.1 to 2.0.2 ([b414e27](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/b414e27))
+-   build(deps): bump helmet from 3.21.3 to 3.22.0 ([84d2aea](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/84d2aea))
+-   build(deps): bump sanitize-middleware from 2.0.3 to 2.0.4 ([c653dfc](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/c653dfc))
+-   ci(travis): run jobs using linux ([e450610](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/e450610))
+-   tests(middleware): update tests to reflect new argument ([f284b1e](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/f284b1e))
+-   docs(middleware): update jsdoc tags to reflect new argument ([85215cb](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/85215cb))
+-   docs(readme): remove mention of windows service deployment ([831e392](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/831e392))
+-   docs(readme): reorder pm2 notes ([321379e](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/321379e))
+-   refactor(middleware): make requiredproperties a separate argument ([0ad8501](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/0ad8501))
+-   fix(middleware): add missing next function call ([734ca55](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/734ca55))
+-   fix(middleware): pass errors to next function ([5147016](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/5147016))
+-   chore(pm2): remove need to manually restart upon config change ([5c7df72](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/5c7df72))
+
+### BREAKING CHANGE
+
+-   obfuscateMiddleware function has a new `requiredProperties` argument that functions the same as `config.requiredProperties`.
+
 ## <small>5.0.5 (2020-03-23)</small>
 
 -   ci(travis): add release tags to branch safelist ([f127cca](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/f127cca))

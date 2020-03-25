@@ -33,7 +33,11 @@ module.exports = function obfuscateMiddleware(config, requiredProperties) {
 				keyArray = Object.keys(requiredProperties);
 			} else {
 				res.status(500);
-				return next(new Error('List of required query keys not passed to server middleware in correct type'));
+				return next(
+					new Error(
+						'List of required query keys not passed to server middleware in correct type'
+					)
+				);
 			}
 		}
 
@@ -51,7 +55,6 @@ module.exports = function obfuscateMiddleware(config, requiredProperties) {
 				);
 
 				req.query = queryString.parse(obfuscatedParams);
-				
 			} else {
 				res.status(400);
 				return next(new Error('An essential parameter is missing'));
