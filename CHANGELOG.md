@@ -1,3 +1,9 @@
+## <small>6.0.1 (2020-03-27)</small>
+
+-   fix: remove misuse of json serialization ([3654466](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/3654466))
+-   fix(config): add trakcare specific query string params to be parsed ([99dc52e](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/99dc52e))
+-   build(deps-dev): bump jest from 25.1.0 to 25.2.3 ([fe074b5](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/fe074b5))
+
 ## 6.0.0 (2020-03-25)
 
 -   build(deps-dev): bump prettier from 2.0.1 to 2.0.2 ([b414e27](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/b414e27))
