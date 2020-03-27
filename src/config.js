@@ -23,8 +23,8 @@ const serverConfig = {
 				location: { type: 'string', mandatory: true },
 				practitioner: { type: 'string', mandatory: true },
 				TPAGID: { type: 'string' },
-				FromIconProfile: { type: 'string' },
-				NOUNLOCK: { type: 'string' }
+				FromIconProfile: { type: 'number' },
+				NOUNLOCK: { type: 'number' }
 			}
 		}
 	}
