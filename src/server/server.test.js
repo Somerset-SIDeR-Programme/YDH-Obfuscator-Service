@@ -7,7 +7,10 @@ const params = {
 	location: 'https://fhir.nhs.uk/Id/ods-organization-code|RA4',
 	patient:
 		'https://fhir.nhs.uk/Id/nhs-number|9467335646&birthdate=1932-04-15',
-	practitioner: 'https://sider.nhs.uk/auth|frazer.smith@ydh.nhs.uk'
+	practitioner: 'https://sider.nhs.uk/auth|frazer.smith@ydh.nhs.uk',
+	TPAGID: 'M5',
+	FromIconProfile: 13,
+	NOUNLOCK: 1
 };
 
 describe('Server deployment', () => {

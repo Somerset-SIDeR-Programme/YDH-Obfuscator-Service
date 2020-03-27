@@ -6,7 +6,10 @@ const args = {
 	patient: 'https://fhir.nhs.uk/Id/nhs-number|9467335646',
 	birthdate: '1932-04-15',
 	location: 'https://fhir.nhs.uk/Id/ods-organization-code|RA4',
-	practitioner: 'https://sider.nhs.uk/auth|frazer.smith@ydh.nhs.uk'
+	practitioner: 'https://sider.nhs.uk/auth|frazer.smith@ydh.nhs.uk',
+	TPAGID: 'M5',
+	FromIconProfile: 13,
+	NOUNLOCK: 1
 };
 
 const url =
