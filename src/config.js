@@ -21,7 +21,10 @@ const serverConfig = {
 				patient: { type: 'string', mandatory: true },
 				birthdate: { type: 'string', mandatory: true },
 				location: { type: 'string', mandatory: true },
-				practitioner: { type: 'string', mandatory: true }
+				practitioner: { type: 'string', mandatory: true },
+				TPAGID: { type: 'string' },
+				FromIconProfile: { type: 'string' },
+				NOUNLOCK: { type: 'string' }
 			}
 		}
 	}
