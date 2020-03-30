@@ -2,7 +2,7 @@
 
 [![GitHub Release](https://img.shields.io/github/release/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service.svg)](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/releases/latest/) [![Build Status](https://travis-ci.org/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service.svg?branch=master)](https://travis-ci.org/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service) [![Coverage Status](https://coveralls.io/repos/github/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/badge.svg?branch=master)](https://coveralls.io/github/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service?branch=master) [![Dependabot Status](https://api.dependabot.com/badges/status?host=github&identifier=177117466)](https://dependabot.com) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
-# Intro
+## Intro
 
 This is Yeovil District Hospital's contextual link obfuscator, a Node.js application using the Express framework and Black Pear's [obfuscated-querystring](https://github.com/BlackPearSw/obfuscated-querystring).
 
@@ -10,14 +10,14 @@ To provide further security [Helmet](https://helmetjs.github.io/) is used as par
 
 This has been deployed on a local server that the SIDeR contextual link within the PAS (TrakCare) is pointed at. This was deployed with the assistance of David Suckling (App Support Manager at YDH) and [Will Jehring](https://github.com/wjehring) (Web Developer at Black Pear).
 
-# Prerequisites
+## Prerequisites
 
 -   [Node.js](https://nodejs.org/en/)
 -   [Yarn](https://yarnpkg.com)
 
-# Deployment
+## Deployment
 
-## Standard deployment
+### Standard deployment
 
 1. Navigate to the repo
 2. Run `yarn install` to install dependencies
@@ -48,7 +48,7 @@ The web browser or request builder used should be redirected to Black Pear's ESP
 
 If the patient, birthdate, location or practitioner parameters are removed from the original URL the obfuscation process and redirect will not occur, and a status 400 will be returned with the message "An essential parameter is missing".
 
-## Deploying using PM2
+### Deploying using PM2
 
 It is [recommended](https://expressjs.com/en/advanced/pm.html) that you use a process manager such as [PM2](https://pm2.keymetrics.io/) when deploying Express applications like this into production.
 
@@ -59,7 +59,7 @@ It is [recommended](https://expressjs.com/en/advanced/pm.html) that you use a pr
 5. Launch application with `pm2 start .pm2.config.js`
 6. Check the application has been deployed using `pm2 list` or `pm2 monit`
 
-### To install as a Windows service:
+#### To install as a Windows service:
 
 Yeovil District Hospital is heavily invested in Microsoft's ecosystem, as such the service can be deployed on Windows as a service.
 
@@ -75,10 +75,10 @@ To uninstall the service run `pm2-service-uninstall`.
 
 **Note:** PM2 has been configured to automatically restart the application if modifications are made to `src/config.js`.
 
-# Contributing
+## Contributing
 
 Please see [CONTRIBUTING.md](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/blob/master/CONTRIBUTING.md) for more details regarding contributing to this project.
 
-# License
+## License
 
 `ydh-sider-obfuscation-service` is licensed under the [MIT](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/blob/master/LICENSE) license.
