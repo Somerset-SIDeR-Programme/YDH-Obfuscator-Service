@@ -61,10 +61,10 @@ It is [recommended](https://expressjs.com/en/advanced/pm.html) that you use a pr
 
 #### To install as a Windows service:
 
-Yeovil District Hospital is heavily invested in Microsoft's ecosystem, as such the service can be deployed on Windows as a service.
+Yeovil District Hospital is heavily invested in Microsoft's ecosystem; as such the service can be deployed on Windows as a service.
 
 1. Run `yarn global add pm2-windows-service` to install [pm2-windows-service](https://classic.yarnpkg.com/en/package/pm2-windows-service)
-2. PM2 creates a default PM2 home folder under `C:/Users/<username>/.pm2` after its first run; copy the folder to a system accessible level i.e `C:/.pm2`
+2. PM2 creates a default PM2 home folder under `C:/Users/<username>/.pm2` after its first run; copy the folder to a system accessible level i.e. `C:/.pm2`
 3. Create a new PM2_HOME variable at the System level and set the value to `C:/.pm2`
 4. Run `pm2 start .pm2.config.js` to start the application
 5. Run `pm2 save` to save the process list
