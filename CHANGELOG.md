@@ -1,3 +1,15 @@
+## <small>6.0.2 (2020-04-06)</small>
+
+-   tests: add trakcare specific query string params to tests ([74f9afb](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/74f9afb))
+-   tests(server): remove async flags ([49825f8](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/49825f8))
+-   chore(package): tidy jest config and cli options ([15f08cf](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/15f08cf))
+-   build(deps-dev): bump eslint-plugin-import from 2.20.1 to 2.20.2 ([ea5497b](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/ea5497b))
+-   build(deps-dev): bump jest from 25.2.3 to 25.2.4 ([4a16bb9](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/4a16bb9))
+-   build(deps): bump dependencies ([bc19b16](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/bc19b16))
+-   refactor(server): move error handler middleware to own util file ([e8b56aa](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/e8b56aa))
+-   docs: grammar and spelling fixes ([59c4a5b](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/59c4a5b))
+-   docs(readme): correct section sizes ([e15e2ff](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/e15e2ff))
+
 ## <small>6.0.1 (2020-03-27)</small>
 
 -   fix: remove misuse of json serialization ([3654466](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/3654466))
