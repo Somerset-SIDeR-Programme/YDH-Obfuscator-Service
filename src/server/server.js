@@ -13,6 +13,9 @@ const sanitize = require('sanitize-middleware');
 const keycloakRetrieve = require('./middleware/keycloak.middleware');
 const obfuscate = require('./middleware/obfuscate.middleware');
 
+// Import utils
+const errorHandler = require('./utils/error-handler.utils');
+
 class Server {
 	/**
 	 * @param {Object} config - Server configuration values.
@@ -33,14 +36,11 @@ class Server {
 
 	/**
 	 * @author Frazer Smith
-	 * @description Sets up basic error handling for server.
+	 * @description Sets up error handling for server.
 	 * @returns {this} self
 	 */
 	configureErrorHandling() {
-		// eslint-disable-next-line no-unused-vars
-		this.app.use((err, req, res, next) => {
-			res.send(err.message);
-		});
+		this.app.use(errorHandler());
 
 		// return self for chaining
 		return this;
