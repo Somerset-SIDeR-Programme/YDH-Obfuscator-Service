@@ -14,9 +14,6 @@ const params = {
 };
 
 describe('Server deployment', () => {
-	beforeAll(() => {
-		jest.setTimeout(30000);
-	});
 
 	test('Should assign default values if none provided', async () => {
 		const server = new Server()
@@ -56,7 +53,7 @@ describe('Redirects', () => {
 	const path = `http://127.0.0.1:${port}`;
 
 	beforeAll(() => {
-		jest.setTimeout(30000);
+
 		// Stand up server
 		server = new Server(serverConfig)
 			.configureKeycloakRetrival()
@@ -128,7 +125,7 @@ describe('Keycloak token retrival', () => {
 	keycloakServerConfig.port = port;
 
 	beforeAll(() => {
-		jest.setTimeout(30000);
+
 		// Stand up server
 		server = new Server(keycloakServerConfig)
 			.configureHelmet()
