@@ -28,7 +28,7 @@ const request = require('request-promise');
  * @param {Object} config.requestToken.options.headers
  * @param {String} config.requestToken.url
  *
- * @return {Function} express middleware.
+ * @return {Function} Express middleware.
  */
 module.exports = function keycloakMiddleware(config = {}) {
 	return async (req, res, next) => {
