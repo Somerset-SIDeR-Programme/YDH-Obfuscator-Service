@@ -3,7 +3,7 @@ const queryString = require('query-string');
 
 /**
  * @author Frazer Smith
- * @description Obfuscates request query keys and values.
+ * @description Obfuscates request query string keys and values.
  * @param {Object} config - Obfuscation values.
  * @param {Object} config.encryptionKey
  * @param {String} config.encryptionKey.name - Encryption key name.
