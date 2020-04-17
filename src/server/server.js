@@ -48,20 +48,17 @@ class Server {
 
 	/**
 	 * @author Frazer Smith
-	 * @description Sets obfuscation options server.
+	 * @description Sets Helmet options for server.
+	 * @param {Object=} helmetConfig - Helmet configuration values.
 	 * @returns {this} self
 	 */
-	// configureObfuscation() {
-	// 	this.app.use(
-	// 		obfuscate(
-	// 			this.config.obfuscation,
-	// 			this.config.obfuscation.requiredProperties.query
-	// 		)
-	// 	);
+	configureHelmet(helmetConfig) {
+		// Use Helmet to set response headers
+		this.app.use(helmet(helmetConfig));
 
-	// 	// return self for chaining
-	// 	return this;
-	// }
+		// Return self for chaining
+		return this;
+	}
 
 	/**
 	 * @author Frazer Smith
@@ -73,20 +70,6 @@ class Server {
 		this.app.use(keycloakRetrieve(kcConfig));
 
 		// return self for chaining
-		return this;
-	}
-
-	/**
-	 * @author Frazer Smith
-	 * @description Sets Helmet options for server.
-	 * @param {Object=} helmetConfig - Helmet configuration values.
-	 * @returns {this} self
-	 */
-	configureHelmet(helmetConfig) {
-		// Use Helmet to set response headers
-		this.app.use(helmet(helmetConfig));
-
-		// Return self for chaining
 		return this;
 	}
 

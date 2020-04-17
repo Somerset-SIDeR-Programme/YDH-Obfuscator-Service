@@ -38,21 +38,21 @@ module.exports = function keycloakMiddleware(config = {}) {
 		} else {
 			try {
 				const { requestToken, serviceAuthorisation } = config;
-	
+
 				// Service authorisation to retrieve subject access token
 				const serviceAuthResponse = await request.post(
 					serviceAuthorisation.url,
 					queryString.stringify(serviceAuthorisation.form)
 				);
-	
+
 				requestToken.form.subject_token =
 					serviceAuthResponse.data.access_token;
-	
+
 				// Expects the practitioner query to be in [system]|[code] format
 				requestToken.form.requested_subject = req.query.practitioner.split(
 					'|'
 				)[1];
-	
+
 				// Request access token for user
 				const userAccessResponse = await request.post(
 					requestToken.url,
@@ -65,7 +65,5 @@ module.exports = function keycloakMiddleware(config = {}) {
 				next(new Error(error));
 			}
 		}
-
-
 	};
 };
