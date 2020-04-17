@@ -4,17 +4,17 @@ const fs = require('fs');
 const helmet = require('helmet');
 const http = require('http');
 const https = require('https');
-const queryString = require('query-string');
 const winston = require('winston');
 const WinstonRotate = require('winston-daily-rotate-file');
 
 // Import middleware
-const sanitize = require('sanitize-middleware');
 const keycloakRetrieve = require('./middleware/keycloak.middleware');
-const obfuscate = require('./middleware/obfuscate.middleware');
 
 // Import utils
 const errorHandler = require('./utils/error-handler.utils');
+
+// Import routes
+const wildcardRoute = require('./routes/wildcard.route');
 
 class Server {
 	/**
@@ -51,18 +51,17 @@ class Server {
 	 * @description Sets obfuscation options server.
 	 * @returns {this} self
 	 */
-	configureObfuscation() {
-		this.app.use(sanitize(this.config.obfuscation.requiredProperties));
-		this.app.use(
-			obfuscate(
-				this.config.obfuscation,
-				this.config.obfuscation.requiredProperties.query
-			)
-		);
+	// configureObfuscation() {
+	// 	this.app.use(
+	// 		obfuscate(
+	// 			this.config.obfuscation,
+	// 			this.config.obfuscation.requiredProperties.query
+	// 		)
+	// 	);
 
-		// return self for chaining
-		return this;
-	}
+	// 	// return self for chaining
+	// 	return this;
+	// }
 
 	/**
 	 * @author Frazer Smith
@@ -98,14 +97,7 @@ class Server {
 	 * @returns {this} self
 	 */
 	configureRoutes() {
-		this.app.get('/', (req, res, next) => {
-			const espUrl =
-				this.config.recievingEndpoint +
-				queryString.stringify(req.query);
-			console.log(espUrl);
-			res.redirect(espUrl);
-			next();
-		});
+		this.app.use('*', wildcardRoute(this));
 
 		// return self for chaining
 		return this;

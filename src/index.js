@@ -5,7 +5,6 @@ new Server(serverConfig)
 	.configureHelmet()
 	.configureWinston(winstonRotateConfig)
 	.configureKeycloakRetrival()
-	.configureObfuscation()
 	.configureRoutes()
 	.configureErrorHandling()
 	.listen();
