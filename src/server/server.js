@@ -4,17 +4,17 @@ const fs = require('fs');
 const helmet = require('helmet');
 const http = require('http');
 const https = require('https');
-const queryString = require('query-string');
 const winston = require('winston');
 const WinstonRotate = require('winston-daily-rotate-file');
 
 // Import middleware
-const sanitize = require('sanitize-middleware');
 const keycloakRetrieve = require('./middleware/keycloak.middleware');
-const obfuscate = require('./middleware/obfuscate.middleware');
 
 // Import utils
 const errorHandler = require('./utils/error-handler.utils');
+
+// Import routes
+const wildcardRoute = require('./routes/wildcard.route');
 
 class Server {
 	/**
@@ -48,19 +48,15 @@ class Server {
 
 	/**
 	 * @author Frazer Smith
-	 * @description Sets obfuscation options server.
+	 * @description Sets Helmet options for server.
+	 * @param {Object=} helmetConfig - Helmet configuration values.
 	 * @returns {this} self
 	 */
-	configureObfuscation() {
-		this.app.use(sanitize(this.config.obfuscation.requiredProperties));
-		this.app.use(
-			obfuscate(
-				this.config.obfuscation,
-				this.config.obfuscation.requiredProperties.query
-			)
-		);
+	configureHelmet(helmetConfig) {
+		// Use Helmet to set response headers
+		this.app.use(helmet(helmetConfig));
 
-		// return self for chaining
+		// Return self for chaining
 		return this;
 	}
 
@@ -79,33 +75,12 @@ class Server {
 
 	/**
 	 * @author Frazer Smith
-	 * @description Sets Helmet options for server.
-	 * @param {Object=} helmetConfig - Helmet configuration values.
-	 * @returns {this} self
-	 */
-	configureHelmet(helmetConfig) {
-		// Use Helmet to set response headers
-		this.app.use(helmet(helmetConfig));
-
-		// Return self for chaining
-		return this;
-	}
-
-	/**
-	 * @author Frazer Smith
 	 * @description Sets routing options for server.
 	 * @param {Object} options - Route configuration values.
 	 * @returns {this} self
 	 */
 	configureRoutes() {
-		this.app.get('/', (req, res, next) => {
-			const espUrl =
-				this.config.recievingEndpoint +
-				queryString.stringify(req.query);
-			console.log(espUrl);
-			res.redirect(espUrl);
-			next();
-		});
+		this.app.use('*', wildcardRoute(this));
 
 		// return self for chaining
 		return this;

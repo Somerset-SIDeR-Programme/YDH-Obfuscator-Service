@@ -19,7 +19,6 @@ describe('Server deployment', () => {
 			.configureKeycloakRetrival()
 			.configureHelmet()
 			.configureWinston(winstonRotateConfig)
-			.configureRoutes()
 			.configureErrorHandling()
 			.listen();
 
@@ -35,7 +34,6 @@ describe('Server deployment', () => {
 			const server = new Server(httpsServerConfig)
 				.configureKeycloakRetrival()
 				.configureHelmet()
-				.configureObfuscation()
 				.configureRoutes()
 				.configureErrorHandling()
 				.listen();
@@ -55,7 +53,6 @@ describe('Redirects', () => {
 		server = new Server(serverConfig)
 			.configureKeycloakRetrival()
 			.configureHelmet()
-			.configureObfuscation()
 			.configureRoutes()
 			.configureErrorHandling()
 			.listen();
@@ -119,7 +116,6 @@ describe('Keycloak token retrival', () => {
 		server = new Server(keycloakServerConfig)
 			.configureHelmet()
 			.configureKeycloakRetrival()
-			.configureObfuscation()
 			.configureRoutes()
 			.configureErrorHandling()
 			.listen();
