@@ -44,9 +44,9 @@ module.exports = function keycloakMiddleware(config = {}) {
 			const { requestToken, serviceAuthorisation } = config;
 
 			// Service authorisation to retrieve subject access token
-			const serviceAuth = await request.post(serviceAuthorisation);
+			const serviceAuthResponse = await request.post(serviceAuthorisation);
 			requestToken.form.subject_token = JSON.parse(
-				serviceAuth
+				serviceAuthResponse
 			).access_token;
 
 			// Expects the practitioner query to be in [system]|[code] format
@@ -55,8 +55,8 @@ module.exports = function keycloakMiddleware(config = {}) {
 			)[1];
 
 			// Request access token for user
-			const userAccess = await request.post(requestToken);
-			req.query.access_token = JSON.parse(userAccess).access_token;
+			const userAccessResponse = await request.post(requestToken);
+			req.query.access_token = JSON.parse(userAccessResponse).access_token;
 			next();
 		} catch (error) {
 			res.status(500);
