@@ -41,10 +41,10 @@ module.exports = function keycloakMiddleware(config = {}) {
 		}
 
 		try {
-			const requestToken = config.requestToken;
+			const { requestToken, serviceAuthorisation } = config;
 
 			// Service authorisation to retrieve subject access token
-			const serviceAuth = await request.post(config.serviceAuthorisation);
+			const serviceAuth = await request.post(serviceAuthorisation);
 			requestToken.form.subject_token = JSON.parse(
 				serviceAuth
 			).access_token;
