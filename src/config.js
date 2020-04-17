@@ -24,7 +24,8 @@ const serverConfig = {
 				practitioner: { type: 'string', mandatory: true },
 				TPAGID: { type: 'string' },
 				FromIconProfile: { type: 'number' },
-				NOUNLOCK: { type: 'number' }
+				NOUNLOCK: { type: 'number' },
+				// access_token: { type: 'string' } // uncomment this when KeyCloak is fully implemented
 			}
 		}
 	}
