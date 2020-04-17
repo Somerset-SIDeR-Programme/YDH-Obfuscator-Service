@@ -14,10 +14,6 @@ const params = {
 };
 
 describe('Server deployment', () => {
-	beforeAll(() => {
-		jest.setTimeout(30000);
-	});
-
 	test('Should assign default values if none provided', async () => {
 		const server = new Server()
 			.configureKeycloakRetrival()
@@ -26,11 +22,12 @@ describe('Server deployment', () => {
 			.configureRoutes()
 			.configureErrorHandling()
 			.listen();
+
 		expect(server.config.protocol).toBe('http');
 		await server.shutdown();
 	});
 
-	test('Should set protocol to https', async () => {
+	test('Should set protocol to https', () => {
 		const httpsServerConfig = { ...serverConfig };
 		httpsServerConfig.https = true;
 
@@ -52,12 +49,9 @@ describe('Server deployment', () => {
 
 describe('Redirects', () => {
 	let server;
-	const port = '8204';
-	const path = `http://127.0.0.1:${port}`;
+	const path = `http://127.0.0.1:${serverConfig.port}`;
 
-	beforeAll(() => {
-		jest.setTimeout(30000);
-		// Stand up server
+	beforeEach(() => {
 		server = new Server(serverConfig)
 			.configureKeycloakRetrival()
 			.configureHelmet()
@@ -67,46 +61,40 @@ describe('Redirects', () => {
 			.listen();
 	});
 
-	afterAll(async () => {
-		try {
-			await server.shutdown();
-		} catch (error) {
-			console.log(error);
-		}
+	afterEach(async () => {
+		await server.shutdown();
 	});
 
 	test("Should redirect to Black Pear's ESP with all params present", async () => {
-		const response = await request(path)
+		const res = await request(path)
 			.get('')
 			.set('Content-Type', 'application/json')
 			.set('cache-control', 'no-cache')
 			.query(params);
 
-		expect(response.statusCode).toBe(302);
-		expect(response.headers.location.substring(0, 46)).toBe(
+		expect(res.statusCode).toBe(302);
+		expect(res.headers.location.substring(0, 46)).toBe(
 			'https://pyrusapps.blackpear.com/esp/#!/launch?'
 		);
 	});
 
 	test('Should fail to redirect when an unexpect param is present', async () => {
-		const altParams = {};
-		Object.assign(altParams, params);
+		const altParams = { ...params };
 		altParams.invalidParam = 'invalid';
 
-		const response = await request(path)
+		const res = await request(path)
 			.get('')
 			.set('Content-Type', 'application/json')
 			.set('cache-control', 'no-cache')
 			.query(altParams);
 
-		expect(response.statusCode).toBe(400);
+		expect(res.statusCode).toBe(400);
 	});
 
 	test('Should fail to redirect when any required param is missing', async () => {
 		await Promise.all(
 			Object.keys(params).map(async (key) => {
-				const alteredParams = {};
-				Object.assign(alteredParams, params);
+				const alteredParams = { ...params };
 				delete alteredParams[key];
 				const response = await request(path)
 					.get('')
@@ -127,9 +115,7 @@ describe('Keycloak token retrival', () => {
 	const keycloakServerConfig = { ...serverConfig };
 	keycloakServerConfig.port = port;
 
-	beforeAll(() => {
-		jest.setTimeout(30000);
-		// Stand up server
+	beforeEach(() => {
 		server = new Server(keycloakServerConfig)
 			.configureHelmet()
 			.configureKeycloakRetrival()
@@ -139,12 +125,8 @@ describe('Keycloak token retrival', () => {
 			.listen();
 	});
 
-	afterAll(async () => {
-		try {
-			await server.shutdown();
-		} catch (error) {
-			console.log(error);
-		}
+	afterEach(async () => {
+		await server.shutdown();
 	});
 
 	test('Should continue if Keycloak endpoint config missing', async () => {

@@ -27,7 +27,7 @@ class Server {
 		};
 		this.config = Object.assign(defaultConfig, config);
 
-		// Setup our express instance
+		// Setup our Express instance
 		this.app = express();
 
 		// return self for chaining
@@ -152,7 +152,7 @@ class Server {
 	listen() {
 		const server = this.config;
 		const port = process.env.PORT;
-		// Update the express app to be an instance of createServer
+		// Update the Express app to be an instance of createServer
 		if (server.https === true) {
 			const options = {};
 			// Attempt to use PFX file if present
