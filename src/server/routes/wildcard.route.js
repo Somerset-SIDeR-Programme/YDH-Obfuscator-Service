@@ -26,12 +26,11 @@ module.exports = function wildcardRoute(options) {
 		)
 	);
 
-	router.route('*').get((req, res, next) => {
+	router.route('*').get((req, res) => {
 		const espUrl =
 			config.recievingEndpoint + queryString.stringify(req.query);
 		console.log(espUrl);
 		res.redirect(espUrl);
-		next();
 	});
 
 	return router;
