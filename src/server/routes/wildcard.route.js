@@ -1,5 +1,5 @@
 const { Router } = require('express');
-const queryString = require('query-string');
+const queryString = require('querystring');
 
 const router = new Router();
 
