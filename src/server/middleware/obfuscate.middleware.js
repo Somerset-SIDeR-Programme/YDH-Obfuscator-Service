@@ -1,5 +1,5 @@
 const { obfuscate } = require('obfuscated-querystring/lib');
-const queryString = require('query-string');
+const queryString = require('querystring');
 
 /**
  * @author Frazer Smith
