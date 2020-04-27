@@ -1,9 +1,9 @@
-const { serverConfig, winstonRotateConfig } = require('./config');
+const { serverConfig, loggerConfig } = require('./config');
 const Server = require('./server/server');
 
 new Server(serverConfig)
 	.configureHelmet()
-	.configureLogging(winstonRotateConfig)
+	.configureLogging(loggerConfig)
 	.configureKeycloakRetrival()
 	.configureRoutes()
 	.configureErrorHandling()
