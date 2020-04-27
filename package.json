@@ -14,7 +14,7 @@
 		"prettier": "prettier ** --write",
 		"start": "node src/index.js",
 		"test": "cross-env NODE_ENV=test yarn lint && yarn test-only",
-		"test-coverage": "cross-env NODE_ENV=test jest --coverage --runInBand",
+		"test-coverage": "cross-env NODE_ENV=test jest --coverage --collectCoverageFrom='src/server/**' --runInBand",
 		"test-only": "cross-env NODE_ENV=test jest --detectOpenHandles"
 	},
 	"jest": {
@@ -54,11 +54,10 @@
 	"dependencies": {
 		"axios": "^0.19.2",
 		"express": "^4.17.1",
-		"express-winston": "^4.0.3",
+		"express-pino-logger": "^4.0.0",
+		"file-stream-rotator": "^0.5.7",
 		"helmet": "^3.22.0",
 		"obfuscated-querystring": "git+https://github.com/BlackPearSw/obfuscated-querystring.git",
-		"sanitize-middleware": "^2.0.5",
-		"winston": "^3.2.1",
-		"winston-daily-rotate-file": "^4.4.2"
+		"sanitize-middleware": "^2.0.5"
 	}
 }

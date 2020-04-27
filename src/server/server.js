@@ -1,11 +1,10 @@
 const express = require('express');
-const expressWinston = require('express-winston');
+const expressPino = require('express-pino-logger');
+const rotatingLogStream = require('file-stream-rotator');
 const fs = require('fs');
 const helmet = require('helmet');
 const http = require('http');
 const https = require('https');
-const winston = require('winston');
-const WinstonRotate = require('winston-daily-rotate-file');
 
 // Import middleware
 const keycloakRetrieve = require('./middleware/keycloak.middleware');
@@ -88,31 +87,18 @@ class Server {
 
 	/**
 	 * @author Frazer Smith
-	 * @description Sets Winston Daily Rotate options for server.
-	 * @param {Object} winstonRotateConfig - Winston Daily Rotate configuration values.
+	 * @description Sets logging options for server.
+	 * @param {Object} loggerConfig - Logger configuration values.
+	 * @param {Object=} loggerConfig.options
+	 * @param {Object} loggerConfig.rotation
 	 * @returns {this} self
 	 */
-	configureWinston(winstonRotateConfig) {
-		const transport = new WinstonRotate(winstonRotateConfig);
-
+	configureLogging(loggerConfig) {
 		this.app.use(
-			expressWinston.logger({
-				format: winston.format.combine(
-					winston.format.colorize(),
-					winston.format.json()
-				),
-				requestWhitelist: [
-					'url',
-					'headers',
-					'method',
-					'httpVersion',
-					'originalUrl',
-					'query',
-					'ip',
-					'_startTime'
-				],
-				transports: [transport]
-			})
+			expressPino(
+				loggerConfig.options,
+				rotatingLogStream.getStream(loggerConfig.rotation)
+			)
 		);
 
 		// return self for chaining

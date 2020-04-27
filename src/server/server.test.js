@@ -1,5 +1,5 @@
 const request = require('supertest');
-const { serverConfig, winstonRotateConfig } = require('../config');
+const { serverConfig, loggerConfig } = require('../config');
 const Server = require('./server');
 
 const params = {
@@ -18,7 +18,7 @@ describe('Server deployment', () => {
 		const server = new Server()
 			.configureKeycloakRetrival()
 			.configureHelmet()
-			.configureWinston(winstonRotateConfig)
+			.configureLogging(loggerConfig)
 			.configureErrorHandling()
 			.listen();
 
