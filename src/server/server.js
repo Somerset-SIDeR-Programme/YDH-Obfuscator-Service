@@ -1,10 +1,10 @@
 const express = require('express');
 const expressPino = require('express-pino-logger');
+const rotatingLogStream = require('file-stream-rotator');
 const fs = require('fs');
 const helmet = require('helmet');
 const http = require('http');
 const https = require('https');
-const pino = require('pino');
 
 // Import middleware
 const keycloakRetrieve = require('./middleware/keycloak.middleware');
@@ -90,18 +90,14 @@ class Server {
 	 * @description Sets logging options for server.
 	 * @param {Object} loggerConfig - Logger configuration values.
 	 * @param {Object=} loggerConfig.options
-	 * @param {String} loggerConfig.logDirectory
+	 * @param {Object} loggerConfig.rotation
 	 * @returns {this} self
 	 */
 	configureLogging(loggerConfig) {
-		if(!fs.existsSync(loggerConfig.logDirectory)) {
-			fs.mkdirSync(loggerConfig.logDirectory);
-		}
-		
 		this.app.use(
 			expressPino(
 				loggerConfig.options,
-				pino.destination(`${loggerConfig.logDirectory}/logs/logs.json`)
+				rotatingLogStream.getStream(loggerConfig.rotation)
 			)
 		);
 
