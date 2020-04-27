@@ -69,20 +69,30 @@ const keycloakRetrieveConfig = {
 	}
 };
 
-// Refer to option documention: https://github.com/winstonjs/winston-daily-rotate-file/blob/master/README.md#options
-const winstonRotateConfig = {
-	auditFile: 'logs/logging-audit.json',
-	datePattern: 'YYYY-MM-DD',
-	dirname: 'logs',
-	extension: '.json',
-	filename: 'obs-service-log-%DATE%',
-	maxFiles: '14d',
-	maxSize: '20m',
-	zippedArchive: true
+const loggerConfig = {
+	options: {
+		serializers: {
+			req(req) {
+				return {
+					url: req.url,
+					ip: req.raw.ip,
+					headers: req.headers,
+					method: req.method,
+					query: req.raw.query,
+					httpVersion: req.raw.httpVersion
+				};
+			},
+			res(res) {
+				return { statusCode: res.statusCode };
+			}
+		}
+	},
+
+	logDirectory: `${process.cwd()}/logs`
 };
 
 module.exports = {
 	keycloakRetrieveConfig,
-	serverConfig,
-	winstonRotateConfig
+	loggerConfig,
+	serverConfig
 };

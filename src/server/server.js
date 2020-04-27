@@ -1,11 +1,10 @@
 const express = require('express');
-const expressWinston = require('express-winston');
+const expressPino = require('express-pino-logger');
 const fs = require('fs');
 const helmet = require('helmet');
 const http = require('http');
 const https = require('https');
-const winston = require('winston');
-const WinstonRotate = require('winston-daily-rotate-file');
+const pino = require('pino');
 
 // Import middleware
 const keycloakRetrieve = require('./middleware/keycloak.middleware');
@@ -90,29 +89,20 @@ class Server {
 	 * @author Frazer Smith
 	 * @description Sets logging options for server.
 	 * @param {Object} loggerConfig - Logger configuration values.
+	 * @param {Object=} loggerConfig.options
+	 * @param {String} loggerConfig.logDirectory
 	 * @returns {this} self
 	 */
 	configureLogging(loggerConfig) {
-		const transport = new WinstonRotate(loggerConfig);
-
+		if(!fs.existsSync(loggerConfig.logDirectory)) {
+			fs.mkdirSync(loggerConfig.logDirectory);
+		}
+		
 		this.app.use(
-			expressWinston.logger({
-				format: winston.format.combine(
-					winston.format.colorize(),
-					winston.format.json()
-				),
-				requestWhitelist: [
-					'url',
-					'headers',
-					'method',
-					'httpVersion',
-					'originalUrl',
-					'query',
-					'ip',
-					'_startTime'
-				],
-				transports: [transport]
-			})
+			expressPino(
+				loggerConfig.options,
+				pino.destination(`${loggerConfig.logDirectory}/logs/logs.json`)
+			)
 		);
 
 		// return self for chaining
