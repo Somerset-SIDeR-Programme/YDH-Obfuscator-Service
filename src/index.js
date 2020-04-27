@@ -3,7 +3,7 @@ const Server = require('./server/server');
 
 new Server(serverConfig)
 	.configureHelmet()
-	.configureWinston(winstonRotateConfig)
+	.configureLogging(winstonRotateConfig)
 	.configureKeycloakRetrival()
 	.configureRoutes()
 	.configureErrorHandling()
