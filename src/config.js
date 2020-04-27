@@ -24,7 +24,7 @@ const serverConfig = {
 				practitioner: { type: 'string', mandatory: true },
 				TPAGID: { type: 'string' },
 				FromIconProfile: { type: 'number' },
-				NOUNLOCK: { type: 'number' },
+				NOUNLOCK: { type: 'number' }
 				// access_token: { type: 'string' } // uncomment this when KeyCloak is fully implemented
 			}
 		}
@@ -69,20 +69,37 @@ const keycloakRetrieveConfig = {
 	}
 };
 
-// Refer to option documention: https://github.com/winstonjs/winston-daily-rotate-file/blob/master/README.md#options
-const winstonRotateConfig = {
-	auditFile: 'logs/logging-audit.json',
-	datePattern: 'YYYY-MM-DD',
-	dirname: 'logs',
-	extension: '.json',
-	filename: 'obs-service-log-%DATE%',
-	maxFiles: '14d',
-	maxSize: '20m',
-	zippedArchive: true
+const loggerConfig = {
+	// Pino options: https://github.com/pinojs/pino-http#custom-serializers
+	options: {
+		serializers: {
+			req(req) {
+				return {
+					url: req.url,
+					ip: req.raw.ip,
+					headers: req.headers,
+					method: req.method,
+					query: req.raw.query,
+					httpVersion: req.raw.httpVersion
+				};
+			},
+			res(res) {
+				return { statusCode: res.statusCode };
+			}
+		}
+	},
+
+	// Rotation options: https://github.com/rogerc/file-stream-rotator/#options
+	rotation: {
+		filename: `${process.cwd()}/logs/obs-service-%DATE%.log`,
+		frequency: 'daily',
+		verbose: false,
+		date_format: 'YYYY-MM-DD'
+	}
 };
 
 module.exports = {
 	keycloakRetrieveConfig,
-	serverConfig,
-	winstonRotateConfig
+	loggerConfig,
+	serverConfig
 };
