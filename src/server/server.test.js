@@ -18,7 +18,7 @@ describe('Server deployment', () => {
 		const server = new Server()
 			.configureKeycloakRetrival()
 			.configureHelmet()
-			.configureWinston(winstonRotateConfig)
+			.configureLogging(winstonRotateConfig)
 			.configureErrorHandling()
 			.listen();
 
