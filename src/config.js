@@ -24,7 +24,7 @@ const serverConfig = {
 				practitioner: { type: 'string', mandatory: true },
 				TPAGID: { type: 'string' },
 				FromIconProfile: { type: 'number' },
-				NOUNLOCK: { type: 'number' },
+				NOUNLOCK: { type: 'number' }
 				// access_token: { type: 'string' } // uncomment this when KeyCloak is fully implemented
 			}
 		}
@@ -70,6 +70,7 @@ const keycloakRetrieveConfig = {
 };
 
 const loggerConfig = {
+	// Pino options: https://github.com/pinojs/pino-http#custom-serializers
 	options: {
 		serializers: {
 			req(req) {
@@ -88,7 +89,13 @@ const loggerConfig = {
 		}
 	},
 
-	logDirectory: `${process.cwd()}/logs`
+	// Rotation options: https://github.com/rogerc/file-stream-rotator/#options
+	rotation: {
+		filename: `${process.cwd()}/logs/obs-service-%DATE%.log`,
+		frequency: 'daily',
+		verbose: false,
+		date_format: 'YYYY-MM-DD'
+	}
 };
 
 module.exports = {

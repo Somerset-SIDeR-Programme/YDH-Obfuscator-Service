@@ -55,9 +55,9 @@
 		"axios": "^0.19.2",
 		"express": "^4.17.1",
 		"express-pino-logger": "^4.0.0",
+		"file-stream-rotator": "^0.5.7",
 		"helmet": "^3.22.0",
 		"obfuscated-querystring": "git+https://github.com/BlackPearSw/obfuscated-querystring.git",
-		"pino": "^6.2.1",
 		"sanitize-middleware": "^2.0.5"
 	}
 }
