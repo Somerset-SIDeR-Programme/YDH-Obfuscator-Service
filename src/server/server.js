@@ -29,7 +29,7 @@ class Server {
 		// Setup our Express instance
 		this.app = express();
 
-		// return self for chaining
+		// Return self for chaining
 		return this;
 	}
 
@@ -41,7 +41,7 @@ class Server {
 	configureErrorHandling() {
 		this.app.use(errorHandler());
 
-		// return self for chaining
+		// Return self for chaining
 		return this;
 	}
 
@@ -68,7 +68,7 @@ class Server {
 	configureKeycloakRetrival(kcConfig) {
 		this.app.use(keycloakRetrieve(kcConfig));
 
-		// return self for chaining
+		// Return self for chaining
 		return this;
 	}
 
@@ -81,7 +81,7 @@ class Server {
 	configureRoutes() {
 		this.app.use('*', wildcardRoute(this));
 
-		// return self for chaining
+		// Return self for chaining
 		return this;
 	}
 
@@ -101,7 +101,7 @@ class Server {
 			)
 		);
 
-		// return self for chaining
+		// Return self for chaining
 		return this;
 	}
 
