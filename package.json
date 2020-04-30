@@ -43,7 +43,7 @@
 		"eslint-plugin-import": "^2.20.2",
 		"eslint-plugin-jest": "^23.8.2",
 		"eslint-plugin-json": "^2.1.1",
-		"jest": "^25.5.1",
+		"jest": "^25.5.2",
 		"jsinspect": "^0.12.7",
 		"node-mocks-http": "^1.8.1",
 		"nodemon": "^2.0.3",
