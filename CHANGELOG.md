@@ -1,3 +1,41 @@
+## 7.0.0 (2020-05-01)
+
+-   build(deps-dev): bump coveralls from 3.0.11 to 3.1.0 ([ef5a164](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/ef5a164))
+-   build(deps-dev): bump eslint-config-prettier from 6.10.1 to 6.11.0 ([7ade1c1](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/7ade1c1))
+-   build(deps-dev): bump jest from 25.2.7 to 25.5.1 ([dbfe8b4](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/dbfe8b4))
+-   build(deps-dev): bump jest from 25.5.1 to 25.5.2 ([8c5a042](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/8c5a042))
+-   build(deps-dev): bump jest from 25.5.2 to 25.5.3 ([5162a36](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/5162a36))
+-   build(deps-dev): bump nodemon from 2.0.2 to 2.0.3 ([76d9501](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/76d9501))
+-   build(deps-dev): bump prettier from 2.0.4 to 2.0.5 ([472a490](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/472a490))
+-   build(deps): bump express-pino-logger from 4.0.0 to 5.0.0 ([b1930bb](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/b1930bb))
+-   build(deps): bump sanitize-middleware from 2.0.5 to 2.0.6 ([f0d2d56](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/f0d2d56))
+-   tests: ignore index and config in coverage collection ([c06ce89](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/c06ce89))
+-   tests: only collect coverage from src/server path ([461273d](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/461273d))
+-   tests(package): add runinband option for jest cli ([421a3a4](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/421a3a4))
+-   tests(server): remove configureObfuscation function calls ([70f7eca](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/70f7eca))
+-   tests(server): remove redundant jest timeout setting ([6ccb456](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/6ccb456))
+-   tests(server): tidy test structure ([f05331f](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/f05331f))
+-   chore: rebuild changelog ([7de43c8](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/7de43c8))
+-   chore(config): add access_token comment ([10598ed](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/10598ed))
+-   style: capitalise leading character of comments ([e6ce16c](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/e6ce16c))
+-   style: tidy whitespace ([907d94c](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/907d94c))
+-   style(middleware): rename variables to be clearer ([741cef5](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/741cef5))
+-   style(server): rename configureWinston function to configureLogging ([1bc5351](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/1bc5351))
+-   feat: added rotating daily log files ([12fe158](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/12fe158))
+-   refactor: replace query-string module with native module ([b0ba02c](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/b0ba02c))
+-   refactor(middleware): destruct config object ([404ac37](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/404ac37))
+-   refactor(routes): move route to own router ([84a3319](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/84a3319))
+-   refactor(routes): replace deprecated request module with axios ([d0b744a](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/d0b744a))
+-   refactor(server): replace winston logging module with pino ([66ac513](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/66ac513))
+-   fix(routes): remove next call ([e2d854c](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/e2d854c))
+-   docs: correct case when referencing express ([79fbc16](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/79fbc16))
+-   docs(middleware): clarify source ([3292d04](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/3292d04))
+-   docs(readme): update pm2-windows-service link ([73f7260](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/73f7260))
+
+### BREAKING CHANGE
+
+-   configureObfuscation function has been removed from server class
+
 ## <small>6.0.2 (2020-04-06)</small>
 
 -   chore: prep release ([de0568f](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/de0568f))
