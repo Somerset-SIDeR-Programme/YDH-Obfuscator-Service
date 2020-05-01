@@ -4190,7 +4190,7 @@ modify-values@^1.0.0:
   resolved "https://registry.yarnpkg.com/modify-values/-/modify-values-1.0.1.tgz#b3939fa605546474e3e3e3c63d64bd43b4ee6022"
   integrity sha512-xV2bxeN6F7oYjZWTe/YPAy6MN2M+sL4u/Rlm2AHCIVGfo2p1yGmBHQ6vHehl4bRTZBdHu3TSkWdYgkwpYzAGSw==
 
-moment@^2.11.2, moment@^2.24.0:
+moment@^2.11.2:
   version "2.24.0"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
   integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
@@ -5286,12 +5286,11 @@ sanitize-html@^1.22.1:
     srcset "^2.0.1"
     xtend "^4.0.1"
 
-sanitize-middleware@^2.0.5:
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/sanitize-middleware/-/sanitize-middleware-2.0.5.tgz#a4799648164088b31b7cd1dbce02cf11bae8def9"
-  integrity sha512-0MUdql5jIos7hJqrukB4Wx4h0De983iiUw/d57MUCH7lmXJSEL34CmYIS0bYFyXTI0X5HiLMrrt/JKRYDR6DGw==
+sanitize-middleware@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/sanitize-middleware/-/sanitize-middleware-2.0.6.tgz#f1a9523c81ee9c563cc962b6a1ba48348c7c6071"
+  integrity sha512-wHbJfeygyG+J9ogbShKiEXm6xEvHX7kaPMG85mFP2QI4pz7QyKrfGnVmO2DUPiRoKj+WImd/XMLOPDwqunVfmg==
   dependencies:
-    moment "^2.24.0"
     sanitize-html "^1.22.1"
     validator "^13.0.0"
     xss "^1.0.6"
