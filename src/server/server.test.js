@@ -16,9 +16,9 @@ const params = {
 describe('Server deployment', () => {
 	test('Should assign default values if none provided', async () => {
 		const server = new Server()
-			.configureKeycloakRetrival()
 			.configureHelmet()
 			.configureLogging(loggerConfig)
+			.configureKeycloakRetrival()
 			.configureErrorHandling()
 			.listen();
 
@@ -26,19 +26,43 @@ describe('Server deployment', () => {
 		await server.shutdown();
 	});
 
-	test('Should set protocol to https', () => {
+	test('Should set protocol to https with cert and key files', async () => {
 		const httpsServerConfig = { ...serverConfig };
 		httpsServerConfig.https = true;
+		httpsServerConfig.ssl.cert = `${process.cwd()}/test_ssl_cert/server.cert`;
+		httpsServerConfig.ssl.key = `${process.cwd()}/test_ssl_cert/server.key`;
 
 		try {
 			const server = new Server(httpsServerConfig)
-				.configureKeycloakRetrival()
 				.configureHelmet()
+				.configureKeycloakRetrival()
 				.configureRoutes()
 				.configureErrorHandling()
 				.listen();
 
 			expect(server.config.protocol).toBe('https');
+			await server.shutdown();
+		} catch (error) {
+			// Do nothing
+		}
+	});
+
+	test('Should set protocol to https with pfx file and passphrase', async () => {
+		const httpsServerConfig = { ...serverConfig };
+		httpsServerConfig.https = true;
+		httpsServerConfig.ssl.pfx.pfx = `${process.cwd()}/test_ssl_cert/server.pfx`;
+		httpsServerConfig.ssl.pfx.passphrase = 'test';
+
+		try {
+			const server = new Server(httpsServerConfig)
+				.configureHelmet()
+				.configureKeycloakRetrival()
+				.configureRoutes()
+				.configureErrorHandling()
+				.listen();
+
+			expect(server.config.protocol).toBe('https');
+			await server.shutdown();
 		} catch (error) {
 			// Do nothing
 		}
@@ -51,8 +75,8 @@ describe('Redirects', () => {
 
 	beforeEach(() => {
 		server = new Server(serverConfig)
-			.configureKeycloakRetrival()
 			.configureHelmet()
+			.configureKeycloakRetrival()
 			.configureRoutes()
 			.configureErrorHandling()
 			.listen();
