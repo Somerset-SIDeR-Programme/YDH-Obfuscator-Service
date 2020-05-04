@@ -16,9 +16,9 @@ const params = {
 describe('Server deployment', () => {
 	test('Should assign default values if none provided', async () => {
 		const server = new Server()
-			.configureKeycloakRetrival()
 			.configureHelmet()
 			.configureLogging(loggerConfig)
+			.configureKeycloakRetrival()
 			.configureErrorHandling()
 			.listen();
 
@@ -34,8 +34,8 @@ describe('Server deployment', () => {
 
 		try {
 			const server = new Server(httpsServerConfig)
-				.configureKeycloakRetrival()
 				.configureHelmet()
+				.configureKeycloakRetrival()
 				.configureRoutes()
 				.configureErrorHandling()
 				.listen();
@@ -55,8 +55,8 @@ describe('Server deployment', () => {
 
 		try {
 			const server = new Server(httpsServerConfig)
-				.configureKeycloakRetrival()
 				.configureHelmet()
+				.configureKeycloakRetrival()
 				.configureRoutes()
 				.configureErrorHandling()
 				.listen();
@@ -75,8 +75,8 @@ describe('Redirects', () => {
 
 	beforeEach(() => {
 		server = new Server(serverConfig)
-			.configureKeycloakRetrival()
 			.configureHelmet()
+			.configureKeycloakRetrival()
 			.configureRoutes()
 			.configureErrorHandling()
 			.listen();
