@@ -55,7 +55,9 @@ describe('Keycloak middleware', () => {
 	});
 
 	test('Should throw type error if url value missing when retrieving request token', async () => {
-		const altKeycloakConfig = JSON.parse(JSON.stringify(keycloakRetrieveConfig));
+		const altKeycloakConfig = JSON.parse(
+			JSON.stringify(keycloakRetrieveConfig)
+		);
 		delete altKeycloakConfig.requestToken.url;
 
 		const middleware = keycloakMiddleware(altKeycloakConfig);
@@ -78,7 +80,9 @@ describe('Keycloak middleware', () => {
 	});
 
 	test('Should throw type error if url value missing when making service authorisation', async () => {
-		const altKeycloakConfig = JSON.parse(JSON.stringify(keycloakRetrieveConfig));
+		const altKeycloakConfig = JSON.parse(
+			JSON.stringify(keycloakRetrieveConfig)
+		);
 		delete altKeycloakConfig.serviceAuthorisation.url;
 
 		const middleware = keycloakMiddleware(altKeycloakConfig);
@@ -101,7 +105,9 @@ describe('Keycloak middleware', () => {
 	});
 
 	test('Should throw error if connection issue encountered when retrieving request token', async () => {
-		const altKeycloakConfig = JSON.parse(JSON.stringify(keycloakRetrieveConfig));
+		const altKeycloakConfig = JSON.parse(
+			JSON.stringify(keycloakRetrieveConfig)
+		);
 		altKeycloakConfig.requestToken.url = 'test';
 
 		const middleware = keycloakMiddleware(altKeycloakConfig);
@@ -124,7 +130,9 @@ describe('Keycloak middleware', () => {
 	});
 
 	test('Should throw error if connection issue encountered when making service authorisation', async () => {
-		const altKeycloakConfig = JSON.parse(JSON.stringify(keycloakRetrieveConfig));
+		const altKeycloakConfig = JSON.parse(
+			JSON.stringify(keycloakRetrieveConfig)
+		);
 		altKeycloakConfig.serviceAuthorisation.url = 'test';
 
 		const middleware = keycloakMiddleware(altKeycloakConfig);
