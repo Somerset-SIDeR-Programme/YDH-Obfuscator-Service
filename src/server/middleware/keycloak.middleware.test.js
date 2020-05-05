@@ -54,7 +54,7 @@ describe('Keycloak middleware', () => {
 	});
 
 	test('Should throw error if connection issue encountered', async () => {
-		const altKeycloakConfig = { ...keycloakRetrieveConfig};
+		const altKeycloakConfig = { ...keycloakRetrieveConfig };
 		delete altKeycloakConfig.requestToken.url;
 
 		const middleware = keycloakMiddleware(altKeycloakConfig);

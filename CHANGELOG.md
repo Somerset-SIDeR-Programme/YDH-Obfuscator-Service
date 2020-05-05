@@ -1,3 +1,14 @@
+## <small>7.0.1 (2020-05-05)</small>
+
+-   builds(deps-dev): bump dev dependencies ([c642b14](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/c642b14))
+-   tests(middleware): add mock keycloak config ([185e409](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/185e409))
+-   tests(middleware): add mock keycloak server ([3e45796](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/3e45796))
+-   tests(middleware): add tests using mock keycloak server and config ([1e08559](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/1e08559))
+-   tests(server): add test self-signed localhost pfx, key, and cert files ([0561dd3](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/0561dd3))
+-   tests(server): correct call order of server class functions ([856d851](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/856d851))
+-   refactor(middleware): no longer exclude if using test environment ([e86eaa8](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/e86eaa8))
+-   chore(config): remove leftover header option values ([d763058](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/d763058))
+
 ## 7.0.0 (2020-05-01)
 
 -   build(deps-dev): bump coveralls from 3.0.11 to 3.1.0 ([ef5a164](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/ef5a164))
