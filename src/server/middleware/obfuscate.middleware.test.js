@@ -93,6 +93,9 @@ describe('Obfuscation and serialisation middleware', () => {
 
 		middleware(req, res, next);
 		expect(next).toHaveBeenCalledTimes(1);
+		expect(next.mock.calls[0][0].message).toBe(
+			'An essential parameter is missing'
+		);
 		expect(res.statusCode).toBe(400);
 	});
 
@@ -112,6 +115,9 @@ describe('Obfuscation and serialisation middleware', () => {
 
 		middleware(req, res, next);
 		expect(next).toHaveBeenCalledTimes(1);
+		expect(next.mock.calls[0][0].message).toBe(
+			'Query string missing from request'
+		);
 		expect(res.statusCode).toBe(400);
 	});
 
@@ -131,6 +137,7 @@ describe('Obfuscation and serialisation middleware', () => {
 
 		middleware(req, res, next);
 		expect(next).toHaveBeenCalledTimes(1);
+		expect(next.mock.calls[0][0].message).toBe('Error: options undefined');
 		expect(res.statusCode).toBe(500);
 	});
 
@@ -152,6 +159,9 @@ describe('Obfuscation and serialisation middleware', () => {
 
 		middleware(req, res, next);
 		expect(next).toHaveBeenCalledTimes(1);
+		expect(next.mock.calls[0][0].message).toBe(
+			'List of required query keys not passed to server middleware in correct type'
+		);
 		expect(res.statusCode).toBe(500);
 	});
 });
