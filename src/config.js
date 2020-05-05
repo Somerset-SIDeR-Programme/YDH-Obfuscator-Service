@@ -44,11 +44,6 @@ const keycloakRetrieveConfig = {
 			requested_token_type:
 				'urn:ietf:params:oauth:token-type:access_token'
 		},
-		options: {
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded'
-			}
-		},
 		url: ''
 	},
 	// Service authorisation to retrieve subject access token
@@ -59,11 +54,6 @@ const keycloakRetrieveConfig = {
 			grant_type: '',
 			password: '',
 			username: ''
-		},
-		options: {
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded'
-			}
 		},
 		url: ''
 	}

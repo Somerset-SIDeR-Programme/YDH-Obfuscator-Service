@@ -29,11 +29,8 @@ const queryString = require('querystring');
  */
 module.exports = function keycloakMiddleware(config = {}) {
 	return async (req, res, next) => {
-		// Don't attempt to retrieve access tokens if testing or if config not supplied
-		if (
-			process.env.NODE_ENV.toLowerCase() === 'test' ||
-			Object.keys(config).length === 0
-		) {
+		// Don't attempt to retrieve access tokens if config not supplied
+		if (Object.keys(config).length === 0) {
 			next();
 		} else {
 			try {
