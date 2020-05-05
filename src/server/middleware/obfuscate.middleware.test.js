@@ -45,7 +45,7 @@ describe('Obfuscation and serialisation middleware', () => {
 	});
 
 	test('Should obfuscate patient and birthdate parameters with requiredProperties provided as array', () => {
-		const arrayServerConfig = { ...serverConfig };
+		const modServerConfig = { ...serverConfig };
 		const requiredProperties = [
 			'patient',
 			'birthdate',
@@ -53,7 +53,7 @@ describe('Obfuscation and serialisation middleware', () => {
 			'practitioner'
 		];
 		const middleware = obfuscateMiddleware(
-			arrayServerConfig.obfuscation,
+			modServerConfig.obfuscation,
 			requiredProperties
 		);
 
