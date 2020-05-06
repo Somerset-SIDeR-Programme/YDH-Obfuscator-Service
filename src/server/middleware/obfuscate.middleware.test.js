@@ -38,10 +38,10 @@ describe('Obfuscation and serialisation middleware', () => {
 		const next = jest.fn();
 
 		middleware(req, res, next);
-		expect(next).toHaveBeenCalledTimes(1);
 		expect(typeof req.query.patient).toBe('undefined');
 		expect(typeof req.query.birthdate).toBe('undefined');
 		expect(typeof req.query.enc).toBe('string');
+		expect(next).toHaveBeenCalledTimes(1);
 	});
 
 	test('Should obfuscate patient and birthdate parameters with requiredProperties provided as array', () => {
@@ -68,10 +68,10 @@ describe('Obfuscation and serialisation middleware', () => {
 		const next = jest.fn();
 
 		middleware(req, res, next);
-		expect(next).toHaveBeenCalledTimes(1);
 		expect(typeof req.query.patient).toBe('undefined');
 		expect(typeof req.query.birthdate).toBe('undefined');
 		expect(typeof req.query.enc).toBe('string');
+		expect(next).toHaveBeenCalledTimes(1);
 	});
 
 	test('Should return 400 client error if an essential parameter is missing', () => {
@@ -92,11 +92,11 @@ describe('Obfuscation and serialisation middleware', () => {
 		const next = jest.fn();
 
 		middleware(req, res, next);
+		expect(res.statusCode).toBe(400);
 		expect(next).toHaveBeenCalledTimes(1);
 		expect(next.mock.calls[0][0].message).toBe(
 			'An essential parameter is missing'
 		);
-		expect(res.statusCode).toBe(400);
 	});
 
 	test('Should return 400 client error if query string missing', () => {
@@ -114,11 +114,11 @@ describe('Obfuscation and serialisation middleware', () => {
 		const next = jest.fn();
 
 		middleware(req, res, next);
+		expect(res.statusCode).toBe(400);
 		expect(next).toHaveBeenCalledTimes(1);
 		expect(next.mock.calls[0][0].message).toBe(
 			'Query string missing from request'
 		);
-		expect(res.statusCode).toBe(400);
 	});
 
 	test('Should return 500 server error if required config values are missing', () => {
@@ -136,9 +136,9 @@ describe('Obfuscation and serialisation middleware', () => {
 		const next = jest.fn();
 
 		middleware(req, res, next);
+		expect(res.statusCode).toBe(500);
 		expect(next).toHaveBeenCalledTimes(1);
 		expect(next.mock.calls[0][0].message).toBe('Error: options undefined');
-		expect(res.statusCode).toBe(500);
 	});
 
 	test('Should return 500 server error if requiredProperties argument incorrect type', () => {
@@ -158,10 +158,10 @@ describe('Obfuscation and serialisation middleware', () => {
 		const next = jest.fn();
 
 		middleware(req, res, next);
+		expect(res.statusCode).toBe(500);
 		expect(next).toHaveBeenCalledTimes(1);
 		expect(next.mock.calls[0][0].message).toBe(
 			'List of required query keys not passed to server middleware in correct type'
 		);
-		expect(res.statusCode).toBe(500);
 	});
 });
