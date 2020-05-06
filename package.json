@@ -1,11 +1,14 @@
 {
 	"name": "ydh-sider-obfuscation-service",
-	"version": "7.0.1",
+	"version": "7.0.2",
 	"description": "NodeJS Express application to obfuscate URL query parameters before sending to SIDeR eSP.",
 	"main": "src/index.js",
 	"repository": "git+https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service.git",
 	"author": "Frazer Smith <frazer.smith@ydh.nhs.uk>",
 	"license": "MIT",
+	"engines": {
+		"node": ">=12.16.3"
+	},
 	"scripts": {
 		"changelog": "conventional-changelog -p @commitlint/config-conventional -s -i CHANGELOG.md && prettier CHANGELOG.md --write",
 		"dupe-check": "yarn jsinspect ./src",
