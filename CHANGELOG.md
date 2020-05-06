@@ -1,3 +1,15 @@
+## <small>7.0.2 (2020-05-06)</small>
+
+-   chore(package): set minimum engine version ([0ad4f51](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/0ad4f51))
+-   tests: align modified server config variable name across tests ([3cfbf9d](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/3cfbf9d))
+-   tests(middleware): extend test pass conditions ([b182efd](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/b182efd))
+-   tests(middleware): extend test pass conditions for all middleware ([82e71fe](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/82e71fe))
+-   tests(middleware): extend test pass conditions for obfuscation ([4a8c09e](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/4a8c09e))
+-   tests(middleware): reorder expects to follow res, req, next input ([6f9351f](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/6f9351f))
+-   tests(server): remove redundant expect ([69141da](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/69141da))
+-   tests(server): replace shallow spread with deep copies ([f8ab130](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/f8ab130))
+-   style(middleware): tidy whitespace ([5656ec7](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/5656ec7))
+
 ## <small>7.0.1 (2020-05-05)</small>
 
 -   builds(deps-dev): bump dev dependencies ([c642b14](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/c642b14))
