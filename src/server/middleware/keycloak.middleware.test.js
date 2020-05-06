@@ -33,6 +33,7 @@ describe('Keycloak middleware', () => {
 
 		middleware(req, res, next);
 		expect(next).toHaveBeenCalledTimes(1);
+		expect(next.mock.calls[0][0]).toBeUndefined();
 	});
 
 	test('Should return access_token', async () => {

@@ -42,6 +42,7 @@ describe('Obfuscation and serialisation middleware', () => {
 		expect(typeof req.query.birthdate).toBe('undefined');
 		expect(typeof req.query.enc).toBe('string');
 		expect(next).toHaveBeenCalledTimes(1);
+		expect(next.mock.calls[0][0]).toBeUndefined();
 	});
 
 	test('Should obfuscate patient and birthdate parameters with requiredProperties provided as array', () => {
@@ -72,6 +73,7 @@ describe('Obfuscation and serialisation middleware', () => {
 		expect(typeof req.query.birthdate).toBe('undefined');
 		expect(typeof req.query.enc).toBe('string');
 		expect(next).toHaveBeenCalledTimes(1);
+		expect(next.mock.calls[0][0]).toBeUndefined();
 	});
 
 	test('Should return 400 client error if an essential parameter is missing', () => {
