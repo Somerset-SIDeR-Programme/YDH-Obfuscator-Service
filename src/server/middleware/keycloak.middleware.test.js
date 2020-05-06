@@ -48,10 +48,10 @@ describe('Keycloak middleware', () => {
 		const next = jest.fn();
 
 		await middleware(req, res, next);
-		expect(next).toHaveBeenCalledTimes(1);
-		expect(next.mock.calls[0][0]).toBeUndefined();
 		expect(req.query.access_token).toBe('mock-access-token-authorised');
 		expect(res.statusCode).toBe(200);
+		expect(next).toHaveBeenCalledTimes(1);
+		expect(next.mock.calls[0][0]).toBeUndefined();
 	});
 
 	test('Should throw type error if url value missing when retrieving request token', async () => {
@@ -72,11 +72,11 @@ describe('Keycloak middleware', () => {
 		const next = jest.fn();
 
 		await middleware(req, res, next);
+		expect(res.statusCode).toBe(500);
 		expect(next).toHaveBeenCalledTimes(1);
 		expect(next.mock.calls[0][0].message).toBe(
 			'TypeError [ERR_INVALID_ARG_TYPE]: The "url" argument must be of type string. Received undefined'
 		);
-		expect(res.statusCode).toBe(500);
 	});
 
 	test('Should throw type error if url value missing when making service authorisation', async () => {
@@ -97,11 +97,11 @@ describe('Keycloak middleware', () => {
 		const next = jest.fn();
 
 		await middleware(req, res, next);
+		expect(res.statusCode).toBe(500);
 		expect(next).toHaveBeenCalledTimes(1);
 		expect(next.mock.calls[0][0].message).toBe(
 			'TypeError [ERR_INVALID_ARG_TYPE]: The "url" argument must be of type string. Received undefined'
 		);
-		expect(res.statusCode).toBe(500);
 	});
 
 	test('Should throw error if connection issue encountered when retrieving request token', async () => {
@@ -122,11 +122,11 @@ describe('Keycloak middleware', () => {
 		const next = jest.fn();
 
 		await middleware(req, res, next);
+		expect(res.statusCode).toBe(500);
 		expect(next).toHaveBeenCalledTimes(1);
 		expect(next.mock.calls[0][0].message).toBe(
 			'Error: connect ECONNREFUSED 127.0.0.1:80'
 		);
-		expect(res.statusCode).toBe(500);
 	});
 
 	test('Should throw error if connection issue encountered when making service authorisation', async () => {
@@ -147,10 +147,10 @@ describe('Keycloak middleware', () => {
 		const next = jest.fn();
 
 		await middleware(req, res, next);
+		expect(res.statusCode).toBe(500);
 		expect(next).toHaveBeenCalledTimes(1);
 		expect(next.mock.calls[0][0].message).toBe(
 			'Error: connect ECONNREFUSED 127.0.0.1:80'
 		);
-		expect(res.statusCode).toBe(500);
 	});
 });

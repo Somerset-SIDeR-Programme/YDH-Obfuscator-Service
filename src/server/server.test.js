@@ -157,6 +157,5 @@ describe('Keycloak token retrival', () => {
 			.query(params);
 
 		expect(response.statusCode).toBe(302);
-		expect(process.env.NODE_ENV).toBe('test');
 	});
 });
