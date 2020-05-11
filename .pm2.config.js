@@ -8,7 +8,7 @@ module.exports = {
             HOST: undefined,
             PFX_PASSPHRASE: undefined,
             PFX_FILE_PATH: undefined,
-            SSL_CERT_PATH: undefined, // Example path: './ssl_certs/exampleclientcert.cer'
+            SSL_CERT_PATH: undefined,
             SSL_KEY_PATH: undefined
           },
         exec_mode: 'cluster',
