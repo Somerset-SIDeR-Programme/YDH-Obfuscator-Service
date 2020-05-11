@@ -1,13 +1,16 @@
+require('dotenv').config();
+
 const serverConfig = {
 	https: false,
-	port: 8204,
+	port: process.env.PORT || 8204,
+	host: process.env.HOST,
 	recievingEndpoint: 'https://pyrusapps.blackpear.com/esp/#!/launch?',
 	ssl: {
-		cert: './ssl_certs/ydhclientcert.cer', // Example path
-		key: '',
+		cert: process.env.SSL_CERT_PATH,
+		key: process.env.SSL_KEY_PATH,
 		pfx: {
-			passphrase: '',
-			pfx: ''
+			passphrase: process.env.PFX_PASSPHRASE,
+			pfx: process.env.PFX_FILE_PATH
 		}
 	},
 	obfuscation: {

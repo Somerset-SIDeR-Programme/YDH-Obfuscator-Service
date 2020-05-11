@@ -71,7 +71,7 @@ describe('Server deployment', () => {
 
 describe('Redirects', () => {
 	let server;
-	const path = `http://127.0.0.1:${serverConfig.port}`;
+	const path = `http://0.0.0.0:${serverConfig.port}`;
 
 	beforeEach(() => {
 		server = new Server(serverConfig)
@@ -132,7 +132,7 @@ describe('Redirects', () => {
 describe('Keycloak token retrival', () => {
 	let server;
 	const port = '8206';
-	const path = `http://127.0.0.1:${port}`;
+	const path = `http://0.0.0.0:${port}`;
 	const modServerConfig = { ...serverConfig };
 	modServerConfig.port = port;
 
