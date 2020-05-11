@@ -21,8 +21,9 @@ This has been deployed on a local server that the SIDeR contextual link within t
 
 1. Navigate to the repo
 2. Run `yarn install` to install dependencies
-3. Configure the application using the following global variables in the `.env` file in the root directory
-4. Run `yarn start`
+3. Make a copy of the `.env.example` file in the root directory and rename to `.env`
+4. Configure the application using the global variables in the `.env` file
+5. Run `yarn start`
 
 The Express server should now be up and running on the port set in the config. You should see the following output:
 
