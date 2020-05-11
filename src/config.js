@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 const serverConfig = {
-	https: false,
+	https: process.env.USE_HTTPS || false,
 	port: process.env.PORT || 8204,
 	host: process.env.HOST,
 	recievingEndpoint: 'https://pyrusapps.blackpear.com/esp/#!/launch?',
