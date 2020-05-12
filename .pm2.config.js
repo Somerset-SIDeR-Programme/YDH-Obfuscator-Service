@@ -3,14 +3,7 @@ module.exports = {
     apps : [{
         cwd: __dirname,
         env: {
-            NODE_ENV: "production",
-            PORT: 8204,
-            HOST: undefined,
-            USE_HTTPS: false,
-            PFX_PASSPHRASE: undefined,
-            PFX_FILE_PATH: undefined,
-            SSL_CERT_PATH: undefined,
-            SSL_KEY_PATH: undefined
+            NODE_ENV: "production"
           },
         exec_mode: 'cluster',
         instances: 4,
