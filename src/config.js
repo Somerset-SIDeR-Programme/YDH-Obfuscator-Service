@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('custom-env').env();
 
 const serverConfig = {
 	https: process.env.USE_HTTPS || false,
