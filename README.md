@@ -21,7 +21,7 @@ This has been deployed on a local server that the SIDeR contextual link within t
 
 1. Navigate to the repo
 2. Run `yarn install` to install dependencies
-3. Make a copy of the `.env.example` file in the root directory and rename to `.env`
+3. Make a copy of the `.env.development` file in the root directory and rename to `.env`
 4. Configure the application using the global variables in the `.env` file
 5. Run `yarn start`
 
@@ -49,16 +49,25 @@ The web browser or request builder used should be redirected to Black Pear's ESP
 
 If the patient, birthdate, location or practitioner parameters are removed from the original URL the obfuscation process and redirect will not occur, and a status 400 will be returned with the message "An essential parameter is missing".
 
+### Deploying using Docker
+
+This requires [Docker](https://www.docker.com/products) installed.
+
+1. Make a copy of the `.env.development` file in the root directory and rename to `.env.production`
+2. Configure the application using the global variables in the `.env.production` file
+3. Run `docker-compose up`
+
 ### Deploying using PM2
 
 It is [recommended](https://expressjs.com/en/advanced/pm.html) that you use a process manager such as [PM2](https://pm2.keymetrics.io/) when deploying Express applications like this into production.
 
 1. Navigate to the repo
 2. Run `yarn install` to install dependencies
-3. Configure the application in `.pm2.config.js`
-4. Run `yarn global add pm2` to install pm2 globally
-5. Launch application with `pm2 start .pm2.config.js`
-6. Check the application has been deployed using `pm2 list` or `pm2 monit`
+3. Make a copy of the `.env.development` file in the root directory and rename to `.env.production`
+4. Configure the application using the global variables in the `.env.production` file
+5. Run `yarn global add pm2` to install pm2 globally
+6. Launch application with `pm2 start .pm2.config.js`
+7. Check the application has been deployed using `pm2 list` or `pm2 monit`
 
 #### To install as a Windows service:
 

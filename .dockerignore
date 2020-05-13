@@ -71,7 +71,6 @@ web_modules/
 # dotenv environment variables file
 .env
 .env.test
-.env.production
 
 # parcel-bundler cache (https://parceljs.org/)
 .cache
@@ -114,6 +113,3 @@ dist
 .yarn/unplugged
 .yarn/build-state.yml
 .pnp.*
-
-# Dev KeyCloak endpoint config
-src/keycloak-retrieve.config.js

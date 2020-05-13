@@ -18,12 +18,8 @@ module.exports = function wildcardRoute(options) {
 	const { config } = options;
 
 	router.use(
-		sanitize(config.obfuscation.requiredProperties),
-
-		obfuscate(
-			config.obfuscation,
-			config.obfuscation.requiredProperties.query
-		)
+		sanitize(),
+		obfuscate(config.obfuscation, config.obfuscation.requiredProperties)
 	);
 
 	router.route('*').get((req, res) => {

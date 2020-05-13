@@ -1,4 +1,4 @@
-require('dotenv').config();
+require('custom-env').env();
 
 const serverConfig = {
 	https: process.env.USE_HTTPS || false,
@@ -19,46 +19,38 @@ const serverConfig = {
 			value: '0123456789'
 		},
 		obfuscate: ['birthdate', 'patient'],
-		requiredProperties: {
-			query: {
-				patient: { type: 'string', mandatory: true },
-				birthdate: { type: 'string', mandatory: true },
-				location: { type: 'string', mandatory: true },
-				practitioner: { type: 'string', mandatory: true },
-				TPAGID: { type: 'string' },
-				FromIconProfile: { type: 'number' },
-				NOUNLOCK: { type: 'number' }
-				// access_token: { type: 'string' } // uncomment this when KeyCloak is fully implemented
-			}
-		}
+		// Add 'access_token' to requiredProperties array when Keycloak turned on
+		requiredProperties: ['birthdate', 'location', 'patient', 'practitioner']
 	}
 };
 
-// Refer to option documentation: https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/token-exchange/token-exchange.adoc
 const keycloakRetrieveConfig = {
 	// Request access token for user
 	requestToken: {
 		form: {
-			audience: '',
-			client_id: '',
-			client_secret: '',
-			grant_type: 'urn:ietf:params:oauth:grant-type:token-exchange',
-			requested_subject: '',
+			audience: process.env.KC_REQUESTTOKEN_AUDIENCE,
+			client_id: process.env.KC_REQUESTTOKEN_CLIENT_ID,
+			client_secret: process.env.KC_REQUESTTOKEN_CLIENT_SECRET,
+			grant_type:
+				process.env.KC_REQUESTTOKEN_GRANT_TYPE ||
+				'urn:ietf:params:oauth:grant-type:token-exchange',
+			requested_subject: process.env.KC_REQUESTTOKEN_REQUESTED_SUBJECT,
 			requested_token_type:
+				process.env.KC_REQUESTTOKEN_REQUESTED_TOKEN_TYPE ||
 				'urn:ietf:params:oauth:token-type:access_token'
 		},
-		url: ''
+		url: process.env.KC_REQUESTTOKEN_URL
 	},
 	// Service authorisation to retrieve subject access token
 	serviceAuthorisation: {
 		form: {
-			client_id: '',
-			client_secret: '',
-			grant_type: '',
-			password: '',
-			username: ''
+			client_id: process.env.KC_SERVICEAUTH_CLIENT_ID,
+			client_secret: process.env.KC_SERVICEAUTH_CLIENT_SECRET,
+			grant_type: process.env.KC_SERVICEAUTH_GRANT_TYPE,
+			password: process.env.KC_SERVICEAUTH_PASSWORD,
+			username: process.env.KC_SERVICEAUTH_USERNAME
 		},
-		url: ''
+		url: process.env.KC_SERVICEAUTH_URL
 	}
 };
 

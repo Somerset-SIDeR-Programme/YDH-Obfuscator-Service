@@ -71,10 +71,13 @@ describe('Server deployment', () => {
 
 describe('Redirects', () => {
 	let server;
-	const path = `http://0.0.0.0:${serverConfig.port}`;
+	const port = '8205';
+	const path = `http://0.0.0.0:${port}`;
+	const modServerConfig = { ...serverConfig };
+	modServerConfig.port = port;
 
 	beforeEach(() => {
-		server = new Server(serverConfig)
+		server = new Server(modServerConfig)
 			.configureHelmet()
 			.configureKeycloakRetrival()
 			.configureRoutes()
@@ -99,29 +102,21 @@ describe('Redirects', () => {
 		);
 	});
 
-	test('Should fail to redirect when an unexpect param is present', async () => {
-		const altParams = { ...params };
-		altParams.invalidParam = 'invalid';
-
-		const res = await request(path)
-			.get('')
-			.set('Content-Type', 'application/json')
-			.set('cache-control', 'no-cache')
-			.query(altParams);
-
-		expect(res.statusCode).toBe(400);
-	});
-
 	test('Should fail to redirect when any required param is missing', async () => {
+		const alteredParams = { ...params };
+		delete alteredParams.NOUNLOCK;
+		delete alteredParams.TPAGID;
+		delete alteredParams.FromIconProfile;
+
 		await Promise.all(
-			Object.keys(params).map(async (key) => {
-				const alteredParams = { ...params };
-				delete alteredParams[key];
+			Object.keys(alteredParams).map(async (key) => {
+				const scrubbedParams = { ...alteredParams };
+				delete scrubbedParams[key];
 				const response = await request(path)
 					.get('')
 					.set('Content-Type', 'application/json')
 					.set('cache-control', 'no-cache')
-					.query(alteredParams);
+					.query(scrubbedParams);
 
 				expect(response.statusCode).toBe(400);
 			})

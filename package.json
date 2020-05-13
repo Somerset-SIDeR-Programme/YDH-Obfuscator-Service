@@ -59,7 +59,7 @@
 	},
 	"dependencies": {
 		"axios": "^0.19.2",
-		"dotenv": "^8.2.0",
+		"custom-env": "^2.0.1",
 		"express": "^4.17.1",
 		"express-pino-logger": "^5.0.0",
 		"file-stream-rotator": "^0.5.7",
