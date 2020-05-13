@@ -49,6 +49,14 @@ The web browser or request builder used should be redirected to Black Pear's ESP
 
 If the patient, birthdate, location or practitioner parameters are removed from the original URL the obfuscation process and redirect will not occur, and a status 400 will be returned with the message "An essential parameter is missing".
 
+### Deploying using Docker
+
+This requires [Docker](https://www.docker.com/products) installed.
+
+1. Make a copy of the `.env.development` file in the root directory and rename to `.env.production`
+2. Configure the application using the global variables in the `.env.production` file
+3. Run `docker-compose up`
+
 ### Deploying using PM2
 
 It is [recommended](https://expressjs.com/en/advanced/pm.html) that you use a process manager such as [PM2](https://pm2.keymetrics.io/) when deploying Express applications like this into production.
