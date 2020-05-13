@@ -25,10 +25,10 @@ const serverConfig = {
 				birthdate: { type: 'string', mandatory: true },
 				location: { type: 'string', mandatory: true },
 				practitioner: { type: 'string', mandatory: true },
-				TPAGID: { type: 'string' },
-				FromIconProfile: { type: 'number' },
-				NOUNLOCK: { type: 'number' }
-				// access_token: { type: 'string' } // uncomment this when KeyCloak is fully implemented
+				TPAGID: { type: 'string' }, // Unique to YDH's PAS
+				FromIconProfile: { type: 'number' }, // Unique to YDH's PAS
+				NOUNLOCK: { type: 'number' } // Unique to YDH's PAS
+				// , access_token: { type: 'string' } // uncomment this when KeyCloak is fully implemented
 			}
 		}
 	}
@@ -39,26 +39,29 @@ const keycloakRetrieveConfig = {
 	// Request access token for user
 	requestToken: {
 		form: {
-			audience: '',
-			client_id: '',
-			client_secret: '',
-			grant_type: 'urn:ietf:params:oauth:grant-type:token-exchange',
-			requested_subject: '',
+			audience: process.env.KC_REQUESTTOKEN_AUDIENCE,
+			client_id: process.env.KC_REQUESTTOKEN_CLIENT_ID,
+			client_secret: process.env.KC_REQUESTTOKEN_CLIENT_SECRET,
+			grant_type:
+				process.env.KC_REQUESTTOKEN_GRANT_TYPE ||
+				'urn:ietf:params:oauth:grant-type:token-exchange',
+			requested_subject: process.env.KC_REQUESTTOKEN_REQUESTED_SUBJECT,
 			requested_token_type:
+				process.env.KC_REQUESTTOKEN_REQUESTED_TOKEN_TYPE ||
 				'urn:ietf:params:oauth:token-type:access_token'
 		},
-		url: ''
+		url: process.env.KC_REQUESTTOKEN_URL
 	},
 	// Service authorisation to retrieve subject access token
 	serviceAuthorisation: {
 		form: {
-			client_id: '',
-			client_secret: '',
-			grant_type: '',
-			password: '',
-			username: ''
+			client_id: process.env.KC_SERVICEAUTH_CLIENT_ID,
+			client_secret: process.env.KC_SERVICEAUTH_CLIENT_SECRET,
+			grant_type: process.env.KC_SERVICEAUTH_GRANT_TYPE,
+			password: process.env.KC_SERVICEAUTH_PASSWORD,
+			username: process.env.KC_SERVICEAUTH_USERNAME
 		},
-		url: ''
+		url: process.env.KC_SERVICEAUTH_URL
 	}
 };
 
