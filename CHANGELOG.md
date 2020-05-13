@@ -1,3 +1,21 @@
+## 8.0.0 (2020-05-13)
+
+-   build(deps-dev): bump conventional-changelog-cli from 2.0.31 to 2.0.34 ([8051943](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/8051943))
+-   build(deps-dev): bump eslint-plugin-jest from 23.9.0 to 23.11.0 ([e16d731](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/e16d731))
+-   build(deps-dev): bump typescript from 3.8.3 to 3.9.2 ([c15252a](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/c15252a))
+-   build(deps): replace dotenv with custom-env ([f2b8251](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/f2b8251))
+-   build(docker): add docker files ([1c836eb](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/1c836eb))
+-   build(pm2): remove global variables ([786b48e](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/786b48e))
+-   refactor(config): remove sanitize config; change obs config to array ([3274df5](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/3274df5))
+-   refactor(server): move keycloak config to env files ([357b7bd](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/357b7bd))
+-   refactor(server): separate instance and application configuration (#109) ([99ea15e](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/99ea15e)), closes [#109](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/issues/109)
+-   tests(middleware): refactor undefined type checks ([4e82e32](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/4e82e32))
+-   tests(server): set separate port for redirect testing ([3cfbfb7](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/3cfbfb7))
+-   docs(readme): add docker deployment section ([6e43539](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/6e43539))
+-   chore: add .env.production to gitignore file ([b56c5b5](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/b56c5b5))
+-   chore: remove host from development env file ([3279f9e](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/3279f9e))
+-   chore: update gitignore with latest github version ([a8914db](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/a8914db))
+
 ## <small>7.0.2 (2020-05-06)</small>
 
 -   chore(package): set minimum engine version ([0ad4f51](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/0ad4f51))
