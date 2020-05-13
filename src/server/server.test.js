@@ -71,10 +71,13 @@ describe('Server deployment', () => {
 
 describe('Redirects', () => {
 	let server;
-	const path = `http://0.0.0.0:${serverConfig.port}`;
+	const port = '8205';
+	const path = `http://0.0.0.0:${port}`;
+	const modServerConfig = { ...serverConfig };
+	modServerConfig.port = port;
 
 	beforeEach(() => {
-		server = new Server(serverConfig)
+		server = new Server(modServerConfig)
 			.configureHelmet()
 			.configureKeycloakRetrival()
 			.configureRoutes()
