@@ -19,22 +19,11 @@ const serverConfig = {
 			value: '0123456789'
 		},
 		obfuscate: ['birthdate', 'patient'],
-		requiredProperties: {
-			query: {
-				patient: { type: 'string', mandatory: true },
-				birthdate: { type: 'string', mandatory: true },
-				location: { type: 'string', mandatory: true },
-				practitioner: { type: 'string', mandatory: true },
-				TPAGID: { type: 'string' }, // Unique to YDH's PAS
-				FromIconProfile: { type: 'number' }, // Unique to YDH's PAS
-				NOUNLOCK: { type: 'number' } // Unique to YDH's PAS
-				// , access_token: { type: 'string' } // uncomment this when KeyCloak is fully implemented
-			}
-		}
+		// Add 'access_token' to requiredProperties array when Keycloak turned on
+		requiredProperties: ['birthdate', 'location', 'patient', 'practitioner']
 	}
 };
 
-// Refer to option documentation: https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/token-exchange/token-exchange.adoc
 const keycloakRetrieveConfig = {
 	// Request access token for user
 	requestToken: {

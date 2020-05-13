@@ -22,9 +22,17 @@ describe('Obfuscation and serialisation middleware', () => {
 	});
 
 	test('Should obfuscate patient and birthdate parameters with config.requiredProperties provided as object', () => {
+		const modServerConfig = { ...serverConfig };
+		modServerConfig.obfuscation.requiredProperties = {
+			birthdate: '',
+			location: '',
+			patient: '',
+			practitioner: ''
+		};
+
 		const middleware = obfuscateMiddleware(
-			serverConfig.obfuscation,
-			serverConfig.obfuscation.requiredProperties.query
+			modServerConfig.obfuscation,
+			serverConfig.obfuscation.requiredProperties
 		);
 
 		const query = {};
@@ -46,16 +54,9 @@ describe('Obfuscation and serialisation middleware', () => {
 	});
 
 	test('Should obfuscate patient and birthdate parameters with requiredProperties provided as array', () => {
-		const modServerConfig = { ...serverConfig };
-		const requiredProperties = [
-			'patient',
-			'birthdate',
-			'location',
-			'practitioner'
-		];
 		const middleware = obfuscateMiddleware(
-			modServerConfig.obfuscation,
-			requiredProperties
+			serverConfig.obfuscation,
+			serverConfig.obfuscation.requiredProperties
 		);
 
 		const query = {};
@@ -79,7 +80,7 @@ describe('Obfuscation and serialisation middleware', () => {
 	test('Should return 400 client error if an essential parameter is missing', () => {
 		const middleware = obfuscateMiddleware(
 			serverConfig.obfuscation,
-			serverConfig.obfuscation.requiredProperties.query
+			serverConfig.obfuscation.requiredProperties
 		);
 
 		const query = {};
@@ -104,7 +105,7 @@ describe('Obfuscation and serialisation middleware', () => {
 	test('Should return 400 client error if query string missing', () => {
 		const middleware = obfuscateMiddleware(
 			serverConfig.obfuscation,
-			serverConfig.obfuscation.requiredProperties.query
+			serverConfig.obfuscation.requiredProperties
 		);
 
 		const req = httpMocks.createRequest({
