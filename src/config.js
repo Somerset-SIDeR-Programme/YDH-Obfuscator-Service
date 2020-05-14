@@ -3,7 +3,7 @@ require('custom-env').env();
 const serverConfig = {
 	https: process.env.USE_HTTPS || false,
 	port: process.env.PORT || 8204,
-	host: process.env.HOST,
+	host: process.env.HOST || '0.0.0.0',
 	recievingEndpoint: 'https://pyrusapps.blackpear.com/esp/#!/launch?',
 	ssl: {
 		cert: process.env.SSL_CERT_PATH,

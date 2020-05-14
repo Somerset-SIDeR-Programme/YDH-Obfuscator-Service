@@ -19,12 +19,8 @@ class Server {
 	/**
 	 * @param {Object} config - Server configuration values.
 	 */
-	constructor(config = {}) {
-		// Define any default settings the server should have to get up and running
-		const defaultConfig = {
-			https: false
-		};
-		this.config = Object.assign(defaultConfig, config);
+	constructor(config) {
+		this.config = config;
 
 		// Setup our Express instance
 		this.app = express();
