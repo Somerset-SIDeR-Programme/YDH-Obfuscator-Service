@@ -1,3 +1,4 @@
+const cloneDeep = require('lodash/cloneDeep');
 const request = require('supertest');
 const { serverConfig, loggerConfig } = require('../config');
 const Server = require('./server');
@@ -27,7 +28,7 @@ describe('Server deployment', () => {
 	});
 
 	test('Should set protocol to https with cert and key files', async () => {
-		const modServerConfig = JSON.parse(JSON.stringify(serverConfig));
+		const modServerConfig = cloneDeep(serverConfig);
 		modServerConfig.https = true;
 		modServerConfig.ssl.cert = `${process.cwd()}/test_ssl_cert/server.cert`;
 		modServerConfig.ssl.key = `${process.cwd()}/test_ssl_cert/server.key`;
@@ -48,7 +49,7 @@ describe('Server deployment', () => {
 	});
 
 	test('Should set protocol to https with pfx file and passphrase', async () => {
-		const modServerConfig = JSON.parse(JSON.stringify(serverConfig));
+		const modServerConfig = cloneDeep(serverConfig);
 		modServerConfig.https = true;
 		modServerConfig.ssl.pfx.pfx = `${process.cwd()}/test_ssl_cert/server.pfx`;
 		modServerConfig.ssl.pfx.passphrase = 'test';
@@ -71,10 +72,10 @@ describe('Server deployment', () => {
 
 describe('Redirects', () => {
 	let server;
-	const port = '8205';
-	const path = `http://0.0.0.0:${port}`;
-	const modServerConfig = { ...serverConfig };
-	modServerConfig.port = port;
+	const modServerConfig = cloneDeep(serverConfig);
+	modServerConfig.port = 8203;
+
+	const path = `http://0.0.0.0:${modServerConfig.port}`;
 
 	beforeEach(() => {
 		server = new Server(modServerConfig)
@@ -126,10 +127,10 @@ describe('Redirects', () => {
 
 describe('Keycloak token retrival', () => {
 	let server;
-	const port = '8206';
-	const path = `http://0.0.0.0:${port}`;
-	const modServerConfig = { ...serverConfig };
-	modServerConfig.port = port;
+	const modServerConfig = cloneDeep(serverConfig);
+	modServerConfig.port = 8204;
+
+	const path = `http://0.0.0.0:${modServerConfig.port}`;
 
 	beforeEach(() => {
 		server = new Server(modServerConfig)
