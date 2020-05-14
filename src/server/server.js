@@ -129,11 +129,11 @@ class Server {
 		}
 
 		// Start the app
-		this.app.listen(server.port, server.host);
-		console.log(
-			`${process.env.npm_package_name} listening for requests at ${this.config.protocol}://${server.host}:${server.port}`
-		);
-
+		this.app.listen(server.port, server.host, () => {
+			console.log(
+				`${process.env.npm_package_name} listening for requests at ${this.config.protocol}://${server.host}:${server.port}`
+			);
+		});
 		// Return self for chaining
 		return this;
 	}
