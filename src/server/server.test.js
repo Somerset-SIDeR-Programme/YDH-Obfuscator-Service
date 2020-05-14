@@ -15,7 +15,7 @@ const params = {
 };
 
 describe('Server deployment', () => {
-	test('Should set protocol to https with cert and key files', async () => {
+	test('Should set protocol to https with cert and key files', () => {
 		const modServerConfig = cloneDeep(serverConfig);
 		modServerConfig.https = true;
 		modServerConfig.ssl.cert = `${process.cwd()}/test_ssl_cert/server.cert`;
@@ -30,13 +30,13 @@ describe('Server deployment', () => {
 				.listen();
 
 			expect(server.config.protocol).toBe('https');
-			await server.shutdown();
+			server.shutdown();
 		} catch (error) {
 			// Do nothing
 		}
 	});
 
-	test('Should set protocol to https with pfx file and passphrase', async () => {
+	test('Should set protocol to https with pfx file and passphrase', () => {
 		const modServerConfig = cloneDeep(serverConfig);
 		modServerConfig.https = true;
 		modServerConfig.ssl.pfx.pfx = `${process.cwd()}/test_ssl_cert/server.pfx`;
@@ -51,7 +51,7 @@ describe('Server deployment', () => {
 				.listen();
 
 			expect(server.config.protocol).toBe('https');
-			await server.shutdown();
+			server.shutdown();
 		} catch (error) {
 			// Do nothing
 		}
@@ -74,8 +74,8 @@ describe('Redirects', () => {
 			.listen();
 	});
 
-	afterEach(async () => {
-		await server.shutdown();
+	afterEach(() => {
+		server.shutdown();
 	});
 
 	test("Should redirect to Black Pear's ESP with all params present", async () => {
@@ -129,8 +129,8 @@ describe('Keycloak token retrival', () => {
 			.listen();
 	});
 
-	afterEach(async () => {
-		await server.shutdown();
+	afterEach(() => {
+		server.shutdown();
 	});
 
 	test('Should continue if Keycloak endpoint config missing', async () => {

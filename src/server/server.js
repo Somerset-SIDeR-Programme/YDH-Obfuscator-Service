@@ -141,12 +141,11 @@ class Server {
 	/**
 	 * @author Frazer Smith
 	 * @description Shut down server (non-gracefully).
-	 * @returns {Promise<this>} self
 	 */
 	shutdown() {
-		return new Promise((resolve) => {
-			this.app.close();
-			resolve(this);
+		this.app.close();
+		setImmediate(() => {
+			this.app.emit('close');
 		});
 	}
 }
