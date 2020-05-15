@@ -1,3 +1,4 @@
+const cloneDeep = require('lodash/cloneDeep');
 const httpMocks = require('node-mocks-http');
 const obfuscateMiddleware = require('./obfuscate.middleware');
 const { serverConfig } = require('../../config');
@@ -22,17 +23,17 @@ describe('Obfuscation and serialisation middleware', () => {
 	});
 
 	test('Should obfuscate patient and birthdate parameters with config.requiredProperties provided as object', () => {
-		const modServerConfig = { ...serverConfig };
+		const modServerConfig = cloneDeep(serverConfig);
 		modServerConfig.obfuscation.requiredProperties = {
-			birthdate: '',
-			location: '',
-			patient: '',
-			practitioner: ''
+			birthdate: '1',
+			location: '1',
+			patient: '1',
+			practitioner: '1'
 		};
 
 		const middleware = obfuscateMiddleware(
 			modServerConfig.obfuscation,
-			serverConfig.obfuscation.requiredProperties
+			modServerConfig.obfuscation.requiredProperties
 		);
 
 		const query = {};
