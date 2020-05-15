@@ -1,3 +1,15 @@
+## 9.0.0 (2020-05-15)
+
+-   feat: move redirect url to env files, no longer hardcoded ([bbbca47](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/bbbca47))
+-   build(deps-dev): replace supertest with superagent; fix test mem leaks ([4df8a7c](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/4df8a7c))
+-   build(docker): set host for security ([8991da1](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/8991da1))
+-   chore: change env file name ([1851bb3](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/1851bb3))
+-   refactor(server): move listen console log into callback ([de3c544](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/de3c544))
+-   refactor(server): remove redundant config object mapping ([fbd3b42](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/fbd3b42))
+-   refactor(server): server force closes on shutdown, promise removed ([c692815](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/c692815))
+-   tests: use lodash for deep cloning ([19c5974](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/19c5974))
+-   docs(readme): correct env file name ([9bbc497](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/9bbc497))
+
 ## 8.0.0 (2020-05-13)
 
 -   build(deps-dev): bump conventional-changelog-cli from 2.0.31 to 2.0.34 ([8051943](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/8051943))
