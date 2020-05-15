@@ -3,6 +3,8 @@ const request = require('superagent');
 const { serverConfig, loggerConfig } = require('../config');
 const Server = require('./server');
 
+serverConfig.redirectUrl = 'https://pyrusapps.blackpear.com/esp/#!/launch?';
+
 const params = {
 	birthdate: '1932-04-15',
 	location: 'https://fhir.nhs.uk/Id/ods-organization-code|RA4',

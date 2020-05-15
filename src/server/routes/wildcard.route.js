@@ -22,11 +22,16 @@ module.exports = function wildcardRoute(options) {
 		obfuscate(config.obfuscation, config.obfuscation.requiredProperties)
 	);
 
-	router.route('*').get((req, res) => {
-		const espUrl =
-			config.recievingEndpoint + queryString.stringify(req.query);
-		console.log(espUrl);
-		res.redirect(espUrl);
+	router.route('*').get((req, res, next) => {
+		if (config.redirectUrl) {
+			const espUrl =
+				config.redirectUrl + queryString.stringify(req.query);
+			console.log(espUrl);
+			res.redirect(espUrl);
+		} else {
+			res.status(500);
+			next(new Error('recieving endpoint missing'));
+		}
 	});
 
 	return router;
