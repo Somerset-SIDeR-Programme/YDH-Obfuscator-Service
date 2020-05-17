@@ -99,6 +99,7 @@ describe('Keycloak token retrival', () => {
 			.set('Content-Type', 'application/json')
 			.set('cache-control', 'no-cache')
 			.query(params);
+
 		expect(res.redirects[0]).toMatch(
 			'https://pyrusapps.blackpear.com/esp/#!/launch?'
 		);
