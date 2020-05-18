@@ -7,8 +7,8 @@ COPY .env.production .
 COPY ./src ./src
 
 # git needed to install node modules from github
-RUN apt-get install git
+RUN apt-get -y install git
 
 RUN yarn install
 EXPOSE 8204
-CMD yarn start
+CMD ["yarn", "start"]
