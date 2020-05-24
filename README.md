@@ -12,7 +12,7 @@ This has been deployed on a local server that the SIDeR contextual link within t
 
 ## Prerequisites
 
--	[Git](https://git-scm.com/) (if not already installed, needed to install Node.js dependencies that aren't in NPM registry)
+-   [Git](https://git-scm.com/) (To install non-registered dependencies)
 -   [Node.js](https://nodejs.org/en/)
 -   [Yarn](https://yarnpkg.com)
 
