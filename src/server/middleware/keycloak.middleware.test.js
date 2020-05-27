@@ -1,6 +1,6 @@
 const cloneDeep = require('lodash/cloneDeep');
 const httpMocks = require('node-mocks-http');
-const keycloakMiddleware = require('./keycloak.middleware');
+const Middleware = require('./keycloak.middleware');
 const {
 	keycloakRetrieveConfig
 } = require('../../../mocks/keycloak-config.mock');
@@ -21,25 +21,25 @@ describe('Keycloak middleware', () => {
 	});
 
 	test('Should return a middleware function', () => {
-		const middleware = keycloakMiddleware();
+		const middleware = Middleware();
+
 		expect(typeof middleware).toBe('function');
 	});
 
-	test('Should continue if no config values are provided', () => {
-		const middleware = keycloakMiddleware();
-
+	test('Should continue when no config values are provided', async () => {
+		const middleware = Middleware();
 		const req = httpMocks.createRequest();
 		const res = httpMocks.createResponse();
 		const next = jest.fn();
 
-		middleware(req, res, next);
+		await middleware(req, res, next);
+
 		expect(next).toHaveBeenCalledTimes(1);
 		expect(next.mock.calls[0][0]).toBeUndefined();
 	});
 
 	test('Should return access_token', async () => {
-		const middleware = keycloakMiddleware(keycloakRetrieveConfig);
-
+		const middleware = Middleware(keycloakRetrieveConfig);
 		const req = httpMocks.createRequest({
 			query: {
 				practitioner:
@@ -50,18 +50,17 @@ describe('Keycloak middleware', () => {
 		const next = jest.fn();
 
 		await middleware(req, res, next);
+
 		expect(req.query.access_token).toBe('mock-access-token-authorised');
 		expect(res.statusCode).toBe(200);
 		expect(next).toHaveBeenCalledTimes(1);
 		expect(next.mock.calls[0][0]).toBeUndefined();
 	});
 
-	test('Should throw type error if url value missing when retrieving request token', async () => {
+	test('Should throw type error when url value is missing when retrieving request token', async () => {
 		const altKeycloakConfig = cloneDeep(keycloakRetrieveConfig);
 		delete altKeycloakConfig.requestToken.url;
-
-		const middleware = keycloakMiddleware(altKeycloakConfig);
-
+		const middleware = Middleware(altKeycloakConfig);
 		const req = httpMocks.createRequest({
 			query: {
 				practitioner:
@@ -72,6 +71,7 @@ describe('Keycloak middleware', () => {
 		const next = jest.fn();
 
 		await middleware(req, res, next);
+
 		expect(res.statusCode).toBe(500);
 		expect(next).toHaveBeenCalledTimes(1);
 		expect(next.mock.calls[0][0].message).toBe(
@@ -79,12 +79,10 @@ describe('Keycloak middleware', () => {
 		);
 	});
 
-	test('Should throw type error if url value missing when making service authorisation', async () => {
+	test('Should throw type error when url value is missing when making service authorisation', async () => {
 		const altKeycloakConfig = cloneDeep(keycloakRetrieveConfig);
 		delete altKeycloakConfig.serviceAuthorisation.url;
-
-		const middleware = keycloakMiddleware(altKeycloakConfig);
-
+		const middleware = Middleware(altKeycloakConfig);
 		const req = httpMocks.createRequest({
 			query: {
 				practitioner:
@@ -95,6 +93,7 @@ describe('Keycloak middleware', () => {
 		const next = jest.fn();
 
 		await middleware(req, res, next);
+
 		expect(res.statusCode).toBe(500);
 		expect(next).toHaveBeenCalledTimes(1);
 		expect(next.mock.calls[0][0].message).toBe(
@@ -102,12 +101,10 @@ describe('Keycloak middleware', () => {
 		);
 	});
 
-	test('Should throw error if connection issue encountered when retrieving request token', async () => {
+	test('Should throw error when connection issue encountered when retrieving request token', async () => {
 		const altKeycloakConfig = cloneDeep(keycloakRetrieveConfig);
 		altKeycloakConfig.requestToken.url = 'test';
-
-		const middleware = keycloakMiddleware(altKeycloakConfig);
-
+		const middleware = Middleware(altKeycloakConfig);
 		const req = httpMocks.createRequest({
 			query: {
 				practitioner:
@@ -118,6 +115,7 @@ describe('Keycloak middleware', () => {
 		const next = jest.fn();
 
 		await middleware(req, res, next);
+
 		expect(res.statusCode).toBe(500);
 		expect(next).toHaveBeenCalledTimes(1);
 		expect(next.mock.calls[0][0].message).toBe(
@@ -125,12 +123,10 @@ describe('Keycloak middleware', () => {
 		);
 	});
 
-	test('Should throw error if connection issue encountered when making service authorisation', async () => {
+	test('Should throw error when connection issue encountered when making service authorisation', async () => {
 		const altKeycloakConfig = cloneDeep(keycloakRetrieveConfig);
 		altKeycloakConfig.serviceAuthorisation.url = 'test';
-
-		const middleware = keycloakMiddleware(altKeycloakConfig);
-
+		const middleware = Middleware(altKeycloakConfig);
 		const req = httpMocks.createRequest({
 			query: {
 				practitioner:
@@ -141,6 +137,7 @@ describe('Keycloak middleware', () => {
 		const next = jest.fn();
 
 		await middleware(req, res, next);
+
 		expect(res.statusCode).toBe(500);
 		expect(next).toHaveBeenCalledTimes(1);
 		expect(next.mock.calls[0][0].message).toBe(

@@ -17,7 +17,7 @@ const wildcardRoute = require('./routes/wildcard.route');
 
 class Server {
 	/**
-	 * @param {Object} config - Server configuration values.
+	 * @param {object} config - Server configuration values.
 	 */
 	constructor(config) {
 		this.config = config;
@@ -44,7 +44,7 @@ class Server {
 	/**
 	 * @author Frazer Smith
 	 * @description Sets Helmet options for server.
-	 * @param {Object=} helmetConfig - Helmet configuration values.
+	 * @param {object=} helmetConfig - Helmet configuration values.
 	 * @returns {this} self
 	 */
 	configureHelmet(helmetConfig) {
@@ -58,7 +58,7 @@ class Server {
 	/**
 	 * @author Frazer Smith
 	 * @description Sets Keycloak token retrival options for server.
-	 * @param {Object} kcConfig - Keycloak endpoint configuration values.
+	 * @param {object} kcConfig - Keycloak endpoint configuration values.
 	 * @returns {this} self
 	 */
 	configureKeycloakRetrival(kcConfig) {
@@ -71,11 +71,10 @@ class Server {
 	/**
 	 * @author Frazer Smith
 	 * @description Sets routing options for server.
-	 * @param {Object} options - Route configuration values.
 	 * @returns {this} self
 	 */
 	configureRoutes() {
-		this.app.use('*', wildcardRoute(this));
+		this.app.use('*', wildcardRoute(this.config));
 
 		// Return self for chaining
 		return this;
@@ -84,9 +83,9 @@ class Server {
 	/**
 	 * @author Frazer Smith
 	 * @description Sets logging options for server.
-	 * @param {Object} loggerConfig - Logger configuration values.
-	 * @param {Object=} loggerConfig.options
-	 * @param {Object} loggerConfig.rotation
+	 * @param {object} loggerConfig - Logger configuration values.
+	 * @param {object=} loggerConfig.options - Pino logger config values.
+	 * @param {object} loggerConfig.rotation - Log file rotation config values.
 	 * @returns {this} self
 	 */
 	configureLogging(loggerConfig) {

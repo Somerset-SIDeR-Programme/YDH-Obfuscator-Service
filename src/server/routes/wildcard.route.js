@@ -10,12 +10,11 @@ const obfuscate = require('../middleware/obfuscate.middleware');
 /**
  * @author Frazer Smith
  * @description Sets routing options for server.
- * @param {Object} options
- * @param {Object} options.config
+ * @param {object} options - Object containing route config objects.
  * @returns {Router} Express router instance.
  */
 module.exports = function wildcardRoute(options) {
-	const { config } = options;
+	const config = options;
 
 	router.use(
 		sanitize(),
