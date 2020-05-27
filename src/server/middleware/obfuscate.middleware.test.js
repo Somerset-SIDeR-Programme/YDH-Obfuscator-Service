@@ -1,16 +1,17 @@
 const cloneDeep = require('lodash/cloneDeep');
+const faker = require('faker/locale/en_GB');
 const httpMocks = require('node-mocks-http');
 const Middleware = require('./obfuscate.middleware');
 const { serverConfig } = require('../../config');
 
 const args = {
-	patient: 'https://fhir.nhs.uk/Id/nhs-number|9467335646',
-	birthdate: '1932-04-15',
+	birthdate: faker.date.past().toISOString().split('T')[0],
 	location: 'https://fhir.nhs.uk/Id/ods-organization-code|RA4',
-	practitioner: 'https://sider.nhs.uk/auth|frazer.smith@ydh.nhs.uk',
-	TPAGID: 'M5',
-	FromIconProfile: 13,
-	NOUNLOCK: 1
+	patient: `https://fhir.nhs.uk/Id/nhs-number|${faker.random.number(10)}`,
+	practitioner: `https://sider.nhs.uk/auth|${faker.fake("{{name.lastName}}.{{name.firstName}}")}@ydh.nhs.uk`,
+	TPAGID: faker.random.uuid(),
+	FromIconProfile: faker.random.number(),
+	NOUNLOCK: faker.random.number()
 };
 
 describe('Obfuscation and serialisation middleware', () => {
