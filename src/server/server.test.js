@@ -23,7 +23,7 @@ describe('Server deployment', () => {
 
 		const path = `http://0.0.0.0:${modServerConfig.port}`;
 
-		beforeAll(() => {
+		beforeEach(() => {
 			server = new Server(modServerConfig)
 				.configureHelmet()
 				.configureLogging(loggerConfig)
@@ -33,7 +33,7 @@ describe('Server deployment', () => {
 				.listen();
 		});
 
-		afterAll(() => {
+		afterEach(() => {
 			server.shutdown();
 		});
 
@@ -80,7 +80,7 @@ describe('Server deployment', () => {
 
 		const path = `http://0.0.0.0:${modServerConfig.port}`;
 
-		beforeAll(() => {
+		beforeEach(() => {
 			server = new Server(modServerConfig)
 				.configureHelmet()
 				.configureKeycloakRetrival()
@@ -89,7 +89,7 @@ describe('Server deployment', () => {
 				.listen();
 		});
 
-		afterAll(() => {
+		afterEach(() => {
 			server.shutdown();
 		});
 
@@ -117,7 +117,7 @@ describe('Server deployment', () => {
 
 		const path = `https://0.0.0.0:${modServerConfig.port}`;
 
-		beforeAll(() => {
+		beforeEach(() => {
 			// Stand up server
 			server = new Server(modServerConfig)
 				.configureHelmet()
@@ -127,7 +127,7 @@ describe('Server deployment', () => {
 				.listen();
 		});
 
-		afterAll(() => {
+		afterEach(() => {
 			server.shutdown();
 		});
 
@@ -154,7 +154,7 @@ describe('Server deployment', () => {
 
 		const path = `https://0.0.0.0:${modServerConfig.port}`;
 
-		beforeAll(() => {
+		beforeEach(() => {
 			// Stand up server
 			server = new Server(modServerConfig)
 				.configureHelmet()
@@ -164,7 +164,7 @@ describe('Server deployment', () => {
 				.listen();
 		});
 
-		afterAll(() => {
+		afterEach(() => {
 			server.shutdown();
 		});
 
