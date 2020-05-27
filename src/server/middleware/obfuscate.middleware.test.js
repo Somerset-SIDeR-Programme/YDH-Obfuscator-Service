@@ -1,6 +1,6 @@
 const cloneDeep = require('lodash/cloneDeep');
 const httpMocks = require('node-mocks-http');
-const obfuscateMiddleware = require('./obfuscate.middleware');
+const Middleware = require('./obfuscate.middleware');
 const { serverConfig } = require('../../config');
 
 const args = {
@@ -18,7 +18,8 @@ const url =
 
 describe('Obfuscation and serialisation middleware', () => {
 	test('Should return a middleware function', () => {
-		const middleware = obfuscateMiddleware();
+		const middleware = Middleware();
+
 		expect(typeof middleware).toBe('function');
 	});
 
@@ -30,12 +31,10 @@ describe('Obfuscation and serialisation middleware', () => {
 			patient: '1',
 			practitioner: '1'
 		};
-
-		const middleware = obfuscateMiddleware(
+		const middleware = Middleware(
 			modServerConfig.obfuscation,
 			modServerConfig.obfuscation.requiredProperties
 		);
-
 		const query = {};
 		const req = httpMocks.createRequest({
 			method: 'GET',
@@ -47,6 +46,7 @@ describe('Obfuscation and serialisation middleware', () => {
 		const next = jest.fn();
 
 		middleware(req, res, next);
+
 		expect(req.query.patient).toBeUndefined();
 		expect(req.query.birthdate).toBeUndefined();
 		expect(typeof req.query.enc).toBe('string');
@@ -55,11 +55,10 @@ describe('Obfuscation and serialisation middleware', () => {
 	});
 
 	test('Should obfuscate patient and birthdate parameters with requiredProperties provided as array', () => {
-		const middleware = obfuscateMiddleware(
+		const middleware = Middleware(
 			serverConfig.obfuscation,
 			serverConfig.obfuscation.requiredProperties
 		);
-
 		const query = {};
 		const req = httpMocks.createRequest({
 			method: 'GET',
@@ -71,6 +70,7 @@ describe('Obfuscation and serialisation middleware', () => {
 		const next = jest.fn();
 
 		middleware(req, res, next);
+
 		expect(req.query.patient).toBeUndefined();
 		expect(req.query.birthdate).toBeUndefined();
 		expect(typeof req.query.enc).toBe('string');
@@ -79,11 +79,10 @@ describe('Obfuscation and serialisation middleware', () => {
 	});
 
 	test('Should return 400 client error when an essential parameter is missing', () => {
-		const middleware = obfuscateMiddleware(
+		const middleware = Middleware(
 			serverConfig.obfuscation,
 			serverConfig.obfuscation.requiredProperties
 		);
-
 		const query = {};
 		const req = httpMocks.createRequest({
 			method: 'GET',
@@ -96,6 +95,7 @@ describe('Obfuscation and serialisation middleware', () => {
 		const next = jest.fn();
 
 		middleware(req, res, next);
+
 		expect(res.statusCode).toBe(400);
 		expect(next).toHaveBeenCalledTimes(1);
 		expect(next.mock.calls[0][0].message).toBe(
@@ -104,11 +104,10 @@ describe('Obfuscation and serialisation middleware', () => {
 	});
 
 	test('Should return 400 client error when query string missing', () => {
-		const middleware = obfuscateMiddleware(
+		const middleware = Middleware(
 			serverConfig.obfuscation,
 			serverConfig.obfuscation.requiredProperties
 		);
-
 		const req = httpMocks.createRequest({
 			method: 'GET',
 			baseUrl: url,
@@ -118,6 +117,7 @@ describe('Obfuscation and serialisation middleware', () => {
 		const next = jest.fn();
 
 		middleware(req, res, next);
+
 		expect(res.statusCode).toBe(400);
 		expect(next).toHaveBeenCalledTimes(1);
 		expect(next.mock.calls[0][0].message).toBe(
@@ -126,8 +126,7 @@ describe('Obfuscation and serialisation middleware', () => {
 	});
 
 	test('Should return 500 server error when required config values are missing', () => {
-		const middleware = obfuscateMiddleware();
-
+		const middleware = Middleware();
 		const query = {};
 		const req = httpMocks.createRequest({
 			method: 'GET',
@@ -140,17 +139,14 @@ describe('Obfuscation and serialisation middleware', () => {
 		const next = jest.fn();
 
 		middleware(req, res, next);
+
 		expect(res.statusCode).toBe(500);
 		expect(next).toHaveBeenCalledTimes(1);
 		expect(next.mock.calls[0][0].message).toBe('Error: options undefined');
 	});
 
 	test('Should return 500 server error when requiredProperties argument is an incorrect type', () => {
-		const middleware = obfuscateMiddleware(
-			serverConfig.obfuscation,
-			'test'
-		);
-
+		const middleware = Middleware(serverConfig.obfuscation, 'test');
 		const query = {};
 		const req = httpMocks.createRequest({
 			method: 'GET',
@@ -162,6 +158,7 @@ describe('Obfuscation and serialisation middleware', () => {
 		const next = jest.fn();
 
 		middleware(req, res, next);
+
 		expect(res.statusCode).toBe(500);
 		expect(next).toHaveBeenCalledTimes(1);
 		expect(next.mock.calls[0][0].message).toBe(
