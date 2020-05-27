@@ -1,3 +1,4 @@
+/* eslint-disable jsdoc/require-param-description */
 const request = require('axios');
 const queryString = require('querystring');
 

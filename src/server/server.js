@@ -84,8 +84,8 @@ class Server {
 	 * @author Frazer Smith
 	 * @description Sets logging options for server.
 	 * @param {object} loggerConfig - Logger configuration values.
-	 * @param {object=} loggerConfig.options
-	 * @param {object} loggerConfig.rotation
+	 * @param {object=} loggerConfig.options - Pino logger config values.
+	 * @param {object} loggerConfig.rotation - Log file rotation config values.
 	 * @returns {this} self
 	 */
 	configureLogging(loggerConfig) {
