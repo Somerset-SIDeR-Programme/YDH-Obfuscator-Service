@@ -13,9 +13,6 @@ const args = {
 	NOUNLOCK: 1
 };
 
-const url =
-	'http://127.0.0.1:8204/?patient=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fnhs-number%7C9468172546&birthdate=1991-03-29&location=https%3A%2F%2Ffhir.nhs.uk%2FId%2Fods-organization-code%7CRA4&practitioner=https%3A%2F%2Fsider.nhs.uk%2Fauth%7Cfrazer.smith%40ydh.nhs.uk';
-
 describe('Obfuscation and serialisation middleware', () => {
 	test('Should return a middleware function', () => {
 		const middleware = Middleware();
@@ -38,9 +35,7 @@ describe('Obfuscation and serialisation middleware', () => {
 		const query = {};
 		const req = httpMocks.createRequest({
 			method: 'GET',
-			query: Object.assign(query, args),
-			baseUrl: url,
-			originalUrl: url
+			query: Object.assign(query, args)
 		});
 		const res = httpMocks.createResponse();
 		const next = jest.fn();
@@ -62,9 +57,7 @@ describe('Obfuscation and serialisation middleware', () => {
 		const query = {};
 		const req = httpMocks.createRequest({
 			method: 'GET',
-			query: Object.assign(query, args),
-			baseUrl: url,
-			originalUrl: url
+			query: Object.assign(query, args)
 		});
 		const res = httpMocks.createResponse();
 		const next = jest.fn();
@@ -86,9 +79,7 @@ describe('Obfuscation and serialisation middleware', () => {
 		const query = {};
 		const req = httpMocks.createRequest({
 			method: 'GET',
-			query: Object.assign(query, args),
-			baseUrl: url,
-			originalUrl: url
+			query: Object.assign(query, args)
 		});
 		delete req.query.patient;
 		const res = httpMocks.createResponse();
@@ -109,9 +100,7 @@ describe('Obfuscation and serialisation middleware', () => {
 			serverConfig.obfuscation.requiredProperties
 		);
 		const req = httpMocks.createRequest({
-			method: 'GET',
-			baseUrl: url,
-			originalUrl: url
+			method: 'GET'
 		});
 		const res = httpMocks.createResponse();
 		const next = jest.fn();
@@ -130,9 +119,7 @@ describe('Obfuscation and serialisation middleware', () => {
 		const query = {};
 		const req = httpMocks.createRequest({
 			method: 'GET',
-			query: Object.assign(query, args),
-			baseUrl: url,
-			originalUrl: url
+			query: Object.assign(query, args)
 		});
 		delete req.query.patient;
 		const res = httpMocks.createResponse();
@@ -150,9 +137,7 @@ describe('Obfuscation and serialisation middleware', () => {
 		const query = {};
 		const req = httpMocks.createRequest({
 			method: 'GET',
-			query: Object.assign(query, args),
-			baseUrl: url,
-			originalUrl: url
+			query: Object.assign(query, args)
 		});
 		const res = httpMocks.createResponse();
 		const next = jest.fn();
