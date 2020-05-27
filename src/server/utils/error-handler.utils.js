@@ -1,7 +1,7 @@
 /**
  * @author Frazer Smith
  * @description Basic error handling utility.
- * @return {Function} Express error handler middleware.
+ * @returns {Function} Express error handler middleware.
  */
 module.exports = function errorHandlerUtil() {
 	// eslint-disable-next-line no-unused-vars

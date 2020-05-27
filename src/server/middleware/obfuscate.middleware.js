@@ -10,7 +10,7 @@ const queryString = require('querystring');
  * @param {string} config.encryptionKey.value - Encryption key value.
  * @param {Array} config.obfuscate - Query values that should be obfuscated.
  * @param {Array|Object} requiredProperties - Query values that are essential and needed for requesting.
- * @return {Function} Express middleware.
+ * @returns {Function} Express middleware.
  */
 module.exports = function obfuscateMiddleware(config, requiredProperties) {
 	return (req, res, next) => {

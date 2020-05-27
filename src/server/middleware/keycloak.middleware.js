@@ -25,7 +25,7 @@ const queryString = require('querystring');
  * @param {string} config.requestToken.form.request_token_type
  * @param {string} config.requestToken.url
  *
- * @return {Function} Express middleware.
+ * @returns {Function} Express middleware.
  */
 module.exports = function keycloakMiddleware(config = {}) {
 	return async (req, res, next) => {
