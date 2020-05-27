@@ -93,7 +93,7 @@ describe('Server deployment', () => {
 			server.shutdown();
 		});
 
-		test('Should continue if Keycloak endpoint config missing', async () => {
+		test('Should continue when Keycloak endpoint config missing', async () => {
 			const res = await request
 				.get(path)
 				.set('Content-Type', 'application/json')

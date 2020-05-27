@@ -25,7 +25,7 @@ describe('Keycloak middleware', () => {
 		expect(typeof middleware).toBe('function');
 	});
 
-	test('Should continue if no config values are provided', () => {
+	test('Should continue when no config values are provided', () => {
 		const middleware = keycloakMiddleware();
 
 		const req = httpMocks.createRequest();
@@ -56,7 +56,7 @@ describe('Keycloak middleware', () => {
 		expect(next.mock.calls[0][0]).toBeUndefined();
 	});
 
-	test('Should throw type error if url value missing when retrieving request token', async () => {
+	test('Should throw type error when url value is missing when retrieving request token', async () => {
 		const altKeycloakConfig = cloneDeep(keycloakRetrieveConfig);
 		delete altKeycloakConfig.requestToken.url;
 
@@ -79,7 +79,7 @@ describe('Keycloak middleware', () => {
 		);
 	});
 
-	test('Should throw type error if url value missing when making service authorisation', async () => {
+	test('Should throw type error when url value is missing when making service authorisation', async () => {
 		const altKeycloakConfig = cloneDeep(keycloakRetrieveConfig);
 		delete altKeycloakConfig.serviceAuthorisation.url;
 
@@ -102,7 +102,7 @@ describe('Keycloak middleware', () => {
 		);
 	});
 
-	test('Should throw error if connection issue encountered when retrieving request token', async () => {
+	test('Should throw error when connection issue encountered when retrieving request token', async () => {
 		const altKeycloakConfig = cloneDeep(keycloakRetrieveConfig);
 		altKeycloakConfig.requestToken.url = 'test';
 
@@ -125,7 +125,7 @@ describe('Keycloak middleware', () => {
 		);
 	});
 
-	test('Should throw error if connection issue encountered when making service authorisation', async () => {
+	test('Should throw error when connection issue encountered when making service authorisation', async () => {
 		const altKeycloakConfig = cloneDeep(keycloakRetrieveConfig);
 		altKeycloakConfig.serviceAuthorisation.url = 'test';
 

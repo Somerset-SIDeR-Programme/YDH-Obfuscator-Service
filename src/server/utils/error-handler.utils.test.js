@@ -7,7 +7,7 @@ describe('Error handler utility', () => {
 		expect(typeof util).toBe('function');
 	});
 
-	test('Should return error in response if error instance passed', () => {
+	test('Should return error in response when error instance passed', () => {
 		const util = errorHandlerUtil();
 
 		const error = new Error('test');
@@ -20,7 +20,7 @@ describe('Error handler utility', () => {
 		expect(res._getData()).toBe('test');
 	});
 
-	test('Should return error in response if string passed', () => {
+	test('Should return error in response when string passed', () => {
 		const util = errorHandlerUtil();
 
 		const error = 'test';

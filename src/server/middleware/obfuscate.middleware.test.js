@@ -78,7 +78,7 @@ describe('Obfuscation and serialisation middleware', () => {
 		expect(next.mock.calls[0][0]).toBeUndefined();
 	});
 
-	test('Should return 400 client error if an essential parameter is missing', () => {
+	test('Should return 400 client error when an essential parameter is missing', () => {
 		const middleware = obfuscateMiddleware(
 			serverConfig.obfuscation,
 			serverConfig.obfuscation.requiredProperties
@@ -103,7 +103,7 @@ describe('Obfuscation and serialisation middleware', () => {
 		);
 	});
 
-	test('Should return 400 client error if query string missing', () => {
+	test('Should return 400 client error when query string missing', () => {
 		const middleware = obfuscateMiddleware(
 			serverConfig.obfuscation,
 			serverConfig.obfuscation.requiredProperties
@@ -125,7 +125,7 @@ describe('Obfuscation and serialisation middleware', () => {
 		);
 	});
 
-	test('Should return 500 server error if required config values are missing', () => {
+	test('Should return 500 server error when required config values are missing', () => {
 		const middleware = obfuscateMiddleware();
 
 		const query = {};
@@ -145,7 +145,7 @@ describe('Obfuscation and serialisation middleware', () => {
 		expect(next.mock.calls[0][0].message).toBe('Error: options undefined');
 	});
 
-	test('Should return 500 server error if requiredProperties argument incorrect type', () => {
+	test('Should return 500 server error when requiredProperties argument is an incorrect type', () => {
 		const middleware = obfuscateMiddleware(
 			serverConfig.obfuscation,
 			'test'

@@ -23,7 +23,7 @@ describe('Wildcard Route', () => {
 		server.shutdown();
 	});
 
-	test('Should return 500 error response if routing config missing', async () => {
+	test('Should return 500 error response when routing config missing', async () => {
 		const modServerConfig = cloneDeep(serverConfig);
 		modServerConfig.port = 8315;
 		const path = `http://0.0.0.0:${modServerConfig.port}`;
