@@ -4,26 +4,26 @@ const queryString = require('querystring');
 /**
  * @author Frazer Smith
  * @description Retrieves Keycloak access token for passed practitioner.
- * @param {Object} config - Keycloak endpoint access config values.
+ * @param {object} config - Keycloak endpoint access config values.
  *
- * @param {Object} config.serviceAuthorisation
- * @param {Object} config.serviceAuthorisation.form
- * @param {String} config.serviceAuthorisation.form.client_id
- * @param {String} config.serviceAuthorisation.form.client_secret
- * @param {String} config.serviceAuthorisation.form.grant_type
- * @param {String} config.serviceAuthorisation.form.password
- * @param {String} config.serviceAuthorisation.form.username
- * @param {String} config.serviceAuthorisation.url
+ * @param {object} config.serviceAuthorisation
+ * @param {object} config.serviceAuthorisation.form
+ * @param {string} config.serviceAuthorisation.form.client_id
+ * @param {string} config.serviceAuthorisation.form.client_secret
+ * @param {string} config.serviceAuthorisation.form.grant_type
+ * @param {string} config.serviceAuthorisation.form.password
+ * @param {string} config.serviceAuthorisation.form.username
+ * @param {string} config.serviceAuthorisation.url
  *
- * @param {Object} config.requestToken
- * @param {Object} config.requestToken.form
- * @param {String} config.requestToken.form.audience
- * @param {String} config.requestToken.form.client_id
- * @param {String} config.requestToken.form.client_secret
- * @param {String} config.requestToken.form.grant_type
- * @param {String} config.requestToken.form.request_subject
- * @param {String} config.requestToken.form.request_token_type
- * @param {String} config.requestToken.url
+ * @param {object} config.requestToken
+ * @param {object} config.requestToken.form
+ * @param {string} config.requestToken.form.audience
+ * @param {string} config.requestToken.form.client_id
+ * @param {string} config.requestToken.form.client_secret
+ * @param {string} config.requestToken.form.grant_type
+ * @param {string} config.requestToken.form.request_subject
+ * @param {string} config.requestToken.form.request_token_type
+ * @param {string} config.requestToken.url
  *
  * @return {Function} Express middleware.
  */
