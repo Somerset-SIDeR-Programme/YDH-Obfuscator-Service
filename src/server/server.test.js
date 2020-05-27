@@ -1,4 +1,5 @@
 const cloneDeep = require('lodash/cloneDeep');
+const faker = require('faker/locale/en_GB');
 const request = require('superagent');
 const { serverConfig, loggerConfig } = require('../config');
 const Server = require('./server');
@@ -6,177 +7,178 @@ const Server = require('./server');
 serverConfig.redirectUrl = 'https://pyrusapps.blackpear.com/esp/#!/launch?';
 
 const params = {
-	birthdate: '1932-04-15',
+	birthdate: faker.date.past().toISOString().split('T')[0],
 	location: 'https://fhir.nhs.uk/Id/ods-organization-code|RA4',
-	patient:
-		'https://fhir.nhs.uk/Id/nhs-number|9467335646&birthdate=1932-04-15',
-	practitioner: 'https://sider.nhs.uk/auth|frazer.smith@ydh.nhs.uk',
-	TPAGID: 'M5',
-	FromIconProfile: 13,
-	NOUNLOCK: 1
+	patient: `https://fhir.nhs.uk/Id/nhs-number|${faker.random.number(10)}`,
+	practitioner: `https://sider.nhs.uk/auth|${faker.fake("{{name.lastName}}.{{name.firstName}}")}@ydh.nhs.uk`,
+	TPAGID: faker.random.uuid(),
+	FromIconProfile: faker.random.number(),
+	NOUNLOCK: faker.random.number()
 };
 
-describe('Redirects', () => {
-	const modServerConfig = cloneDeep(serverConfig);
-	modServerConfig.port = 8225;
-	let server;
+describe('Server deployment', () => {
+	describe('Redirects', () => {
+		const modServerConfig = cloneDeep(serverConfig);
+		modServerConfig.port = 8225;
+		let server;
 
-	const path = `http://0.0.0.0:${modServerConfig.port}`;
+		const path = `http://0.0.0.0:${modServerConfig.port}`;
 
-	beforeAll(() => {
-		server = new Server(modServerConfig)
-			.configureHelmet()
-			.configureLogging(loggerConfig)
-			.configureKeycloakRetrival()
-			.configureRoutes()
-			.configureErrorHandling()
-			.listen();
+		beforeEach(() => {
+			server = new Server(modServerConfig)
+				.configureHelmet()
+				.configureLogging(loggerConfig)
+				.configureKeycloakRetrival()
+				.configureRoutes()
+				.configureErrorHandling()
+				.listen();
+		});
+
+		afterEach(() => {
+			server.shutdown();
+		});
+
+		test("Should redirect to Black Pear's ESP with all params present", async () => {
+			const res = await request
+				.get(path)
+				.set('Content-Type', 'application/json')
+				.set('cache-control', 'no-cache')
+				.query(params);
+
+			expect(res.redirects[0]).toMatch(
+				'https://pyrusapps.blackpear.com/esp/#!/launch?'
+			);
+			expect(res.statusCode).toBe(200);
+		});
+
+		test('Should fail to redirect when any required param is missing', async () => {
+			const alteredParams = { ...params };
+			delete alteredParams.NOUNLOCK;
+			delete alteredParams.TPAGID;
+			delete alteredParams.FromIconProfile;
+
+			await Promise.all(
+				Object.keys(alteredParams).map(async (key) => {
+					const scrubbedParams = { ...alteredParams };
+					delete scrubbedParams[key];
+					await request
+						.get(path)
+						.set('Content-Type', 'application/json')
+						.set('cache-control', 'no-cache')
+						.query(scrubbedParams)
+						.catch((err) => {
+							expect(err.status).toBe(400);
+						});
+				})
+			);
+		});
 	});
 
-	afterAll(() => {
-		server.shutdown();
+	describe('Keycloak token retrival', () => {
+		const modServerConfig = cloneDeep(serverConfig);
+		modServerConfig.port = 8226;
+		let server;
+
+		const path = `http://0.0.0.0:${modServerConfig.port}`;
+
+		beforeEach(() => {
+			server = new Server(modServerConfig)
+				.configureHelmet()
+				.configureKeycloakRetrival()
+				.configureRoutes()
+				.configureErrorHandling()
+				.listen();
+		});
+
+		afterEach(() => {
+			server.shutdown();
+		});
+
+		test('Should continue when Keycloak endpoint config missing', async () => {
+			const res = await request
+				.get(path)
+				.set('Content-Type', 'application/json')
+				.set('cache-control', 'no-cache')
+				.query(params);
+
+			expect(res.redirects[0]).toMatch(
+				'https://pyrusapps.blackpear.com/esp/#!/launch?'
+			);
+			expect(res.statusCode).toBe(200);
+		});
 	});
 
-	test("Should redirect to Black Pear's ESP with all params present", async () => {
-		const res = await request
-			.get(path)
-			.set('Content-Type', 'application/json')
-			.set('cache-control', 'no-cache')
-			.query(params);
+	describe('HTTPs connection with cert and key', () => {
+		const modServerConfig = cloneDeep(serverConfig);
+		modServerConfig.https = true;
+		modServerConfig.port = 8227;
+		modServerConfig.ssl.cert = `${process.cwd()}/test_ssl_cert/server.cert`;
+		modServerConfig.ssl.key = `${process.cwd()}/test_ssl_cert/server.key`;
+		let server;
 
-		expect(res.redirects[0]).toMatch(
-			'https://pyrusapps.blackpear.com/esp/#!/launch?'
-		);
-		expect(res.statusCode).toBe(200);
+		const path = `https://0.0.0.0:${modServerConfig.port}`;
+
+		beforeEach(() => {
+			// Stand up server
+			server = new Server(modServerConfig)
+				.configureHelmet()
+				.configureKeycloakRetrival()
+				.configureRoutes()
+				.configureErrorHandling()
+				.listen();
+		});
+
+		afterEach(() => {
+			server.shutdown();
+		});
+
+		test('GET - Should make a successful connection', async () => {
+			const res = await request
+				.get(path)
+				.set('Content-Type', 'application/json')
+				.set('cache-control', 'no-cache')
+				.query(params)
+				.disableTLSCerts()
+				.trustLocalhost();
+
+			expect(res.statusCode).toBe(200);
+		});
 	});
 
-	test('Should fail to redirect when any required param is missing', async () => {
-		const alteredParams = { ...params };
-		delete alteredParams.NOUNLOCK;
-		delete alteredParams.TPAGID;
-		delete alteredParams.FromIconProfile;
+	describe('HTTPs connection with PFX file and passphrase', () => {
+		const modServerConfig = cloneDeep(serverConfig);
+		modServerConfig.https = true;
+		modServerConfig.port = 8228;
+		modServerConfig.ssl.pfx.pfx = `${process.cwd()}/test_ssl_cert/server.pfx`;
+		modServerConfig.ssl.pfx.passphrase = 'test';
+		let server;
 
-		await Promise.all(
-			Object.keys(alteredParams).map(async (key) => {
-				const scrubbedParams = { ...alteredParams };
-				delete scrubbedParams[key];
-				await request
-					.get(path)
-					.set('Content-Type', 'application/json')
-					.set('cache-control', 'no-cache')
-					.query(scrubbedParams)
-					.catch((err) => {
-						expect(err.status).toBe(400);
-					});
-			})
-		);
-	});
-});
+		const path = `https://0.0.0.0:${modServerConfig.port}`;
 
-describe('Keycloak token retrival', () => {
-	const modServerConfig = cloneDeep(serverConfig);
-	modServerConfig.port = 8226;
-	let server;
+		beforeEach(() => {
+			// Stand up server
+			server = new Server(modServerConfig)
+				.configureHelmet()
+				.configureKeycloakRetrival()
+				.configureRoutes()
+				.configureErrorHandling()
+				.listen();
+		});
 
-	const path = `http://0.0.0.0:${modServerConfig.port}`;
+		afterEach(() => {
+			server.shutdown();
+		});
 
-	beforeAll(() => {
-		server = new Server(modServerConfig)
-			.configureHelmet()
-			.configureKeycloakRetrival()
-			.configureRoutes()
-			.configureErrorHandling()
-			.listen();
-	});
+		test('GET - Should make a successful connection', async () => {
+			const res = await request
+				.get(path)
+				.set('Content-Type', 'application/json')
+				.set('cache-control', 'no-cache')
+				.query(params)
+				.disableTLSCerts()
+				.trustLocalhost();
 
-	afterAll(() => {
-		server.shutdown();
-	});
-
-	test('Should continue if Keycloak endpoint config missing', async () => {
-		const res = await request
-			.get(path)
-			.set('Content-Type', 'application/json')
-			.set('cache-control', 'no-cache')
-			.query(params);
-
-		expect(res.redirects[0]).toMatch(
-			'https://pyrusapps.blackpear.com/esp/#!/launch?'
-		);
-		expect(res.statusCode).toBe(200);
-	});
-});
-
-describe('HTTPs connection with cert and key', () => {
-	const modServerConfig = cloneDeep(serverConfig);
-	modServerConfig.https = true;
-	modServerConfig.port = 8227;
-	modServerConfig.ssl.cert = `${process.cwd()}/test_ssl_cert/server.cert`;
-	modServerConfig.ssl.key = `${process.cwd()}/test_ssl_cert/server.key`;
-	let server;
-
-	const path = `https://0.0.0.0:${modServerConfig.port}`;
-
-	beforeAll(() => {
-		// Stand up server
-		server = new Server(modServerConfig)
-			.configureHelmet()
-			.configureKeycloakRetrival()
-			.configureRoutes()
-			.configureErrorHandling()
-			.listen();
-	});
-
-	afterAll(() => {
-		server.shutdown();
-	});
-
-	test('GET - Should make a successful connection', async () => {
-		const res = await request
-			.get(path)
-			.set('Content-Type', 'application/json')
-			.set('cache-control', 'no-cache')
-			.query(params)
-			.disableTLSCerts()
-			.trustLocalhost();
-
-		expect(res.statusCode).toBe(200);
-	});
-});
-
-describe('HTTPs connection with PFX file and passphrase', () => {
-	const modServerConfig = cloneDeep(serverConfig);
-	modServerConfig.https = true;
-	modServerConfig.port = 8228;
-	modServerConfig.ssl.pfx.pfx = `${process.cwd()}/test_ssl_cert/server.pfx`;
-	modServerConfig.ssl.pfx.passphrase = 'test';
-	let server;
-
-	const path = `https://0.0.0.0:${modServerConfig.port}`;
-
-	beforeAll(() => {
-		// Stand up server
-		server = new Server(modServerConfig)
-			.configureHelmet()
-			.configureKeycloakRetrival()
-			.configureRoutes()
-			.configureErrorHandling()
-			.listen();
-	});
-
-	afterAll(() => {
-		server.shutdown();
-	});
-
-	test('GET - Should make a successful connection', async () => {
-		const res = await request
-			.get(path)
-			.set('Content-Type', 'application/json')
-			.set('cache-control', 'no-cache')
-			.query(params)
-			.disableTLSCerts()
-			.trustLocalhost();
-
-		expect(res.statusCode).toBe(200);
+			expect(res.statusCode).toBe(200);
+		});
 	});
 });
