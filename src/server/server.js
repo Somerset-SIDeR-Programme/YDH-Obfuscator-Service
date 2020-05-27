@@ -71,7 +71,6 @@ class Server {
 	/**
 	 * @author Frazer Smith
 	 * @description Sets routing options for server.
-	 * @param {object} options - Route configuration values.
 	 * @returns {this} self
 	 */
 	configureRoutes() {
