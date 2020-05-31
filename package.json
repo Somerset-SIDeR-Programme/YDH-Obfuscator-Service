@@ -69,6 +69,6 @@
 		"file-stream-rotator": "^0.5.7",
 		"helmet": "^3.22.0",
 		"obfuscated-querystring": "git+https://github.com/BlackPearSw/obfuscated-querystring.git",
-		"sanitize-middleware": "^2.0.6"
+		"sanitize-middleware": "^2.0.7"
 	}
 }
