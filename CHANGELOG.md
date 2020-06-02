@@ -1,3 +1,8 @@
+## <small>9.0.2 (2020-06-02)</small>
+
+-   fix(server): check for string instead of boolean to enable https ([bceb56e](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/bceb56e))
+-   build(deps-dev): bump eslint-plugin-jsdoc from 26.0.1 to 26.0.2 ([1abbe81](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/1abbe81))
+
 ## <small>9.0.1 (2020-06-01)</small>
 
 -   build(deps-dev): add promise and jsdoc eslint plugins; update config ([2246fe7](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/2246fe7))
