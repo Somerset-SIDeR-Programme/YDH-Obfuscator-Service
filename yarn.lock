@@ -5362,10 +5362,10 @@ sanitize-html@^1.25.0:
     srcset "^2.0.1"
     xtend "^4.0.1"
 
-sanitize-middleware@^2.0.7:
-  version "2.0.7"
-  resolved "https://registry.yarnpkg.com/sanitize-middleware/-/sanitize-middleware-2.0.7.tgz#08779beb9a7e87065a6a2d427e25117fd9b9e541"
-  integrity sha512-Be7BdL8cdvZx1S0slMCmdEtEup8yDLFxmBf1i9d4cuRy6BRQa3FKFsX6n1ToifmvjJBzE875Jkr73pZvuFPvIQ==
+sanitize-middleware@^2.0.8:
+  version "2.0.8"
+  resolved "https://registry.yarnpkg.com/sanitize-middleware/-/sanitize-middleware-2.0.8.tgz#4db623761e86e4723187255bd277491f97b6cace"
+  integrity sha512-pIvUDP1Hr/o2GwFXF4wWb2qVUPzUohpVJRzpP/dLh0RS3u409nbb6jGtQvccRgFxjirkIF0GuhI0yQpTcB3vdw==
   dependencies:
     sanitize-html "^1.25.0"
     validator "^13.0.0"
