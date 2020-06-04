@@ -1,3 +1,12 @@
+## <small>9.0.3 (2020-06-04)</small>
+
+-   style(tests): correct whitespacing ([7afc7c7](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/7afc7c7))
+-   docs(readme): tidy deployment stage ([af9c880](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/af9c880))
+-   chore: watch .env.production file for pm2 restarts ([90e8db7](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/90e8db7))
+-   build(deps-dev): bump eslint-plugin-jsdoc from 26.0.2 to 27.0.3 ([ed595a7](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/ed595a7))
+-   build(deps): bump sanitize-middleware from 2.0.7 to 2.0.8 ([4144e52](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/4144e52))
+-   tests(server): correct https flag format ([a8299bc](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/a8299bc))
+
 ## <small>9.0.2 (2020-06-02)</small>
 
 -   fix(server): check for string instead of boolean to enable https ([bceb56e](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/bceb56e))

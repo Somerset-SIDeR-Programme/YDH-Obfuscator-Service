@@ -8,7 +8,9 @@ const args = {
 	birthdate: faker.date.past().toISOString().split('T')[0],
 	location: 'https://fhir.nhs.uk/Id/ods-organization-code|RA4',
 	patient: `https://fhir.nhs.uk/Id/nhs-number|${faker.random.number(10)}`,
-	practitioner: `https://sider.nhs.uk/auth|${faker.fake("{{name.lastName}}.{{name.firstName}}")}@ydh.nhs.uk`,
+	practitioner: `https://sider.nhs.uk/auth|${faker.fake(
+		'{{name.lastName}}.{{name.firstName}}'
+	)}@ydh.nhs.uk`,
 	TPAGID: faker.random.uuid(),
 	FromIconProfile: faker.random.number(),
 	NOUNLOCK: faker.random.number()
