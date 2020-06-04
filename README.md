@@ -29,12 +29,12 @@ This has been deployed on a local server that the SIDeR contextual link within t
 The Express server should now be up and running on the port set in the config. You should see the following output:
 
 ```
-ydh-sider-obfuscation-service listening for requests at http://localhost:8204
+ydh-sider-obfuscation-service listening for requests at http://0.0.0.0:8204
 ```
 
 To quickly test it open a browser of your choice or, if using a request builder (i.e. Insomnia or Postman) create a new GET request, and input the following URL:
 
-http://localhost:8204?patient=https://fhir.nhs.uk/Id/nhs-number|9467335646&birthdate=1932-04-15&location=https://fhir.nhs.uk/Id/ods-organization-code|RA4&practitioner=https://sider.nhs.uk/auth|frazer.smith@ydh.nhs.uk
+http://0.0.0.0:8204?patient=https://fhir.nhs.uk/Id/nhs-number|9467335646&birthdate=1932-04-15&location=https://fhir.nhs.uk/Id/ods-organization-code|RA4&practitioner=https://sider.nhs.uk/auth|frazer.smith@ydh.nhs.uk
 
 Swap out the organization code and email address with your own if you have already been set up an account on the eSP.
 
