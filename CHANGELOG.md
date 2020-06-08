@@ -1,3 +1,12 @@
+## <small>9.0.4 (2020-06-08)</small>
+
+-   build(deps-dev): bump eslint-plugin-import from 2.20.2 to 2.21.1 ([a77caf9](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/a77caf9))
+-   build(deps-dev): bump eslint-plugin-jsdoc from 27.0.3 to 27.0.4 ([1e52e8d](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/1e52e8d))
+-   build(deps-dev): bump typescript from 3.9.3 to 3.9.5 ([f7c33ec](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/f7c33ec))
+-   chore: rename .env.test to .env.template; add .env.test to gitignore ([1557eae](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/1557eae))
+-   chore(scripts): expand coverage of eslint and prettier ([f25d188](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/f25d188))
+-   docs(contributing): add env variable reference ([5626853](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/5626853))
+
 ## <small>9.0.3 (2020-06-04)</small>
 
 -   style(tests): correct whitespacing ([7afc7c7](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/7afc7c7))

@@ -561,9 +561,9 @@
   integrity sha1-aaI6OtKcrwCX8G7aWbNh7i8GOfY=
 
 "@types/node@*":
-  version "14.0.10"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.10.tgz#dbfaa170bd9eafccccb6d7060743a761b0844afd"
-  integrity sha512-Bz23oN/5bi0rniKT24ExLf4cK0JdvN3dH/3k0whYkdN4eI4vS2ZW/2ENNn2uxHCzWcbdHIa/GRuWQytfzCjRYw==
+  version "14.0.11"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-14.0.11.tgz#61d4886e2424da73b7b25547f59fdcb534c165a3"
+  integrity sha512-lCvvI24L21ZVeIiyIUHZ5Oflv1hhHQ5E1S25IRlKIXaRkVgmXpJMI3wUJkmym2bTbCe+WoIibQnMVAU3FguaOg==
 
 "@types/normalize-package-data@^2.4.0":
   version "2.4.0"
@@ -1281,7 +1281,7 @@ combined-stream@^1.0.6, combined-stream@^1.0.8, combined-stream@~1.0.6:
   dependencies:
     delayed-stream "~1.0.0"
 
-commander@^2.11.0, commander@^2.9.0, commander@~2.20.3:
+commander@^2.11.0, commander@^2.20.3, commander@~2.20.3:
   version "2.20.3"
   resolved "https://registry.yarnpkg.com/commander/-/commander-2.20.3.tgz#fd485e84c03eb4881c20722ba48035e8531aeb33"
   integrity sha512-GpVkmM8vF2vQUkj2LvZmD35JxeJOLCwJ9cUkugyk2nuhbv3+mJvpLYYt+0+USMxE+oj+ey/lJEnhZw75x/OMcQ==
@@ -2364,9 +2364,9 @@ faker@^4.1.0:
   integrity sha1-HkW7vsxndLPBlfrSg1EJxtdIzD8=
 
 fast-deep-equal@^3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-3.1.1.tgz#545145077c501491e33b15ec408c294376e94ae4"
-  integrity sha512-8UEa58QDLauDNfpbrX55Q9jrGHThw2ZMdOky5Gl1CDtVeJDPVrG4Jxx1N8jw2gkWaff5UUuX1KJd+9zGe2B+ZA==
+  version "3.1.3"
+  resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-3.1.3.tgz#3a7d56b559d6cbc3eb512325244e619a65c6c525"
+  integrity sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==
 
 fast-json-stable-stringify@^2.0.0:
   version "2.1.0"
@@ -4472,7 +4472,7 @@ oauth-sign@~0.9.0:
 
 "obfuscated-querystring@git+https://github.com/BlackPearSw/obfuscated-querystring.git":
   version "0.0.2"
-  resolved "git+https://github.com/BlackPearSw/obfuscated-querystring.git#4c999bde4705d4f0409fcac33e4e7799e9d5df51"
+  resolved "git+https://github.com/BlackPearSw/obfuscated-querystring.git#b451c10efff667ec7d10f49461a81e29c4a20e02"
   dependencies:
     lodash "^4.17.15"
 
@@ -6503,11 +6503,11 @@ xmlchars@^2.2.0:
   integrity sha512-JZnDKK8B0RCDw84FNdDAIpZK+JuJw+s7Lz8nksI7SIuU3UXJJslUthsi+uWBUYOwPFwW7W7PRLRfUKpxjtjFCw==
 
 xss@^1.0.6:
-  version "1.0.6"
-  resolved "https://registry.yarnpkg.com/xss/-/xss-1.0.6.tgz#eaf11e9fc476e3ae289944a1009efddd8a124b51"
-  integrity sha512-6Q9TPBeNyoTRxgZFk5Ggaepk/4vUOYdOsIUYvLehcsIZTFjaavbVnsuAkLA5lIFuug5hw8zxcB9tm01gsjph2A==
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/xss/-/xss-1.0.7.tgz#a554cbd5e909324bd6893fb47fff441ad54e2a95"
+  integrity sha512-A9v7tblGvxu8TWXQC9rlpW96a+LN1lyw6wyhpTmmGW+FwRMactchBR3ROKSi33UPCUcUHSu8s9YP6F+K3Mw//w==
   dependencies:
-    commander "^2.9.0"
+    commander "^2.20.3"
     cssfilter "0.0.10"
 
 xtend@^4.0.1, xtend@~4.0.1:
