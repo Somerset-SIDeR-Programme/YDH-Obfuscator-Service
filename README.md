@@ -22,7 +22,7 @@ This has been deployed on a local server that the SIDeR contextual link within t
 
 1. Navigate to the repo
 2. Run `yarn install` to install dependencies
-3. Make a copy of the `.env.test` file in the root directory and rename to `.env.production`
+3. Make a copy of the `.env.template` file in the root directory and rename to `.env.production`
 4. Configure the application using the global variables in the `.env.production` file
 5. Run `yarn start`
 
@@ -54,7 +54,7 @@ If the patient, birthdate, location or practitioner parameters are removed from 
 
 This requires [Docker](https://www.docker.com/products) installed.
 
-1. Make a copy of the `.env.test` file in the root directory and rename to `.env.production`
+1. Make a copy of the `.env.template` file in the root directory and rename to `.env.production`
 2. Configure the application using the global variables in the `.env.production` file
 3. Run `docker-compose up`
 
@@ -64,7 +64,7 @@ It is [recommended](https://expressjs.com/en/advanced/pm.html) that you use a pr
 
 1. Navigate to the repo
 2. Run `yarn install` to install dependencies
-3. Make a copy of the `.env.test` file in the root directory and rename to `.env.production`
+3. Make a copy of the `.env.template` file in the root directory and rename to `.env.production`
 4. Configure the application using the global variables in the `.env.production` file
 5. Run `yarn global add pm2` to install pm2 globally
 6. Launch application with `pm2 start .pm2.config.js`
