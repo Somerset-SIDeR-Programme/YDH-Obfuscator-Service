@@ -18,7 +18,7 @@ Other processes and specifications that are in use in this repository are:
 As noted in the prerequisites section of the readme file, this project requires that you have Node.js and Yarn installed.
 
 With those in place, you can fork the repository, clone it, and then run `yarn install` to install all development dependencies.
-Make a copy of the `.env.template` file in the root directory and rename to `.env.development`.
+Make a copy of `.env.template` in the root directory and rename to `.env.development`.
 
 ### Development Workflow
 
