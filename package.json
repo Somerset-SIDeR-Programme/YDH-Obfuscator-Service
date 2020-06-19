@@ -14,7 +14,7 @@
 		"dupe-check": "yarn jsinspect ./src",
 		"lint": "eslint . --cache --ext js,jsx,ts,tsx",
 		"nodemon": "cross-env NODE_ENV=development nodemon src/index.js",
-		"prettier": "prettier . --write --ignore-path .gitignore",
+		"prettier": "prettier . --write",
 		"start": "node src/index.js",
 		"test": "cross-env NODE_ENV=test yarn lint && yarn test-only",
 		"test-coverage": "cross-env NODE_ENV=test jest --coverage --runInBand",
