@@ -1,6 +1,6 @@
 {
 	"name": "ydh-sider-obfuscation-service",
-	"version": "9.0.4",
+	"version": "9.0.5",
 	"description": "NodeJS Express application to obfuscate URL query parameters before sending to SIDeR eSP.",
 	"main": "src/index.js",
 	"repository": "git+https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service.git",
@@ -43,8 +43,8 @@
 		"conventional-changelog-cli": "^2.0.34",
 		"coveralls": "^3.1.0",
 		"cross-env": "^7.0.2",
-		"eslint": "^6.8.0",
-		"eslint-config-airbnb-base": "^14.1.0",
+		"eslint": "^7.3.1",
+		"eslint-config-airbnb-base": "^14.2.0",
 		"eslint-config-prettier": "^6.11.0",
 		"eslint-plugin-import": "^2.22.0",
 		"eslint-plugin-jest": "^23.17.1",
