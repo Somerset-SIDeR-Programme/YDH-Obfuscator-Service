@@ -1,3 +1,21 @@
+## <small>9.0.5 (2020-06-30)</small>
+
+-   chore: create code_of_conduct.md ([1a0704a](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/1a0704a))
+-   chore(dependabot): increase pull limit ([4371005](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/4371005))
+-   chore(eslint): convert from json to js file format ([f9cfea0](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/f9cfea0))
+-   chore(scripts): remove prettier ignore-path option ([9d26639](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/9d26639))
+-   build(deps-dev): bump @commitlint/config-conventional ([4028872](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/4028872))
+-   build(deps-dev): bump eslint-plugin-import from 2.21.1 to 2.22.0 ([05d4960](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/05d4960))
+-   build(deps-dev): bump eslint-plugin-jest from 23.13.2 to 23.17.1 ([62cd209](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/62cd209))
+-   build(deps-dev): bump eslint-plugin-jsdoc from 27.0.4 to 28.5.1 ([0da690e](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/0da690e))
+-   build(deps-dev): bump jest from 26.0.1 to 26.1.0 ([21a4951](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/21a4951))
+-   build(deps-dev): bump superagent from 5.2.2 to 5.3.1 ([c50f310](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/c50f310))
+-   build(deps): bump helmet from 3.22.0 to 3.23.3 ([444f6d6](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/444f6d6))
+-   build(deps): bump sanitize-middleware from 2.0.8 to 2.0.12 ([f5a20bf](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/f5a20bf))
+-   build(travis): copy template file ([93df7e8](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/93df7e8))
+-   Create Dependabot config file ([89ea3f1](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/89ea3f1))
+-   docs: remove superfluous text ([78d42c6](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/78d42c6))
+
 ## <small>9.0.4 (2020-06-08)</small>
 
 -   build(deps-dev): bump eslint-plugin-import from 2.20.2 to 2.21.1 ([a77caf9](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/a77caf9))
