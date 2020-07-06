@@ -43,12 +43,12 @@
 		"conventional-changelog-cli": "^2.0.34",
 		"coveralls": "^3.1.0",
 		"cross-env": "^7.0.2",
-		"eslint": "^7.3.1",
+		"eslint": "^7.4.0",
 		"eslint-config-airbnb-base": "^14.2.0",
 		"eslint-config-prettier": "^6.11.0",
 		"eslint-plugin-import": "^2.22.0",
-		"eslint-plugin-jest": "^23.17.1",
-		"eslint-plugin-jsdoc": "^28.5.1",
+		"eslint-plugin-jest": "^23.18.0",
+		"eslint-plugin-jsdoc": "^28.6.1",
 		"eslint-plugin-json": "^2.1.1",
 		"eslint-plugin-promise": "^4.2.1",
 		"faker": "^4.1.0",
@@ -59,7 +59,7 @@
 		"nodemon": "^2.0.4",
 		"prettier": "2.0.5",
 		"superagent": "^5.3.1",
-		"typescript": "^3.9.5"
+		"typescript": "^3.9.6"
 	},
 	"dependencies": {
 		"axios": "^0.19.2",
