@@ -1,3 +1,9 @@
+## <small>9.0.6 (2020-07-06)</small>
+
+-   build(deps-dev): bump development dependencies ([9871466](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/9871466))
+-   build(deps): bump obfuscated-querystring from 0.0.2 to 0.0.3 ([4329e31](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/4329e31))
+-   docs(readme): add missing step to pm2 windows service installation ([aa893e5](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/aa893e5))
+
 ## <small>9.0.5 (2020-06-30)</small>
 
 -   chore: create code_of_conduct.md ([1a0704a](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/1a0704a))
