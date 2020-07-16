@@ -9,9 +9,9 @@ node_js:
     - 'node'
 
 os:
-    - windows
     - linux
     - osx
+    - windows
 
 # See https://travis-ci.community/t/build-doesnt-finish-after-completing-tests/288/9
 env:
@@ -25,7 +25,7 @@ branches:
         - /^v\d*\.\d*\.\d*$/
         - /^dependabot/.*$/
 
-script: echo "Running tests against $(node -v)..."
+script: echo "Running tests against $(node -v)..." && cp .env.template .env.test && yarn test
 
 jobs:
     include:
