@@ -10,7 +10,7 @@ node_js:
     - 'node'
 
 # os
-dist: bionic
+dist: focal
 
 os:
     - linux
