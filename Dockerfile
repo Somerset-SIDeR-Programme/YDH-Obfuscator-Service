@@ -10,5 +10,4 @@ COPY ./src ./src
 RUN apt-get -y install git
 
 RUN yarn install
-EXPOSE 8204
 CMD ["yarn", "start"]
