@@ -9,7 +9,6 @@ const keycloakRetrieveConfig = {
 			client_id: 'mock-id',
 			client_secret: 'mock-secret',
 			grant_type: 'urn:ietf:params:oauth:grant-type:token-exchange',
-			requested_subject: undefined,
 			requested_token_type:
 				'urn:ietf:params:oauth:token-type:access_token'
 		},

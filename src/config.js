@@ -33,7 +33,7 @@ const keycloakRetrieveConfig = {
 			grant_type:
 				process.env.KC_REQUESTTOKEN_GRANT_TYPE ||
 				'urn:ietf:params:oauth:grant-type:token-exchange',
-			requested_subject: process.env.KC_REQUESTTOKEN_REQUESTED_SUBJECT,
+			requested_subject: undefined,
 			requested_token_type:
 				process.env.KC_REQUESTTOKEN_REQUESTED_TOKEN_TYPE ||
 				'urn:ietf:params:oauth:token-type:access_token'
