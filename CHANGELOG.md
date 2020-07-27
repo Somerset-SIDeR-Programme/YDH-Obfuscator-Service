@@ -1,3 +1,22 @@
+## <small>9.0.7 (2020-07-27)</small>
+
+-   build(deps-dev): bump dev dependencies ([b757966](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/b757966))
+-   build(deps-dev): remove typescript ([7038b66](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/7038b66))
+-   build(deps): bump sanitize-middleware from 2.0.12 to 2.0.14 ([7af1888](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/7af1888))
+-   build(docker): use .env file for config ([1f32de8](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/1f32de8))
+-   build(travis): add test step ([76c8ded](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/76c8ded))
+-   build(travis): make scripts multiline ([6d30ac4](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/6d30ac4))
+-   build(travis): remove windows and osx os from allowed failures ([fb54515](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/fb54515))
+-   build(travis): set linux dist ([fd705aa](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/fd705aa))
+-   build(travis): set osx image to latest version ([591a1e6](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/591a1e6))
+-   build(travis): suppress git log; structure job stages ([288132a](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/288132a))
+-   build(travis): update linux dist to latest lts ([8fb94d7](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/8fb94d7))
+-   build(travis): use lts version of node for jobs ([3aa5dd7](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/3aa5dd7))
+-   chore: update contact email ([085d5eb](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/085d5eb))
+-   chore: update team contact email ([5b5e5fd](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/5b5e5fd))
+-   chore(scripts): use gitignore for ignore-path options ([f30cc22](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/f30cc22))
+-   docs(readme): remove inactive dependabot badge ([290e5cd](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/290e5cd))
+
 ## <small>9.0.6 (2020-07-06)</small>
 
 -   build(deps-dev): bump development dependencies ([9871466](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/9871466))
