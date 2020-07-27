@@ -19,7 +19,6 @@ const serverConfig = {
 			value: '0123456789'
 		},
 		obfuscate: ['birthdate', 'patient'],
-		// Add 'access_token' to requiredProperties array when Keycloak turned on
 		requiredProperties: ['birthdate', 'location', 'patient', 'practitioner']
 	}
 };

@@ -1,3 +1,7 @@
+## <small>9.0.8 (2020-07-27)</small>
+
+-   fix(index): assign keycloak config variable ([f180a1c](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/f180a1c))
+
 ## <small>9.0.7 (2020-07-27)</small>
 
 -   build(deps-dev): bump dev dependencies ([b757966](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/b757966))
