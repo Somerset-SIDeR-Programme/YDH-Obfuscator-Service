@@ -3,6 +3,7 @@
  * https://github.com/keycloak/keycloak-documentation/blob/master/securing_apps/topics/token-exchange/token-exchange.adoc
  */
 const keycloakRetrieveConfig = {
+	enabled: 'true',
 	requestToken: {
 		form: {
 			audience: 'mock-audience',
