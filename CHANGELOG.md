@@ -1,3 +1,13 @@
+## 10.0.0 (2020-07-28)
+
+-   build(deps-dev): bump eslint-plugin-jest from 23.18.2 to 23.19.0 ([4eef5f8](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/4eef5f8))
+-   feat(middleware): make toggling of keycloak easier ([468ce46](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/468ce46))
+-   chore(config): remove test config value ([5d7a18a](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/5d7a18a))
+
+### BREAKING CHANGE
+
+-   `KC_ENABLED` env variable needs to be set to true or false to enable or disable keycloak respectively
+
 ## <small>9.0.8 (2020-07-27)</small>
 
 -   fix(index): assign keycloak config variable ([f180a1c](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/f180a1c))
