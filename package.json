@@ -1,7 +1,7 @@
 {
 	"name": "ydh-sider-obfuscation-service",
-	"version": "9.0.8",
-	"description": "NodeJS Express application to obfuscate URL query parameters before sending to SIDeR eSP.",
+	"version": "10.0.0",
+	"description": "Yeovil District Hospital's SIDeR Service to obfuscate URL query parameters before sending to SIDeR eSP",
 	"main": "src/index.js",
 	"repository": "git+https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service.git",
 	"author": "Frazer Smith <frazer.smith@ydh.nhs.uk>",
@@ -47,7 +47,7 @@
 		"eslint-config-airbnb-base": "^14.2.0",
 		"eslint-config-prettier": "^6.11.0",
 		"eslint-plugin-import": "^2.22.0",
-		"eslint-plugin-jest": "^23.18.2",
+		"eslint-plugin-jest": "^23.19.0",
 		"eslint-plugin-jsdoc": "^30.0.3",
 		"eslint-plugin-json": "^2.1.2",
 		"eslint-plugin-promise": "^4.2.1",

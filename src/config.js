@@ -23,7 +23,12 @@ const serverConfig = {
 	}
 };
 
+if (process.env.KC_ENABLED === true) {
+	serverConfig.obfuscation.requiredProperties.push('access_token');
+}
+
 const keycloakRetrieveConfig = {
+	enabled: process.env.KC_ENABLED,
 	// Request access token for user
 	requestToken: {
 		form: {

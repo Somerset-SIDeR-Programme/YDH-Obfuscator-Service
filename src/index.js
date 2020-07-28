@@ -1,4 +1,8 @@
-const { serverConfig, loggerConfig, keycloakRetrieveConfig } = require('./config');
+const {
+	serverConfig,
+	loggerConfig,
+	keycloakRetrieveConfig
+} = require('./config');
 const Server = require('./server/server');
 
 new Server(serverConfig)

@@ -30,8 +30,8 @@ const queryString = require('querystring');
  */
 module.exports = function keycloakMiddleware(config = {}) {
 	return async (req, res, next) => {
-		// Don't attempt to retrieve access tokens if config not supplied
-		if (Object.keys(config).length === 0) {
+		// Don't attempt to retrieve access tokens if Keycloak not enabled
+		if (config.enabled === 'false' || config.enabled === undefined) {
 			next();
 		} else {
 			try {
