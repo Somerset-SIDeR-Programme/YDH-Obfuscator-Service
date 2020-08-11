@@ -72,18 +72,7 @@ It is [recommended](https://expressjs.com/en/advanced/pm.html) that you use a pr
 
 #### To install as a Windows service:
 
-Yeovil District Hospital is heavily invested in Microsoft's ecosystem; as such the service can be deployed on Windows as a service.
-
-1. Run `yarn global add @fdawgs/pm2-windows-service` to install [pm2-windows-service](https://classic.yarnpkg.com/en/package/@fdawgs/pm2-windows-service)
-2. PM2 creates a default PM2 home folder under `C:/Users/<username>/.pm2` after its first run; copy the folder to a system accessible level i.e. `C:/.pm2`
-3. Create a new PM2_HOME system variable and set the value to `C:/.pm2`
-4. Create a new PM2_SERVICE_PM2_DIR system variable and set to where PM2 is installed i.e. `C:/USERS/USER/APPDATA/ROAMING/NPM/node_modules/pm2/index.js`
-5. Run `pm2 start .pm2.config.js` to start the application
-6. Run `pm2 save` to save the process list
-7. Run `pm2-service-install` to install as a service, perform the environment setup when prompted if you have not completed steps 3 and 4
-
-When the service starts or restarts, it will start all the applications saved in the process list.
-To uninstall the service run `pm2-service-uninstall`.
+Yeovil District Hospital is heavily invested in Microsoft's ecosystem; utilise [pm2-installer](https://github.com/jessety/pm2-installer) to easily install PM2 as a Windows service.
 
 **Note:** PM2 has been configured to automatically restart the application if modifications are made to `src/config.js`.
 
