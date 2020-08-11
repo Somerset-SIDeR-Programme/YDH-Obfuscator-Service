@@ -5243,10 +5243,10 @@ sanitize-html@^1.27.1:
     postcss "^7.0.27"
     srcset "^2.0.1"
 
-sanitize-middleware@^2.0.14:
-  version "2.0.14"
-  resolved "https://registry.yarnpkg.com/sanitize-middleware/-/sanitize-middleware-2.0.14.tgz#9f21b5423e0c685ae2176764d00407793826076e"
-  integrity sha512-ymsej+fdtV/dcuaAbfJVJCM7vO6xnSkR1r/QGf9Zpc6mNbdYa2zibZbLp2Z6Lm3ltcZZ/czN3+CsLq8Vme/h6w==
+sanitize-middleware@^2.0.15:
+  version "2.0.15"
+  resolved "https://registry.yarnpkg.com/sanitize-middleware/-/sanitize-middleware-2.0.15.tgz#570cb5e018f9ae94720e85a94d901d949e4ac106"
+  integrity sha512-Kk6ymjejnqM+fm4ylMIKDZnXKbht7ai6LZUllgf2K3wYMomMxILD3fIRugr9qdbzjh2PHd3gRYiCq1vjD56weg==
   dependencies:
     sanitize-html "^1.27.1"
     validator "^13.1.1"
