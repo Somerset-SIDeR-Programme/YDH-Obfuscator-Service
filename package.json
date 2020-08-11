@@ -52,7 +52,7 @@
 		"eslint-plugin-json": "^2.1.2",
 		"eslint-plugin-promise": "^4.2.1",
 		"faker": "^4.1.0",
-		"jest": "^26.2.2",
+		"jest": "^26.3.0",
 		"jsinspect": "^0.12.7",
 		"lodash": "^4.17.19",
 		"node-mocks-http": "^1.8.1",
