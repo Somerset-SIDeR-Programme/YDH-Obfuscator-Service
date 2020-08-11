@@ -1,3 +1,10 @@
+## <small>10.0.1 (2020-08-11)</small>
+
+-   build(deps-dev): bump dev dependencies to resolve security cve ([276e32d](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/276e32d))
+-   build(deps): bump helmet from 3.23.3 to 4.0.0 ([fb89869](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/fb89869))
+-   build(deps): bump sanitize-middleware from 2.0.14 to 2.0.15 ([899de53](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/899de53))
+-   docs(readme): replace convoluted pm2 windows service deploy steps ([bba2dd1](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/bba2dd1))
+
 ## 10.0.0 (2020-07-28)
 
 -   build(deps-dev): bump eslint-plugin-jest from 23.18.2 to 23.19.0 ([4eef5f8](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/4eef5f8))
