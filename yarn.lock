@@ -5230,24 +5230,24 @@ sane@^4.0.3:
     minimist "^1.1.1"
     walker "~1.0.5"
 
-sanitize-html@^1.27.1:
-  version "1.27.2"
-  resolved "https://registry.yarnpkg.com/sanitize-html/-/sanitize-html-1.27.2.tgz#08c0cee76e594c677ab1c466594f72cb1142f399"
-  integrity sha512-REZETvhFFChM3zyQS8XoR02j5U56HtyQkxsc8cb5HEi3XU0AAX9TuKvWe3ESR0F0IA81ZghA+5YpJg8C35AFyQ==
+sanitize-html@^1.27.3:
+  version "1.27.3"
+  resolved "https://registry.yarnpkg.com/sanitize-html/-/sanitize-html-1.27.3.tgz#dc7419b075f96737055c98764aea40c42d978df9"
+  integrity sha512-79tcPlgJ3fuK0/TtUCIBdPeQSvktTSTJP9O/dzrteaO98qw5UV6CATh3ZyPjUzv1LtNjHDlhbq9XOXiKf0zA1w==
   dependencies:
     htmlparser2 "^4.1.0"
     lodash "^4.17.15"
     parse-srcset "^1.0.2"
     postcss "^7.0.27"
 
-sanitize-middleware@^2.0.15:
-  version "2.0.15"
-  resolved "https://registry.yarnpkg.com/sanitize-middleware/-/sanitize-middleware-2.0.15.tgz#570cb5e018f9ae94720e85a94d901d949e4ac106"
-  integrity sha512-Kk6ymjejnqM+fm4ylMIKDZnXKbht7ai6LZUllgf2K3wYMomMxILD3fIRugr9qdbzjh2PHd3gRYiCq1vjD56weg==
+sanitize-middleware@^2.0.16:
+  version "2.0.16"
+  resolved "https://registry.yarnpkg.com/sanitize-middleware/-/sanitize-middleware-2.0.16.tgz#45dc1b91c0fc5f38252cb9e0fe2499aa307822eb"
+  integrity sha512-2Z4rkvQT+ixajAuC5AH3YWzESkyDwXqDohXXhEweZnjyfCu2di5BLskC9vlE75Zi68mTkQxJWyVSzaun3fiYLA==
   dependencies:
-    sanitize-html "^1.27.1"
+    sanitize-html "^1.27.3"
     validator "^13.1.1"
-    xss "^1.0.7"
+    xss "^1.0.8"
 
 saxes@^5.0.0:
   version "5.0.1"
@@ -6333,7 +6333,7 @@ xmlchars@^2.2.0:
   resolved "https://registry.yarnpkg.com/xmlchars/-/xmlchars-2.2.0.tgz#060fe1bcb7f9c76fe2a17db86a9bc3ab894210cb"
   integrity sha512-JZnDKK8B0RCDw84FNdDAIpZK+JuJw+s7Lz8nksI7SIuU3UXJJslUthsi+uWBUYOwPFwW7W7PRLRfUKpxjtjFCw==
 
-xss@^1.0.7:
+xss@^1.0.8:
   version "1.0.8"
   resolved "https://registry.yarnpkg.com/xss/-/xss-1.0.8.tgz#32feb87feb74b3dcd3d404b7a68ababf10700535"
   integrity sha512-3MgPdaXV8rfQ/pNn16Eio6VXYPTkqwa0vc7GkiymmY/DqR1SE/7VPAAVZz1GJsJFrllMYO3RHfEaiUGjab6TNw==
