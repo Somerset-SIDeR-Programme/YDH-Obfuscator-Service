@@ -74,8 +74,8 @@ describe('Keycloak middleware', () => {
 
 		expect(res.statusCode).toBe(500);
 		expect(next).toHaveBeenCalledTimes(1);
-		expect(next.mock.calls[0][0].message).toBe(
-			'TypeError [ERR_INVALID_ARG_TYPE]: The "url" argument must be of type string. Received undefined'
+		expect(next.mock.calls[0][0].message).toMatch(
+			/TypeError \[ERR_INVALID_ARG_TYPE\]: The "url" argument must be of type string\. Received (?:type\s)?undefined/
 		);
 	});
 
@@ -96,8 +96,8 @@ describe('Keycloak middleware', () => {
 
 		expect(res.statusCode).toBe(500);
 		expect(next).toHaveBeenCalledTimes(1);
-		expect(next.mock.calls[0][0].message).toBe(
-			'TypeError [ERR_INVALID_ARG_TYPE]: The "url" argument must be of type string. Received undefined'
+		expect(next.mock.calls[0][0].message).toMatch(
+			/TypeError \[ERR_INVALID_ARG_TYPE\]: The "url" argument must be of type string\. Received (?:type\s)?undefined/
 		);
 	});
 
