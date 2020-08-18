@@ -1,3 +1,12 @@
+## <small>10.0.2 (2020-08-18)</small>
+
+-   build(deps-dev): bump dev dependencies ([dc2ce16](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/dc2ce16))
+-   build(deps): bump helmet from 4.0.0 to 4.1.0 ([3ebba2c](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/3ebba2c))
+-   build(deps): bump sanitize-middleware from 2.0.15 to 2.0.16 ([f14d224](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/f14d224))
+-   tests(middleware): change string matching to regexp ([2297cc2](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/2297cc2))
+-   chore: reduce minimum nodejs engine version from 12.x to 10.x ([b0c4e31](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/b0c4e31))
+-   chore(github): add issue templates ([b98990f](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/b98990f))
+
 ## <small>10.0.1 (2020-08-11)</small>
 
 -   build(deps-dev): bump dev dependencies to resolve security cve ([276e32d](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/276e32d))
