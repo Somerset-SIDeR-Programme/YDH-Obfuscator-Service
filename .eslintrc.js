@@ -8,13 +8,14 @@ module.exports = {
 		'plugin:promise/recommended',
 		'plugin:jest/recommended',
 		'plugin:jsdoc/recommended',
+		'plugin:security/recommended',
 		'prettier'
 	],
 	parserOptions: {
 		ecmaVersion: 2020,
 		sourceType: 'module'
 	},
-	plugins: ['import', 'jest', 'jsdoc', 'json', 'promise'],
+	plugins: ['import', 'jest', 'jsdoc', 'json', 'promise', 'security'],
 	rules: {
 		'import/no-extraneous-dependencies': [
 			'error',
