@@ -1,3 +1,11 @@
+## <small>10.0.3 (2020-08-28)</small>
+
+-   refactor(server): use server.address() for host and port logging ([3040230](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/3040230))
+-   build(deps-dev): add eslint-plugin-security dev dependency ([95dd285](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/95dd285))
+-   build(deps-dev): bump dev dependencies ([d1aa063](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/d1aa063))
+-   build(deps): bump axios from 0.19.2 to 0.20.0 ([773bd9d](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/773bd9d))
+-   build(deps): bump sanitize-middleware from 2.0.16 to 2.0.17 ([33259b7](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/33259b7))
+
 ## <small>10.0.2 (2020-08-18)</small>
 
 -   build(deps-dev): bump dev dependencies ([dc2ce16](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/dc2ce16))

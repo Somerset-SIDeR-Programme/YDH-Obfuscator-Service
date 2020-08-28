@@ -1,6 +1,6 @@
 {
 	"name": "ydh-sider-obfuscation-service",
-	"version": "10.0.2",
+	"version": "10.0.3",
 	"description": "Yeovil District Hospital's SIDeR Service to obfuscate URL query parameters before sending to SIDeR eSP",
 	"main": "src/index.js",
 	"repository": "git+https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service.git",
@@ -48,26 +48,27 @@
 		"eslint-config-prettier": "^6.11.0",
 		"eslint-plugin-import": "^2.22.0",
 		"eslint-plugin-jest": "^23.20.0",
-		"eslint-plugin-jsdoc": "^30.2.4",
+		"eslint-plugin-jsdoc": "^30.3.0",
 		"eslint-plugin-json": "^2.1.2",
 		"eslint-plugin-promise": "^4.2.1",
-		"faker": "^4.1.0",
-		"jest": "^26.4.0",
+		"eslint-plugin-security": "^1.4.0",
+		"faker": "^5.1.0",
+		"jest": "^26.4.2",
 		"jsinspect": "^0.12.7",
 		"lodash": "^4.17.20",
-		"node-mocks-http": "^1.8.1",
+		"node-mocks-http": "^1.9.0",
 		"nodemon": "^2.0.4",
-		"prettier": "2.0.5",
+		"prettier": "2.1.1",
 		"superagent": "^6.0.0"
 	},
 	"dependencies": {
-		"axios": "^0.19.2",
+		"axios": "^0.20.0",
 		"custom-env": "^2.0.1",
 		"express": "^4.17.1",
 		"express-pino-logger": "^5.0.0",
 		"file-stream-rotator": "^0.5.7",
 		"helmet": "^4.1.0",
 		"obfuscated-querystring": "git+https://github.com/BlackPearSw/obfuscated-querystring.git",
-		"sanitize-middleware": "^2.0.16"
+		"sanitize-middleware": "^2.0.17"
 	}
 }
