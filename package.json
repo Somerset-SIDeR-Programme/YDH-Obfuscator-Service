@@ -61,7 +61,7 @@
 		"superagent": "^6.0.0"
 	},
 	"dependencies": {
-		"axios": "^0.19.2",
+		"axios": "^0.20.0",
 		"custom-env": "^2.0.1",
 		"express": "^4.17.1",
 		"express-pino-logger": "^5.0.0",
