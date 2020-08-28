@@ -5226,22 +5226,22 @@ sane@^4.0.3:
     minimist "^1.1.1"
     walker "~1.0.5"
 
-sanitize-html@^1.27.3:
-  version "1.27.3"
-  resolved "https://registry.yarnpkg.com/sanitize-html/-/sanitize-html-1.27.3.tgz#dc7419b075f96737055c98764aea40c42d978df9"
-  integrity sha512-79tcPlgJ3fuK0/TtUCIBdPeQSvktTSTJP9O/dzrteaO98qw5UV6CATh3ZyPjUzv1LtNjHDlhbq9XOXiKf0zA1w==
+sanitize-html@^1.27.4:
+  version "1.27.4"
+  resolved "https://registry.yarnpkg.com/sanitize-html/-/sanitize-html-1.27.4.tgz#3864e7562fc708cefabcb0d51bbacde3411504cb"
+  integrity sha512-VvY1hxVvMXzSos/LzqeBl9/KYu3mkEOtl5NMwz6jER318dSHDCig0AOjZOtnoCwAC3HMs9LhfWkPCmQGttb4ng==
   dependencies:
     htmlparser2 "^4.1.0"
     lodash "^4.17.15"
     parse-srcset "^1.0.2"
     postcss "^7.0.27"
 
-sanitize-middleware@^2.0.16:
-  version "2.0.16"
-  resolved "https://registry.yarnpkg.com/sanitize-middleware/-/sanitize-middleware-2.0.16.tgz#45dc1b91c0fc5f38252cb9e0fe2499aa307822eb"
-  integrity sha512-2Z4rkvQT+ixajAuC5AH3YWzESkyDwXqDohXXhEweZnjyfCu2di5BLskC9vlE75Zi68mTkQxJWyVSzaun3fiYLA==
+sanitize-middleware@^2.0.17:
+  version "2.0.17"
+  resolved "https://registry.yarnpkg.com/sanitize-middleware/-/sanitize-middleware-2.0.17.tgz#a6f385b9b54866b93b1ea1781cf9d2588898c4d8"
+  integrity sha512-PVjlghKz4JssZTZyslOEzD6mnXYGAgJVTEQ8Y1p81ZyVr6v1STZ2OSTQzfGDTWjNLCR96Wm90OTI46hQQdQkPw==
   dependencies:
-    sanitize-html "^1.27.3"
+    sanitize-html "^1.27.4"
     validator "^13.1.1"
     xss "^1.0.8"
 
