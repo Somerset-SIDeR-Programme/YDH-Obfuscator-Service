@@ -1,3 +1,14 @@
+## 10.1.0 (2020-09-15)
+
+-   docs(readme): update pm2 deployment steps ([04090bc](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/04090bc))
+-   build(deps-dev): bump dev dependencies ([88b2902](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/88b2902))
+-   build(deps-dev): bump eslint from 7.7.0 to 7.9.0 ([204d471](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/204d471))
+-   build(deps): bump helmet from 4.1.0 to 4.1.1 ([cf4a7e4](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/cf4a7e4))
+-   feat(server): add hpp middleware to protect against hpp attacks ([5b50c1b](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/5b50c1b))
+-   chore(eslint): remove unnecessary eslint rules ([5102895](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/5102895))
+-   chore(nodemon): configure nodemon to watch dev .env file ([16b9b7c](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/16b9b7c))
+-   chore(pm2): watch .env files for config changes; set instances to max ([12f77b6](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/12f77b6))
+
 ## <small>10.0.3 (2020-08-28)</small>
 
 -   refactor(server): use server.address() for host and port logging ([3040230](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/3040230))
