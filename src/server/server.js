@@ -3,6 +3,7 @@ const expressPino = require('express-pino-logger');
 const rotatingLogStream = require('file-stream-rotator');
 const fs = require('fs');
 const helmet = require('helmet');
+const hpp = require('hpp');
 const http = require('http');
 const https = require('https');
 
@@ -24,6 +25,9 @@ class Server {
 
 		// Setup our Express instance
 		this.app = express();
+
+		// Protect against HTTP Parameter Pollution attacks
+		this.app.use(hpp());
 
 		// Return self for chaining
 		return this;
