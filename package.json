@@ -13,12 +13,27 @@
 		"changelog": "conventional-changelog -p @commitlint/config-conventional -s -i CHANGELOG.md && prettier CHANGELOG.md --write",
 		"dupe-check": "yarn jsinspect ./src",
 		"lint": "eslint . --cache --ext js,jsx,ts,tsx --ignore-path .gitignore",
-		"nodemon": "cross-env NODE_ENV=development nodemon src/index.js",
+		"nodemon": "nodemon",
 		"prettier": "prettier . --write --ignore-path .gitignore",
 		"start": "node src/index.js",
 		"test": "cross-env NODE_ENV=test yarn lint && yarn test-only",
 		"test-coverage": "cross-env NODE_ENV=test jest --coverage --runInBand",
 		"test-only": "cross-env NODE_ENV=test jest --detectOpenHandles --runInBand"
+	},
+	"nodemonConfig": {
+		"env": {
+			"NODE_ENV": "development",
+			"SUPPRESS_SUPPORT": 1
+		},
+		"ignore": [
+			"mocks",
+			"test_ssl_cert"
+		],
+		"verbose": true,
+		"watch": [
+			".env.development",
+			"src"
+		]
 	},
 	"jest": {
 		"clearMocks": true,
