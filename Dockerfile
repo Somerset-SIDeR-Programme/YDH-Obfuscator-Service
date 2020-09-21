@@ -1,4 +1,4 @@
-FROM node:lts
+FROM node:lts-alpine
 
 WORKDIR /usr/app
 COPY package.json .
@@ -7,7 +7,7 @@ COPY .env.production .
 COPY ./src ./src
 
 # git needed to install node modules from github
-RUN apt-get -y install git
+RUN apk --no-cache add git
 
 RUN yarn install
 CMD ["yarn", "start"]
