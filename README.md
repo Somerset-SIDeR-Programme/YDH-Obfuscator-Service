@@ -54,8 +54,8 @@ If the patient, birthdate, location or practitioner parameters are removed from 
 
 This requires [Docker](https://www.docker.com/products) installed.
 
-1. Make a copy of `.env.template` in the root directory and rename to `.env`
-2. Configure the application using the global variables in `.env`
+1. Make a copy of `.env.template` in the root directory and rename to `.env.production`
+2. Configure the application using the global variables in `.env.production`
 3. Run `docker-compose up`
 
 ### Deploying using PM2
