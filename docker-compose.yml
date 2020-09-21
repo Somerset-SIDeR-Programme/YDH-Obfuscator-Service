@@ -4,11 +4,7 @@ services:
         build:
             args:
                 NODE_ENV: production
-                USE_HTTPS: ${USE_HTTPS}
-                
             context: .
         env_file: .env.production
-        environment:
-            NODE_ENV: production
         ports:
             - ${PORT:-8204}:${PORT:-8204}

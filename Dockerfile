@@ -1,7 +1,7 @@
 FROM node:lts-alpine
 
 ARG NODE_ENV
-ARG USE_HTTPS
+ENV NODE_ENV=${NODE_ENV}
 
 RUN addgroup -S appgroup && adduser -S appuser -G appgroup
 WORKDIR /usr/app
