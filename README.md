@@ -74,7 +74,7 @@ It is [recommended](https://expressjs.com/en/advanced/pm.html) that you use a pr
 
 Yeovil District Hospital is heavily invested in Microsoft's ecosystem; utilise [pm2-installer](https://github.com/jessety/pm2-installer) to easily install PM2 as a Windows service.
 
-**Note:** PM2 has been configured to automatically restart the application if modifications are made to `src/config.js`.
+**Note:** PM2 has been configured to automatically restart the application if modifications are made to `.env.development` or `.env.production`.
 
 ## Contributing
 
