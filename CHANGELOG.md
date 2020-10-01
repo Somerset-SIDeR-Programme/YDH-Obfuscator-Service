@@ -1,3 +1,18 @@
+## <small>10.1.1 (2020-10-01)</small>
+
+-   build(dependabot): remove assignment of pull requests to user ([21b7557](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/21b7557))
+-   build(deps-dev): bump dev dependencies ([07ec5c5](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/07ec5c5))
+-   build(deps): bump sanitize-middleware from 2.0.17 to 2.0.19 ([9c2cc96](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/9c2cc96))
+-   build(docker): conditional yarn dependency install and env file ([5089b09](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/5089b09))
+-   build(docker): create user with limited capabilities ([3837da4](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/3837da4))
+-   build(docker): only use node_env arg ([8e36416](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/8e36416))
+-   build(docker): remove yarn cache to reduce image size ([d8b0c9e](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/d8b0c9e))
+-   build(docker): use alpine base image to reduce image size ([39a6372](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/39a6372))
+-   docs(contributing): correct release step order ([3a893c7](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/3a893c7))
+-   docs(readme): add snyk badge ([0766894](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/0766894))
+-   docs(readme): repoint travis-ci badge from .org to .com ([5894a9b](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/5894a9b))
+-   chore(scripts): remove nodemon script ([e52adea](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/e52adea))
+
 ## 10.1.0 (2020-09-15)
 
 -   docs(readme): update pm2 deployment steps ([04090bc](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/04090bc))
