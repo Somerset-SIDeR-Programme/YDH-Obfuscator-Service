@@ -18,7 +18,7 @@ COPY .env.${NODE_ENV} .
 COPY ./src ./src
 
 # git needed to install node modules from github
-RUN apk add --no-cache git && apk -U upgrade
+RUN apk add --no-cache git
 
 RUN if [ "${NODE_ENV}" = "production" ] ; then yarn install --production ; else yarn install ; fi && yarn cache clean
 USER appuser
