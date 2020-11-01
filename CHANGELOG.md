@@ -1,3 +1,16 @@
+## <small>10.1.2 (2020-11-01)</small>
+
+-   build: create codeql-analysis.yml workflow file ([4c381ac](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/4c381ac))
+-   build(deps-dev): bump dev dependencies ([4233cc3](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/4233cc3))
+-   build(deps): bump axios from 0.20.0 to 0.21.0 ([40ca7c5](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/40ca7c5))
+-   build(deps): bump sanitize-middleware from 2.0.19 to 3.1.0 ([cad9c22](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/cad9c22))
+-   build(docker): remove duplicate upgrade call ([3208794](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/3208794))
+-   build(docker): restrict mapped ports to localhost ([3b857ec](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/3b857ec))
+-   build(docker): update system and dependencies ([d6d5eb7](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/d6d5eb7))
+-   docs(contributing): remove reference to replaced jest script ([f8124b4](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/f8124b4))
+-   docs(contributing): spelling and grammar fixes ([b1434ad](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/b1434ad))
+-   docs(readme): correct pm2 statement ([f3473fd](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/f3473fd))
+
 ## <small>10.1.1 (2020-10-01)</small>
 
 -   build(dependabot): remove assignment of pull requests to user ([21b7557](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/21b7557))
