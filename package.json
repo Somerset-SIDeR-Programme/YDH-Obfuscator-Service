@@ -84,6 +84,6 @@
 		"helmet": "^4.1.1",
 		"hpp": "^0.2.3",
 		"obfuscated-querystring": "git+https://github.com/BlackPearSw/obfuscated-querystring.git",
-		"sanitize-middleware": "^2.0.19"
+		"sanitize-middleware": "^3.1.0"
 	}
 }
