@@ -1,3 +1,9 @@
+## <small>10.1.3 (2020-11-02)</small>
+
+-   build(deps-dev): bump jest from 26.6.1 to 26.6.2 ([2cb1492](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/2cb1492))
+-   build(deps): bump helmet from 4.1.1 to 4.2.0 ([3d68c31](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/3d68c31))
+-   build(deps): bump sanitize-middleware from 3.1.0 to 4.0.0 ([438426d](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/438426d))
+
 ## <small>10.1.2 (2020-11-01)</small>
 
 -   build: create codeql-analysis.yml workflow file ([4c381ac](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/4c381ac))
