@@ -118,9 +118,7 @@ describe('Keycloak middleware', () => {
 
 		expect(res.statusCode).toBe(500);
 		expect(next).toHaveBeenCalledTimes(1);
-		expect(next.mock.calls[0][0].message).toBe(
-			'Error: connect ECONNREFUSED 127.0.0.1:80'
-		);
+		expect(next.mock.calls[0][0].message.substring(0, 6)).toBe('Error:');
 	});
 
 	test('Should throw error when connection issue encountered when making service authorisation', async () => {
@@ -140,8 +138,6 @@ describe('Keycloak middleware', () => {
 
 		expect(res.statusCode).toBe(500);
 		expect(next).toHaveBeenCalledTimes(1);
-		expect(next.mock.calls[0][0].message).toBe(
-			'Error: connect ECONNREFUSED 127.0.0.1:80'
-		);
+		expect(next.mock.calls[0][0].message.substring(0, 6)).toBe('Error:');
 	});
 });
