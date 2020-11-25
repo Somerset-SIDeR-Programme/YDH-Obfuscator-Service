@@ -1,3 +1,16 @@
+## <small>10.1.4 (2020-11-25)</small>
+
+-   refactor(config): make logs more human readable ([04e6c9e](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/04e6c9e))
+-   refactor(route): remove trakcare query params causing ie 11 issues ([34fa804](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/34fa804))
+-   build(deps-dev): bump dev dependencies ([b8e4716](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/b8e4716))
+-   ci: add aggregate coverage calculations ([40878cd](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/40878cd))
+-   ci: clean up config ([e76f4c4](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/e76f4c4))
+-   ci: name build stage ([4637af8](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/4637af8))
+-   ci: replace travis-ci with github actions ([4d49dd1](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/4d49dd1))
+-   test(middleware): expect error of any type; nodejs versions throw dif ([05c6348](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/05c6348))
+-   style: fix build name ([3f45382](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/3f45382))
+-   style: format codeql.yml ([8378c7f](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/8378c7f))
+
 ## <small>10.1.3 (2020-11-02)</small>
 
 -   build(deps-dev): bump jest from 26.6.1 to 26.6.2 ([2cb1492](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/2cb1492))
