@@ -1,5 +1,7 @@
 require('custom-env').env();
 
+const pino = require('pino');
+
 const serverConfig = {
 	https: process.env.USE_HTTPS || false,
 	port: process.env.PORT || 8204,
@@ -61,20 +63,27 @@ const keycloakRetrieveConfig = {
 const loggerConfig = {
 	// Pino options: https://github.com/pinojs/pino-http#custom-serializers
 	options: {
+		formatters: {
+			bindings(bindings) {
+				return { hostname: bindings.hostname };
+			},
+			level(label) {
+				return { level: label };
+			}
+		},
 		serializers: {
 			req(req) {
-				return {
-					url: req.url,
-					ip: req.raw.ip,
-					headers: req.headers,
-					method: req.method,
-					query: req.raw.query,
-					httpVersion: req.raw.httpVersion
-				};
+				return pino.stdSerializers.req(req);
 			},
 			res(res) {
-				return { statusCode: res.statusCode };
+				return {
+					statusCode: res.statusCode,
+					redirectUrl: res.headers.location
+				};
 			}
+		},
+		timestamp: () => {
+			return pino.stdTimeFunctions.isoTime();
 		}
 	},
 
