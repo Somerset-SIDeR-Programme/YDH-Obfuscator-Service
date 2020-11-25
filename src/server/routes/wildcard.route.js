@@ -23,6 +23,21 @@ module.exports = function wildcardRoute(options) {
 
 	router.route('*').get((req, res, next) => {
 		if (config.redirectUrl) {
+			/**
+			 * Remove query params that TrakCare adds that leads to the resulting
+			 * URL going over the 2048 max character length for IE 11
+			 */
+			const trakcareQueryParams = [
+				'fromiconprofile',
+				'nounlock',
+				'tpagid'
+			];
+			Object.keys(req.query).forEach((key) => {
+				if (trakcareQueryParams.includes(key.toLowerCase())) {
+					delete req.query[key];
+				}
+			});
+
 			const espUrl =
 				config.redirectUrl + queryString.stringify(req.query);
 			console.log(espUrl);
