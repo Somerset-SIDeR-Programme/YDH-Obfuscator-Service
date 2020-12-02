@@ -64,22 +64,18 @@ const loggerConfig = {
 	// Pino options: https://github.com/pinojs/pino-http#custom-serializers
 	options: {
 		formatters: {
-			bindings(bindings) {
-				return { hostname: bindings.hostname };
-			},
 			level(label) {
 				return { level: label };
 			}
 		},
+		// Defaults to `info` if not set in env
+		level: process.env.LOGGER_LEVEL || 'info',
 		serializers: {
 			req(req) {
 				return pino.stdSerializers.req(req);
 			},
 			res(res) {
-				return {
-					statusCode: res.statusCode,
-					redirectUrl: res.headers.location
-				};
+				return pino.stdSerializers.res(res);
 			}
 		},
 		timestamp: () => {
@@ -89,10 +85,14 @@ const loggerConfig = {
 
 	// Rotation options: https://github.com/rogerc/file-stream-rotator/#options
 	rotation: {
-		filename: `${process.cwd()}/logs/obs-service-%DATE%.log`,
-		frequency: 'daily',
-		verbose: false,
-		date_format: 'YYYY-MM-DD'
+		date_format: process.env.LOGGER_ROTATION_DATE_FORMAT || 'YYYY-MM-DD',
+		filename:
+			process.env.LOGGER_ROTATION_FILENAME ||
+			`${process.cwd()}/logs/obs-service-%DATE%.log`,
+		frequency: process.env.LOGGER_ROTATION_FREQUENCY || 'daily',
+		max_logs: process.env.LOGGER_ROTATION_MAX_LOG,
+		size: process.env.LOGGER_ROTATION_MAX_SIZE,
+		verbose: false
 	}
 };
 
