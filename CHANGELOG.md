@@ -1,3 +1,11 @@
+## 10.2.0 (2020-12-02)
+
+-   feat(config): allow log rotation to be customised; tidy env template ([57f5292](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/57f5292))
+-   build(deps-dev): bump prettier from 2.2.0 to 2.2.1 ([891ce2f](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/891ce2f))
+-   build(deps): bump sanitize-middleware from 4.0.0 to 4.0.1 ([7744588](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/7744588))
+-   docs(security): remove backticks ([e160adc](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/e160adc))
+-   chore: add security.md ([6dafbde](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/6dafbde))
+
 ## <small>10.1.4 (2020-11-25)</small>
 
 -   refactor(config): make logs more human readable ([04e6c9e](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/commit/04e6c9e))
