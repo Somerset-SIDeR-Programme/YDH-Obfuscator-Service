@@ -1,10 +1,10 @@
-# Yeovil District Hospital - SIDeR Contextual Link Obfuscation Service
+# Yeovil District Hospital NHS Foundation Trust - SIDeR Contextual Link Obfuscation Service
 
 [![GitHub Release](https://img.shields.io/github/release/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service.svg)](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/releases/latest/) ![Build Status](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/workflows/CI/badge.svg?branch=master) [![Coverage Status](https://coveralls.io/repos/github/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/badge.svg?branch=master)](https://coveralls.io/github/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service?branch=master) [![Known Vulnerabilities](https://snyk.io/test/github/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/badge.svg)](https://snyk.io/test/github/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service) [![code style: prettier](https://img.shields.io/badge/code_style-prettier-ff69b4.svg?style=flat-square)](https://github.com/prettier/prettier)
 
 ## Intro
 
-This is Yeovil District Hospital's contextual link obfuscator, a Node.js application using the Express framework and Black Pear's [obfuscated-querystring](https://github.com/BlackPearSw/obfuscated-querystring).
+This is Yeovil District Hospital NHSFT's contextual link obfuscator, a Node.js application using the Express framework and Black Pear's [obfuscated-querystring](https://github.com/BlackPearSw/obfuscated-querystring).
 
 To provide further security [Helmet](https://helmetjs.github.io/) is used as part of this service.
 
@@ -72,7 +72,7 @@ It is [recommended](https://expressjs.com/en/advanced/pm.html) that you use a pr
 
 #### To install as a Windows service:
 
-Yeovil District Hospital is heavily invested in Microsoft's ecosystem; utilise [pm2-installer](https://github.com/jessety/pm2-installer) to easily install PM2 as a Windows service.
+Yeovil District Hospital NHSFT is heavily invested in Microsoft's ecosystem; utilise [pm2-installer](https://github.com/jessety/pm2-installer) to easily install PM2 as a Windows service.
 
 **Note:** PM2 has been configured to automatically restart the application if modifications are made to `.env.development` or `.env.production`.
 
