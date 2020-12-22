@@ -80,6 +80,11 @@ Yeovil District Hospital NHSFT is heavily invested in Microsoft's ecosystem; uti
 
 Please see [CONTRIBUTING.md](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/blob/master/CONTRIBUTING.md) for more details regarding contributing to this project.
 
+## Acknowledgements
+
+-   [**Mark Hunt**](https://github.com/nhsbandit) - Supporting Keycloak Single sign-on access tokens integration and testing
+-   [**Will Jehring**](https://github.com/wjehring) - Supporting query string obfuscation, redirect testing, and Keycloak testing
+
 ## License
 
 `ydh-sider-obfuscation-service` is licensed under the [MIT](https://github.com/Somerset-SIDeR-Programme/ydh-sider-obfuscation-service/blob/master/LICENSE) license.
